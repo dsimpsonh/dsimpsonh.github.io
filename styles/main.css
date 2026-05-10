@@ -70,9 +70,26 @@ a { color: inherit; text-decoration: none; }
   padding: 1.1rem var(--gutter); max-width: var(--max-w); margin: 0 auto;
 }
 .nav-mark {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 1.05rem; letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
+
+.nav-logo {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.nav-mark-text span {
+  font-style: italic;
+  color: var(--accent);
+}
+
 .nav-mark span { font-style: italic; color: var(--accent); }
 .nav-links {
   display: flex; gap: 1.75rem; list-style: none;
@@ -91,3 +108,25 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 820px) { .nav-links { display: none; } }
 
 ::selection { background: var(--accent); color: var(--paper); }
+
+.footer-mark {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.footer-mark-text span {
+  font-style: italic;
+  color: var(--accent);
+}
