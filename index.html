@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Simpson-Hernandez — Founder, Builder, Educator</title>
+<meta name="description" content="Diana Simpson-Hernandez. Founder & CEO of Aletheai. AI Decision Intelligence. Fractional Chief AI Officer. Patent holder. Educator at IED, LCC (UAL), and beyond.">
+<meta property="og:title" content="Diana Simpson-Hernandez">
+<meta property="og:description" content="Founder & CEO of Aletheai. AI Decision Intelligence for PropTech. Fractional CAIO. Mentor at IED & LCC. FRSA · AFHEA.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dianasimpsonhernandez.com">
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<style>
+  /* MANIFESTO HERO */
+  .manifesto {
+    padding: clamp(5rem, 14vh, 12rem) 0 clamp(4rem, 10vh, 9rem);
+    position: relative;
+  }
+  .manifesto-stamp {
+    position: absolute; top: 2rem; right: var(--gutter);
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.18em; color: var(--muted);
+    text-align: right; line-height: 1.5;
+  }
+  .credentials {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.2em; color: var(--accent);
+    margin-bottom: 2rem;
+  }
+  .credentials span { color: var(--muted); margin: 0 0.4rem; }
+  .manifesto-tag {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 2.5rem;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .manifesto-tag::before {
+    content: ''; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--accent);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+  .manifesto h1 {
+    font-family: var(--font-display); font-weight: 300;
+    font-style: italic;
+    font-size: clamp(3.5rem, 11vw, 9rem); line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 3rem;
+    max-width: 14ch;
+  }
+  .manifesto h1 .accent { color: var(--accent); font-style: italic; }
+  .manifesto-sub {
+    display: grid; gap: 2rem;
+    grid-template-columns: 1fr;
+    max-width: 880px;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  @media (min-width: 720px) { .manifesto-sub { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+  .manifesto-sub p { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+  .manifesto-sub p strong {
+    font-weight: 500; color: var(--ink);
+    font-family: var(--font-display); font-style: italic;
+  }
+
+  /* CURRENTLY STRIP */
+  .currently {
+    border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+    padding: 2.5rem 0; margin: 5rem 0;
+    background: var(--paper-warm);
+  }
+  .currently-grid {
+    display: grid; grid-template-columns: 1fr; gap: 2rem;
+  }
+  @media (min-width: 720px) { .currently-grid { grid-template-columns: 200px 1fr 1fr 1fr; align-items: start; } }
+  .currently-label {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); display: flex; align-items: center; gap: 0.5rem;
+  }
+  .currently-item h5 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 1.05rem; margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .currently-item p { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+  /* PROOF BAR — selected logos / facts */
+  .proof {
+    padding: 4rem 0; border-top: 1px solid var(--rule);
+  }
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+  }
+  @media (min-width: 900px) { .proof-grid { grid-template-columns: repeat(4, 1fr); } }
+  .proof-item h4 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 2.2rem; line-height: 1; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .proof-item h4 em { color: var(--accent); font-style: italic; }
+  .proof-item p {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); line-height: 1.5;
+  }
+
+  /* PULL QUOTE */
+  .pullquote {
+    padding: 8rem 0; text-align: center; position: relative;
+  }
+  .pullquote::before, .pullquote::after {
+    content: ''; position: absolute; left: 50%;
+    width: 40px; height: 1px; background: var(--accent);
+    transform: translateX(-50%);
+  }
+  .pullquote::before { top: 0; }
+  .pullquote::after { bottom: 0; }
+  .pullquote-text {
+    font-family: var(--font-display); font-style: italic;
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15; letter-spacing: -0.02em;
+    max-width: 22ch; margin: 0 auto;
+    color: var(--ink);
+  }
+  .pullquote-text em { color: var(--accent); font-style: italic; }
+  .pullquote-attr {
+    margin-top: 2rem; font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* SECTION HEADERS */
+  .section { padding: 6rem 0; border-top: 1px solid var(--rule); }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 4rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 1rem;
+  }
+  .section-head h2 {
+    font-family: var(--font-display); font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .section-head h2 .accent { color: var(--accent); }
+
+  /* VENTURES — editorial cards */
+  .editorial-grid {
+    display: grid; grid-template-columns: 1fr; gap: 2rem;
+  }
+  @media (min-width: 720px) { .editorial-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  @media (min-width: 1024px) { .editorial-grid { grid-template-columns: repeat(3, 1fr); } }
+  .editorial-card {
+    display: flex; flex-direction: column;
+    border: 1px solid var(--rule); border-radius: 4px;
+    overflow: hidden; transition: all 0.4s var(--ease);
+    background: var(--paper-warm);
+    position: relative;
+  }
+  .editorial-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ink);
+    box-shadow: 0 24px 48px -16px rgba(26,26,26,0.12);
+  }
+  .editorial-cover {
+    aspect-ratio: 4/3; position: relative;
+    background: var(--ink); overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .editorial-cover svg { width: 60%; height: 60%; opacity: 0.9; }
+  .editorial-cover.aletheia { background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); }
+  .editorial-cover.monogram { background: linear-gradient(135deg, #c8462c 0%, #a83820 100%); }
+  .editorial-cover.frameworks { background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 50%, #c8462c 100%); }
+  .editorial-cover.podcast { background: linear-gradient(135deg, #1a1a1a 0%, #c8462c 100%); }
+  .editorial-cover.book { background: linear-gradient(135deg, #efece4 0%, #c8462c 100%); }
+  .cover-num {
+    position: absolute; top: 1rem; left: 1rem;
+    font-family: var(--font-mono); font-size: 10px;
+    color: rgba(246,244,239,0.6); letter-spacing: 0.2em;
+  }
+  .cover-status {
+    position: absolute; top: 1rem; right: 1rem;
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--paper); letter-spacing: 0.15em;
+    padding: 0.25rem 0.6rem; border: 1px solid rgba(246,244,239,0.4);
+    border-radius: 999px;
+  }
+  .editorial-cover.book .cover-num,
+  .editorial-cover.book .cover-status { color: var(--ink); border-color: rgba(26,26,26,0.4); }
+  .editorial-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+  .editorial-body .eyebrow { margin-bottom: 0.75rem; display: block; }
+  .editorial-body h3 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 1.6rem; line-height: 1.1;
+    letter-spacing: -0.01em; margin-bottom: 0.5rem;
+  }
+  .editorial-body h3 em { color: var(--accent); font-style: italic; }
+  .editorial-body .ed-sub {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 0.95rem; color: var(--muted); margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .editorial-body p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; flex: 1; }
+  .editorial-body .read-more {
+    margin-top: 1.5rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink); display: inline-flex; gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .editorial-card:hover .read-more { color: var(--accent); }
+
+  /* TEACHING / MENTORING */
+  .teaching {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 6rem 0;
+  }
+  .teaching-grid {
+    display: grid; grid-template-columns: 1fr; gap: 3rem;
+  }
+  @media (min-width: 900px) { .teaching-grid { grid-template-columns: 1fr 2fr; gap: 5rem; } }
+  .teaching-intro h2 {
+    font-family: var(--font-display); font-weight: 300; font-style: italic;
+    font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.02em;
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .teaching-intro h2 em { color: var(--accent); }
+  .teaching-intro p {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 1.2rem; line-height: 1.4; color: var(--muted);
+  }
+  .teaching-list { list-style: none; }
+  .teaching-list li {
+    display: grid; grid-template-columns: 1fr auto; gap: 2rem;
+    padding: 1.25rem 0; border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .teaching-list li:last-child { border-bottom: none; }
+  .teaching-list .role {
+    font-family: var(--font-display); font-size: 1.15rem;
+    font-weight: 400; line-height: 1.3;
+  }
+  .teaching-list .role em { font-style: italic; color: var(--muted); display: block; font-size: 0.85rem; margin-top: 0.2rem; font-weight: 300; }
+  .teaching-list .when {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.12em; color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* BIO */
+  .bio { padding: 6rem 0; border-top: 1px solid var(--rule); }
+  .bio-grid {
+    display: grid; grid-template-columns: 1fr; gap: 3rem;
+  }
+  @media (min-width: 900px) { .bio-grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+  .bio-text p { margin-bottom: 1.4rem; font-size: 17px; line-height: 1.65; color: var(--ink-soft); }
+  .bio-text p:first-child {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 1.5rem; line-height: 1.4; color: var(--ink); margin-bottom: 2rem;
+  }
+  .bio-meta { display: flex; flex-direction: column; gap: 2rem; }
+  .meta-block h4 {
+    font-family: var(--font-mono); font-size: 11px;
+    font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .meta-block ul { list-style: none; }
+  .meta-block li {
+    font-size: 14px; padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: flex; justify-content: space-between;
+    color: var(--ink-soft); gap: 1rem;
+  }
+  .meta-block li:last-child { border: none; }
+  .meta-block li span { color: var(--muted); font-family: var(--font-mono); font-size: 11px; }
+  .meta-block li a { transition: color 0.2s; }
+  .meta-block li a:hover { color: var(--accent); }
+
+  /* CHANNELS */
+  .channel-list {
+    display: grid; grid-template-columns: 1fr; gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .channel-row {
+    display: grid; grid-template-columns: 100px 1fr auto;
+    gap: 2rem; padding: 2rem 0; align-items: center;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.3s;
+  }
+  .channel-row:hover { background: linear-gradient(90deg, transparent, var(--paper-warm) 50%, transparent); }
+  .channel-name {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+  }
+  .channel-desc {
+    font-family: var(--font-display); font-size: 1.3rem;
+    font-weight: 400; line-height: 1.3; transition: color 0.3s;
+  }
+  .channel-row:hover .channel-desc { color: var(--accent); }
+  .channel-arrow { font-family: var(--font-display); font-size: 1.3rem; transition: transform 0.3s; }
+  .channel-row:hover .channel-arrow { transform: translateX(8px); color: var(--accent); }
+
+  /* CTA */
+  .cta-band {
+    margin: 6rem 0 0;
+    padding: 5rem var(--gutter);
+    background: var(--ink); color: var(--paper);
+    border-radius: 4px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(200,70,44,0.25), transparent 50%);
+    pointer-events: none;
+  }
+  .cta-band h2 {
+    font-family: var(--font-display); font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05;
+    letter-spacing: -0.02em; max-width: 22ch; margin: 0 auto 1rem;
+    position: relative;
+  }
+  .cta-band h2 em { color: var(--accent); }
+  .cta-band p {
+    color: rgba(246,244,239,0.7); font-size: 14px;
+    max-width: 50ch; margin: 0 auto 2rem; position: relative;
+  }
+  .cta-band .cta-btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    position: relative;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.4rem; border: 1px solid var(--paper);
+    border-radius: 999px; font-size: 14px; font-weight: 500;
+    color: var(--paper); cursor: pointer;
+    transition: all 0.25s var(--ease);
+    font-family: var(--font-body);
+  }
+  .btn:hover { background: var(--paper); color: var(--ink); }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 6rem; padding: 4rem 0 2rem;
+    border-top: 1px solid var(--ink);
+    background: var(--paper-warm);
+  }
+  .footer-grand {
+    font-family: var(--font-display); font-style: italic;
+    font-weight: 300; font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.05; letter-spacing: -0.02em;
+    margin-bottom: 3rem; max-width: 24ch;
+  }
+  .footer-grand em { color: var(--accent); font-style: italic; }
+  .footer-grid {
+    display: grid; grid-template-columns: 1fr; gap: 2rem;
+    padding-bottom: 2rem; border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 720px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; } }
+  .footer-grid h4 {
+    font-family: var(--font-mono); font-size: 11px;
+    font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .footer-grid ul { list-style: none; }
+  .footer-grid li { margin-bottom: 0.5rem; font-size: 13px; }
+  .footer-grid a { color: var(--ink-soft); transition: color 0.2s; }
+  .footer-grid a:hover { color: var(--accent); }
+  .footer-meta {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    padding-top: 2rem; font-family: var(--font-mono);
+    font-size: 11px; color: var(--muted); letter-spacing: 0.05em;
+  }
+  .footer-meta a { color: var(--accent); }
+
+  /* Animations */
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; animation: rise 1s var(--ease) forwards; }
+  .reveal-1 { animation-delay: 0.05s; }
+  .reveal-2 { animation-delay: 0.2s; }
+  .reveal-3 { animation-delay: 0.4s; }
+  .reveal-4 { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-mark">Diana Simpson<span>-Hernandez</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#channels">Writing</a></li>
+      <li><a href="mailto:dianasimpsonhernandez@gmail.com">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MANIFESTO HERO -->
+<section class="manifesto">
+  <div class="container">
+    <div class="manifesto-stamp reveal reveal-1">
+      VOL. 01 / 2026<br>
+      LONDON · MADRID · TEXAS
+    </div>
+
+    <div class="credentials reveal reveal-1">
+      FRSA <span>·</span> AFHEA <span>·</span> ILM L3 <span>·</span> CREATE AMBASSADOR
+    </div>
+
+    <span class="manifesto-tag reveal reveal-1">— Currently shipping</span>
+
+    <h1 class="reveal reveal-2">
+      I design the<br><span class="accent">decision layer.</span>
+    </h1>
+
+    <div class="manifesto-sub reveal reveal-3">
+      <p>
+        <strong>Founder &amp; CEO of Aletheai.</strong> Building the UK&rsquo;s first patent-pending behavioural decision-intelligence engine for estate agents — in pilot with Alto (Zoopla Group).
+      </p>
+      <p>
+        <strong>Fractional Chief AI Officer.</strong> Educator at IED Madrid and LCC (UAL). Serial founder, granted-patent holder, FRSA. Fifteen years translating emerging tech into commercial outcomes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENTLY -->
+<div class="container">
+  <div class="currently reveal reveal-4">
+    <div class="currently-grid">
+      <span class="currently-label">— Now</span>
+      <div class="currently-item">
+        <h5>Shipping Aletheai.</h5>
+        <p>Patent-pending decision-intelligence engine. Live pilot with Alto (Zoopla Group). £500K ARR target Y1.</p>
+      </div>
+      <div class="currently-item">
+        <h5>Teaching at IED Madrid.</h5>
+        <p>AI &amp; tech in design education. Mentoring at LCC (UAL) Accelerate 2026.</p>
+      </div>
+      <div class="currently-item">
+        <h5>Writing on Substack.</h5>
+        <p>Long-form essays on AI product strategy, decision intelligence, and creator-entrepreneur economics.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<section class="proof">
+  <div class="container">
+    <div class="proof-grid">
+      <div class="proof-item">
+        <h4>4 <em>founded</em></h4>
+        <p>Ventures across<br>AI · publishing · clean-tech · design</p>
+      </div>
+      <div class="proof-item">
+        <h4>2 <em>patents</em></h4>
+        <p>Granted (US) &amp; pending (UK).<br>AI &amp; clean-tech IP.</p>
+      </div>
+      <div class="proof-item">
+        <h4>2 <em>Gold</em></h4>
+        <p>London Design Awards<br>(2014, 2015)</p>
+      </div>
+      <div class="proof-item">
+        <h4>250K+</h4>
+        <p>Members on platforms<br>I&rsquo;ve led design for</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pullquote">
+  <div class="container">
+    <p class="pullquote-text">
+      &ldquo;Decisions are how strategy becomes <em>reality</em>.&rdquo;
+    </p>
+    <div class="pullquote-attr">— Operating Principle № 01</div>
+  </div>
+</section>
+
+<!-- WORK / VENTURES -->
+<section class="section" id="work">
+  <div class="container">
+    <header class="section-head">
+      <h2>The <span class="accent">work.</span></h2>
+      <span class="eyebrow">Ventures · Bodies of Work · Output</span>
+    </header>
+
+    <div class="editorial-grid">
+
+      <a href="https://aletheai.com" class="editorial-card">
+        <div class="editorial-cover aletheia">
+          <span class="cover-num">№ 01</span>
+          <span class="cover-status">SHIPPING</span>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#c8462c" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="50" cy="50" r="30" fill="none" stroke="#f6f4ef" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="50" cy="50" r="20" fill="none" stroke="#c8462c" stroke-width="1"/>
+            <circle cx="50" cy="50" r="3" fill="#c8462c"/>
+            <line x1="50" y1="10" x2="50" y2="90" stroke="#f6f4ef" stroke-width="0.3" opacity="0.3"/>
+            <line x1="10" y1="50" x2="90" y2="50" stroke="#f6f4ef" stroke-width="0.3" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="editorial-body">
+          <span class="eyebrow">Venture · AI Product</span>
+          <h3><em>Aletheai</em></h3>
+          <div class="ed-sub">Patent-pending decision intelligence for PropTech.</div>
+          <p>The UK&rsquo;s first multi-signal behavioural prediction engine for estate agents. Pilot with Alto (Zoopla Group). 10,000+ agent distribution pathway.</p>
+          <span class="read-more">Visit aletheai.com →</span>
+        </div>
+      </a>
+
+      <a href="https://frameworks.dianasimpsonhernandez.com" class="editorial-card">
+        <div class="editorial-cover frameworks">
+          <span class="cover-num">№ 02</span>
+          <span class="cover-status">OPEN</span>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="60" height="60" fill="none" stroke="#f6f4ef" stroke-width="1"/>
+            <rect x="30" y="30" width="40" height="40" fill="none" stroke="#f6f4ef" stroke-width="0.5" opacity="0.6"/>
+            <rect x="40" y="40" width="20" height="20" fill="#f6f4ef"/>
+            <line x1="20" y1="50" x2="80" y2="50" stroke="#f6f4ef" stroke-width="0.5" opacity="0.5"/>
+            <line x1="50" y1="20" x2="50" y2="80" stroke="#f6f4ef" stroke-width="0.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="editorial-body">
+          <span class="eyebrow">Library · Open Source</span>
+          <h3>Open <em>Frameworks</em></h3>
+          <div class="ed-sub">Thinking tools for AI-native operators.</div>
+          <p>An open library of frameworks, methodologies, and architectures distilled from fifteen years of building. Versioned. Forkable.</p>
+          <span class="read-more">Browse frameworks →</span>
+        </div>
+      </a>
+
+      <a href="https://monogrampublishers.com" class="editorial-card">
+        <div class="editorial-cover monogram">
+          <span class="cover-num">№ 03</span>
+          <span class="cover-status">2014 —</span>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" y="20" width="50" height="60" fill="none" stroke="#f6f4ef" stroke-width="1"/>
+            <line x1="25" y1="35" x2="75" y2="35" stroke="#f6f4ef" stroke-width="0.5"/>
+            <line x1="32" y1="45" x2="68" y2="45" stroke="#f6f4ef" stroke-width="0.4"/>
+            <line x1="32" y1="52" x2="68" y2="52" stroke="#f6f4ef" stroke-width="0.4"/>
+            <line x1="32" y1="59" x2="60" y2="59" stroke="#f6f4ef" stroke-width="0.4"/>
+            <line x1="32" y1="66" x2="65" y2="66" stroke="#f6f4ef" stroke-width="0.4"/>
+          </svg>
+        </div>
+        <div class="editorial-body">
+          <span class="eyebrow">Venture · Publishing House</span>
+          <h3>Monogram <em>Publishers</em></h3>
+          <div class="ed-sub">Independent publishing for the creator-entrepreneur economy.</div>
+          <p>Books, podcasts, and digital content building authority for entrepreneurs and cultural storytellers. Home of the <em>Stand Out</em> podcast.</p>
+          <span class="read-more">Visit Monogram →</span>
+        </div>
+      </a>
+
+      <a href="https://standoutpodcast.com" class="editorial-card">
+        <div class="editorial-cover podcast">
+          <span class="cover-num">№ 04</span>
+          <span class="cover-status">LIVE</span>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="#f6f4ef" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="50" cy="50" r="20" fill="none" stroke="#f6f4ef" stroke-width="1"/>
+            <rect x="44" y="35" width="12" height="22" rx="6" fill="#f6f4ef"/>
+            <path d="M 38 52 Q 38 65 50 65 Q 62 65 62 52" fill="none" stroke="#f6f4ef" stroke-width="1"/>
+            <line x1="50" y1="65" x2="50" y2="72" stroke="#f6f4ef" stroke-width="1"/>
+            <line x1="44" y1="72" x2="56" y2="72" stroke="#f6f4ef" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="editorial-body">
+          <span class="eyebrow">Show · Owned Media</span>
+          <h3>Stand <em>Out</em></h3>
+          <div class="ed-sub">Where innovation meets creativity in publishing.</div>
+          <p>A podcast for entrepreneurs building authority through digital content and publishing. Hosted by Diana.</p>
+          <span class="read-more">Listen →</span>
+        </div>
+      </a>
+
+      <a href="https://www.amazon.com/dp/B09Z6DVXQB" class="editorial-card">
+        <div class="editorial-cover book">
+          <span class="cover-num">№ 05</span>
+          <span class="cover-status">2022</span>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="15" width="60" height="70" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.5"/>
+            <line x1="20" y1="22" x2="80" y2="22" stroke="#c8462c" stroke-width="2"/>
+            <line x1="28" y1="40" x2="72" y2="40" stroke="#f6f4ef" stroke-width="0.5"/>
+            <line x1="28" y1="48" x2="72" y2="48" stroke="#f6f4ef" stroke-width="0.5"/>
+            <line x1="28" y1="56" x2="65" y2="56" stroke="#f6f4ef" stroke-width="0.5"/>
+            <line x1="28" y1="64" x2="68" y2="64" stroke="#f6f4ef" stroke-width="0.5"/>
+            <text x="50" y="78" font-family="serif" font-style="italic" font-size="6" fill="#c8462c" text-anchor="middle">DSH</text>
+          </svg>
+        </div>
+        <div class="editorial-body">
+          <span class="eyebrow">Book · Author</span>
+          <h3>The Art of Getting <em>Stuff Done</em></h3>
+          <div class="ed-sub">15 strategies. Productivity for the creator-entrepreneur.</div>
+          <p>Amazon paperback (April 2022). Monogram Publishers. The author&rsquo;s playbook for shipping work that matters.</p>
+          <span class="read-more">Read on Amazon →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING + MENTORING -->
+<section class="teaching" id="teaching">
+  <div class="container">
+    <div class="teaching-grid">
+      <div class="teaching-intro">
+        <h2>I also <em>teach</em>.</h2>
+        <p>Building the next generation of AI-native operators &mdash; in classrooms, workshops, and accelerators across the UK and Europe.</p>
+      </div>
+      <ul class="teaching-list">
+        <li>
+          <span class="role">Lecturer · IED Madrid<em>Tech &amp; AI in design education</em></span>
+          <span class="when">2026 —</span>
+        </li>
+        <li>
+          <span class="role">Mentor · Venture &amp; Business Coach<em>London College of Communication (UAL)</em></span>
+          <span class="when">2026 —</span>
+        </li>
+        <li>
+          <span class="role">Judge · LCC Accelerate 2026<em>Early-stage venture panel · NatWest Accelerator</em></span>
+          <span class="when">2026</span>
+        </li>
+        <li>
+          <span class="role">Education Ambassador · CREATE<em>Creative, STEM, and entrepreneurship education across the UK</em></span>
+          <span class="when">Ongoing</span>
+        </li>
+        <li>
+          <span class="role">Senior Lecturer (former) · Nottingham Trent University<em>Product Design · Curriculum lead, BSc Year 1</em></span>
+          <span class="when">2017–2019</span>
+        </li>
+        <li>
+          <span class="role">Guest Lecturer · Past appointments<em>European Commission · RCA · Central Saint Martins · UCL Academy · Hertfordshire University · V&amp;A</em></span>
+          <span class="when">2014 —</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="section" id="bio">
+  <div class="container">
+    <header class="section-head">
+      <h2>Long <span class="accent">bio.</span></h2>
+      <span class="eyebrow">15 Years · 4 Ventures · 2 Patents</span>
+    </header>
+
+    <div class="bio-grid">
+      <div class="bio-text">
+        <p>I work at the seam where emerging technology meets commercial outcome &mdash; and where decisions become reality.</p>
+        <p>Today I&rsquo;m Founder &amp; CEO of <strong>Aletheai</strong>, building the UK&rsquo;s first patent-pending, multi-signal behavioural prediction engine for estate agents. We&rsquo;ve secured a strategic partnership and live pilot with Alto (Zoopla Group), unlocking distribution to 10,000+ agents and a projected £500K ARR in year one.</p>
+        <p>Before Aletheai I founded three other ventures &mdash; <strong>Monogram Publishers</strong> (independent publishing, since 2014), <strong>Shake Your Power</strong> (clean-tech education, US patent, two London Design Award Golds), and <strong>Glass Lab / Trash Surface Bureau</strong> (sustainable design, FRAME Magazine feature). I led design teams of 12+ at Slimming World&rsquo;s 250K-member platform, served as Senior Lecturer at Nottingham Trent University, and have lectured, judged, mentored, and exhibited internationally &mdash; including at the V&amp;A, Royal College of Art, European Commission, and London College of Communication.</p>
+        <p>I&rsquo;m a Fellow of the Royal Society of Arts, Associate Fellow of the Higher Education Academy, and Education Ambassador for CREATE. My writing lives on Substack. My playbook lives on Amazon.</p>
+      </div>
+
+      <div class="bio-meta">
+        <div class="meta-block">
+          <h4>Roles</h4>
+          <ul>
+            <li>Founder &amp; CEO, Aletheai <span>2024 —</span></li>
+            <li>Founder &amp; CEO, Monogram <span>2014 —</span></li>
+            <li>Fractional Chief AI Officer <span>Available</span></li>
+            <li>Lecturer, IED Madrid <span>2026 —</span></li>
+            <li>Mentor, LCC (UAL) <span>2026 —</span></li>
+          </ul>
+        </div>
+        <div class="meta-block">
+          <h4>Distinguished memberships</h4>
+          <ul>
+            <li>FRSA · Royal Society of Arts <span>Fellow</span></li>
+            <li>AFHEA · Higher Education Academy <span>Associate</span></li>
+            <li>ILM Level 3 <span>Leadership</span></li>
+            <li>CREATE <span>Ambassador</span></li>
+          </ul>
+        </div>
+        <div class="meta-block">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/assets/diana-simpson-hernandez-cv.pdf">Download CV (PDF)</a> <span>↓</span></li>
+            <li><a href="https://linkedin.com/in/dianasimpson">LinkedIn profile</a> <span>↗</span></li>
+            <li><a href="https://github.com/dsimpsonh">GitHub</a> <span>↗</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section class="section" id="channels">
+  <div class="container">
+    <header class="section-head">
+      <h2>Where I <span class="accent">publish.</span></h2>
+      <span class="eyebrow">Writing · Channels · Voice</span>
+    </header>
+
+    <div class="channel-list">
+      <a href="https://substack.com/@dianasimpsonhernandez" class="channel-row">
+        <span class="channel-name">Substack</span>
+        <span class="channel-desc">AI product strategy, decision intelligence &amp; the creator economy.</span>
+        <span class="channel-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/dianasimpson" class="channel-row">
+        <span class="channel-name">LinkedIn</span>
+        <span class="channel-desc">Founder field notes &amp; product breakdowns.</span>
+        <span class="channel-arrow">→</span>
+      </a>
+      <a href="https://standoutpodcast.com" class="channel-row">
+        <span class="channel-name">Stand Out</span>
+        <span class="channel-desc">Podcast — innovation, creativity &amp; the publishing path.</span>
+        <span class="channel-arrow">→</span>
+      </a>
+      <a href="https://github.com/dsimpsonh" class="channel-row">
+        <span class="channel-name">GitHub</span>
+        <span class="channel-desc">Open frameworks &amp; code in public.</span>
+        <span class="channel-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container">
+  <div class="cta-band">
+    <h2>Need a <em>Fractional CAIO</em> or a strategic partner?</h2>
+    <p>Aletheai pilots, AI advisory, board-level strategy, or guest lectures &mdash; let&rsquo;s talk.</p>
+    <div class="cta-btns">
+      <a href="mailto:dianasimpsonhernandez@gmail.com" class="btn">Email →</a>
+      <a href="https://linkedin.com/in/dianasimpson" class="btn">LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-grand">
+      Designing the systems where <em>signal</em> becomes <em>decision</em>.
+    </p>
+
+    <div class="footer-grid">
+      <div>
+        <h4>Diana Simpson-Hernandez</h4>
+        <p style="font-size: 13px; color: var(--muted); max-width: 32ch; line-height: 1.5;">
+          Founder &amp; CEO, Aletheai. Fractional CAIO. Educator. FRSA · AFHEA.
+        </p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#channels">Writing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ventures</h4>
+        <ul>
+          <li><a href="https://aletheai.com">Aletheai</a></li>
+          <li><a href="https://frameworks.dianasimpsonhernandez.com">Frameworks</a></li>
+          <li><a href="https://monogrampublishers.com">Monogram</a></li>
+          <li><a href="https://standoutpodcast.com">Stand Out</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Channels</h4>
+        <ul>
+          <li><a href="https://linkedin.com/in/dianasimpson">LinkedIn</a></li>
+          <li><a href="https://substack.com/@dianasimpsonhernandez">Substack</a></li>
+          <li><a href="https://github.com/dsimpsonh">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>© 2026 Diana Simpson-Hernandez · London · Madrid · Texas</span>
+      <span><a href="mailto:dianasimpsonhernandez@gmail.com">dianasimpsonhernandez@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
