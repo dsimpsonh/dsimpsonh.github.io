@@ -73,4 +73,26 @@
 <div class="base"><span>© 2026 Diana Simpson-Hernandez · London · Madrid · Texas</span>
 <a href="mailto:dianasimpsonhernandez@gmail.com" data-umami-event="email_click" data-umami-event-position="footer">dianasimpsonhernandez@gmail.com</a></div>
 </div></footer>
+<script>
+(function(){
+  var GM='https://mail.google.com/mail/?view=cm&fs=1&to=';
+  function show(a,addr,subj){
+    var old=document.querySelector('.mailfb'); if(old) old.remove();
+    var box=document.createElement('div'); box.className='mailfb'+(a.closest('.nav, .dsh-nav')?' fixed':''); box.setAttribute('role','dialog');
+    box.innerHTML='<span>Write to <b>'+addr+'</b></span><button type="button" class="cp">Copy address</button><a class="gm" target="_blank" rel="noopener" href="'+GM+encodeURIComponent(addr)+(subj?'&su='+encodeURIComponent(subj):'')+'">Open in Gmail</a><button type="button" class="x" aria-label="Close">×</button>';
+    box.querySelector('.cp').onclick=function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText(addr):Promise.reject()).then(function(){b.textContent='Copied';b.classList.add('ok')},function(){var r=document.createRange();r.selectNodeContents(box.querySelector('b'));var s=getSelection();s.removeAllRanges();s.addRange(r)})};
+    box.querySelector('.x').onclick=function(){box.remove()};
+    if(box.classList.contains('fixed')) document.body.appendChild(box); else a.insertAdjacentElement('afterend',box);
+  }
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var href=a.getAttribute('href'),addr=href.slice(7).split('?')[0],q=href.split('?')[1]||'',subj='';
+      try{subj=new URLSearchParams(q).get('subject')||''}catch(e){}
+      var t=setTimeout(function(){show(a,addr,subj)},900);
+      window.addEventListener('blur',function(){clearTimeout(t)},{once:true});
+      document.addEventListener('visibilitychange',function(){if(document.hidden)clearTimeout(t)},{once:true});
+    });
+  });
+})();
+</script>
 </body></html>

@@ -237,6 +237,14 @@ footer h4{color:#fff;font:600 11px/1 var(--sans);letter-spacing:.19em;text-trans
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}footer a{color:#DDD6F6}footer .big{font:italic 300 26px/1.2 var(--display);color:#fff;max-width:22ch;margin:0 0 12px}
 footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 @media(max-width:820px){footer .cols{grid-template-columns:1fr 1fr}}@media(max-width:480px){footer .cols{grid-template-columns:1fr}}
+/* mailto fallback */
+.mailfb{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-size:14px;box-shadow:0 12px 30px -18px rgba(42,27,94,.35)}
+.mailfb b{font-weight:600;user-select:all;-webkit-user-select:all;word-break:break-all}
+.mailfb button,.mailfb a.gm{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;text-decoration:none}
+.mailfb a.gm{background:transparent;color:var(--ink)}
+.mailfb .x{margin-left:auto;background:transparent;border:0;color:var(--muted);font-size:18px;padding:4px 8px}
+.mailfb.fixed{position:fixed;right:16px;top:72px;z-index:50;max-width:min(420px,calc(100vw - 32px));flex-basis:auto}
+.mailfb .ok{color:#1B5E3A;font-weight:600}
 .skip{position:absolute;left:-999px;top:0;background:#fff;padding:8px}.skip:focus{left:8px;z-index:99}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """
@@ -326,6 +334,28 @@ def footer() -> str:
 <div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London · Madrid · Texas</span>
 {A('mailto:'+SITE['email'], SITE['email'], '', 'email_click', position='footer')}</div>
 </div></footer>
+<script>
+(function(){{
+  var GM='https://mail.google.com/mail/?view=cm&fs=1&to=';
+  function show(a,addr,subj){{
+    var old=document.querySelector('.mailfb'); if(old) old.remove();
+    var box=document.createElement('div'); box.className='mailfb'+(a.closest('.nav, .dsh-nav')?' fixed':''); box.setAttribute('role','dialog');
+    box.innerHTML='<span>Write to <b>'+addr+'</b></span><button type="button" class="cp">Copy address</button><a class="gm" target="_blank" rel="noopener" href="'+GM+encodeURIComponent(addr)+(subj?'&su='+encodeURIComponent(subj):'')+'">Open in Gmail</a><button type="button" class="x" aria-label="Close">×</button>';
+    box.querySelector('.cp').onclick=function(){{var b=this;(navigator.clipboard?navigator.clipboard.writeText(addr):Promise.reject()).then(function(){{b.textContent='Copied';b.classList.add('ok')}},function(){{var r=document.createRange();r.selectNodeContents(box.querySelector('b'));var s=getSelection();s.removeAllRanges();s.addRange(r)}})}};
+    box.querySelector('.x').onclick=function(){{box.remove()}};
+    if(box.classList.contains('fixed')) document.body.appendChild(box); else a.insertAdjacentElement('afterend',box);
+  }}
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){{
+    a.addEventListener('click',function(){{
+      var href=a.getAttribute('href'),addr=href.slice(7).split('?')[0],q=href.split('?')[1]||'',subj='';
+      try{{subj=new URLSearchParams(q).get('subject')||''}}catch(e){{}}
+      var t=setTimeout(function(){{show(a,addr,subj)}},900);
+      window.addEventListener('blur',function(){{clearTimeout(t)}},{{once:true}});
+      document.addEventListener('visibilitychange',function(){{if(document.hidden)clearTimeout(t)}},{{once:true}});
+    }});
+  }});
+}})();
+</script>
 </body></html>
 """
 
