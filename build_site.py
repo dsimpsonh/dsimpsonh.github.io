@@ -25,9 +25,10 @@ SITE = {
     "email":    "dianasimpsonhernandez@gmail.com",
     "tagline":  "I design the decision layer.",
     "locale":   "en_GB",
-    # Plausible: one site, subdomains roll up. Replace with the snippet from your dashboard if it differs.
-    "plausible_domain": "dianasimpsonhernandez.com",
-    "plausible_src": "https://plausible.io/js/script.tagged-events.outbound-links.js",
+    # Umami Cloud (free): one website covers both hosts. Paste the Website ID from cloud.umami.is → Settings → Websites.
+    # Leave empty and NO analytics script is emitted — nothing ships half-configured.
+    "umami_website_id": "a98055b4-17b2-4091-b09e-3b3b5b34b4ad",
+    "umami_src": "https://cloud.umami.is/script.js",
 }
 LIB = "https://frameworks.dianasimpsonhernandez.com"
 
@@ -120,19 +121,18 @@ TESTIMONIAL = {
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
-# ANALYTICS — Plausible tagged events. ev() returns the class string.
-# Goals to create in the dashboard: cta_click, course_click, channel_click, framework_open, email_click
+# ANALYTICS — Umami custom events. ev() returns data-attributes to drop inside any <a ...> tag.
+# Events appear automatically in the Umami dashboard: cta_click, course_click, channel_click, framework_open, email_click
 # ─────────────────────────────────────────────────────────────────────────────
 def ev(name: str, **props) -> str:
-    parts = [f"plausible-event-name={name}"]
-    parts += [f"plausible-event-{k}={str(v).replace(' ', '+')}" for k, v in props.items()]
+    parts = [f'data-umami-event="{name}"']
+    parts += [f'data-umami-event-{k}="{H.escape(str(v), quote=True)}"' for k, v in props.items()]
     return " ".join(parts)
 
 def A(href, text, cls="", event=None, **props):
     """anchor with optional tracked event; external links open in a new tab."""
     ext = href.startswith("http")
-    c = " ".join(x for x in [cls, ev(event, **props) if event else ""] if x)
-    attrs = f' class="{c}"' if c else ""
+    attrs = (f' class="{cls}"' if cls else "") + (" " + ev(event, **props) if event else "")
     if ext: attrs += ' target="_blank" rel="noopener"'
     return f'<a href="{href}"{attrs}>{text}</a>'
 
@@ -246,6 +246,10 @@ footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,
 # ─────────────────────────────────────────────────────────────────────────────
 NAV = [("/work-with-me/", "Work with me"), ("/learn/", "Learn"), (f"{LIB}/", "Frameworks"), ("/speaking/", "Speaking"), ("/#bio", "Bio")]
 
+def analytics() -> str:
+    wid = SITE.get("umami_website_id", "").strip()
+    return f'<script defer src="{SITE["umami_src"]}" data-website-id="{wid}"></script>' if wid else "<!-- analytics: set SITE['umami_website_id'] in build_site.py -->"
+
 def head(p: dict) -> str:
     url = SITE["domain"] + p["path"]
     og = SITE["domain"] + p.get("og", f"/assets/og/{p['slug']}.png")
@@ -282,8 +286,7 @@ def head(p: dict) -> str:
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/styles/site.css">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<script defer data-domain="{SITE['plausible_domain']}" src="{SITE['plausible_src']}"></script>
-<script>window.plausible=window.plausible||function(){{(window.plausible.q=window.plausible.q||[]).push(arguments)}}</script>
+{analytics()}
 {('<script type="application/ld+json">'+ld+'</script>') if ld else ''}
 </head>
 <body>
@@ -303,14 +306,14 @@ def nav(active: str) -> str:
 
 def channels_block(heading="Where to find me", lede="The site is the index. The work happens on the channels."):
     cards = "".join(
-        f'<a href="{utm(u,"channels",k)}" target="_blank" rel="noopener" class="{ev("channel_click", channel=k)}"><b>{l}</b><span>{b}</span></a>'
+        f'<a href="{utm(u,"channels",k)}" target="_blank" rel="noopener" {ev("channel_click", channel=k)}><b>{l}</b><span>{b}</span></a>'
         for k, l, u, b, kind in CHANNELS)
     return f"""<section id="channels" class="tight"><div class="wrap">
 <div class="sh"><span class="lab">Channels</span><h2>{heading}</h2><p class="lede">{lede}</p></div>
 <div class="chan">{cards}</div></div></section>"""
 
 def footer() -> str:
-    ch = "".join(f'<li><a href="{utm(u,"footer",k)}" target="_blank" rel="noopener" class="{ev("channel_click", channel=k, position="footer")}">{l}</a></li>' for k, l, u, b, kind in CHANNELS)
+    ch = "".join(f'<li><a href="{utm(u,"footer",k)}" target="_blank" rel="noopener" {ev("channel_click", channel=k, position="footer")}>{l}</a></li>' for k, l, u, b, kind in CHANNELS)
     return f"""</main>
 <footer><div class="wrap">
 <div class="cols">
