@@ -237,14 +237,14 @@ footer h4{color:#fff;font:600 11px/1 var(--sans);letter-spacing:.19em;text-trans
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}footer a{color:#DDD6F6}footer .big{font:italic 300 26px/1.2 var(--display);color:#fff;max-width:22ch;margin:0 0 12px}
 footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 @media(max-width:820px){footer .cols{grid-template-columns:1fr 1fr}}@media(max-width:480px){footer .cols{grid-template-columns:1fr}}
-/* mailto fallback */
-.mailfb{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-size:14px;box-shadow:0 12px 30px -18px rgba(42,27,94,.35)}
-.mailfb b{font-weight:600;user-select:all;-webkit-user-select:all;word-break:break-all}
-.mailfb button,.mailfb a.gm{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;text-decoration:none}
-.mailfb a.gm{background:transparent;color:var(--ink)}
-.mailfb .x{margin-left:auto;background:transparent;border:0;color:var(--muted);font-size:18px;padding:4px 8px}
-.mailfb.fixed{position:fixed;right:16px;top:72px;z-index:50;max-width:min(420px,calc(100vw - 32px));flex-basis:auto}
-.mailfb .ok{color:#1B5E3A;font-weight:600}
+/* email toast */
+.etoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);z-index:60;display:flex;align-items:center;gap:10px;max-width:min(560px,calc(100vw - 32px));padding:12px 16px;border-radius:999px;background:#1A1633;color:#fff;font:500 14px/1.3 var(--sans);box-shadow:0 18px 40px -18px rgba(26,22,51,.6);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.etoast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.etoast i{flex:0 0 auto;width:18px;height:18px;border-radius:50%;background:#F96167;display:inline-grid;place-items:center;font-style:normal;font-size:11px;color:#1A1633;font-weight:800}
+.etoast b{font-weight:600;white-space:nowrap}
+.etoast span{color:#C9C0F0}
+@media(prefers-reduced-motion:reduce){.etoast{transition:none}}
+@media(max-width:480px){.etoast{width:calc(100vw - 32px);border-radius:14px;align-items:flex-start;padding:12px 14px}.etoast i{margin-top:1px}.etoast b{white-space:normal;overflow-wrap:anywhere}}
 .skip{position:absolute;left:-999px;top:0;background:#fff;padding:8px}.skip:focus{left:8px;z-index:99}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """
@@ -336,22 +336,17 @@ def footer() -> str:
 </div></footer>
 <script>
 (function(){{
-  var GM='https://mail.google.com/mail/?view=cm&fs=1&to=';
-  function show(a,addr,subj){{
-    var old=document.querySelector('.mailfb'); if(old) old.remove();
-    var box=document.createElement('div'); box.className='mailfb'+(a.closest('.nav, .dsh-nav')?' fixed':''); box.setAttribute('role','dialog');
-    box.innerHTML='<span>Write to <b>'+addr+'</b></span><button type="button" class="cp">Copy address</button><a class="gm" target="_blank" rel="noopener" href="'+GM+encodeURIComponent(addr)+(subj?'&su='+encodeURIComponent(subj):'')+'">Open in Gmail</a><button type="button" class="x" aria-label="Close">×</button>';
-    box.querySelector('.cp').onclick=function(){{var b=this;(navigator.clipboard?navigator.clipboard.writeText(addr):Promise.reject()).then(function(){{b.textContent='Copied';b.classList.add('ok')}},function(){{var r=document.createRange();r.selectNodeContents(box.querySelector('b'));var s=getSelection();s.removeAllRanges();s.addRange(r)}})}};
-    box.querySelector('.x').onclick=function(){{box.remove()}};
-    if(box.classList.contains('fixed')) document.body.appendChild(box); else a.insertAdjacentElement('afterend',box);
+  var toast;
+  function say(addr,copied){{
+    if(!toast){{toast=document.createElement('div');toast.className='etoast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');document.body.appendChild(toast);}}
+    toast.innerHTML='<i>✓</i><div><b>'+addr+'</b> <span>'+(copied?'copied — opening your email app':'— opening your email app')+'</span></div>';
+    toast.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(function(){{toast.classList.remove('on')}},3800);
   }}
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){{
     a.addEventListener('click',function(){{
-      var href=a.getAttribute('href'),addr=href.slice(7).split('?')[0],q=href.split('?')[1]||'',subj='';
-      try{{subj=new URLSearchParams(q).get('subject')||''}}catch(e){{}}
-      var t=setTimeout(function(){{show(a,addr,subj)}},900);
-      window.addEventListener('blur',function(){{clearTimeout(t)}},{{once:true}});
-      document.addEventListener('visibilitychange',function(){{if(document.hidden)clearTimeout(t)}},{{once:true}});
+      var addr=a.getAttribute('href').slice(7).split('?')[0];
+      var p=navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(addr):Promise.reject();
+      p.then(function(){{say(addr,true)}},function(){{say(addr,false)}});
     }});
   }});
 }})();
