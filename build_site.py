@@ -33,14 +33,16 @@ SITE = {
 LIB = "https://frameworks.dianasimpsonhernandez.com"
 
 CONTRACT = {
-    "availability": "October 2026",          # ← confirm before sending /contract/ to anyone
+    "availability": "Available now",
     "day_rate": "£650–850",
     "ir35": "Outside — via DiSH Creative Ltd",
     "pattern": "2–4 days a week · 2–6 months",
-    "location": "London · Madrid · remote-first",
+    "location": "London · remote-first",
     "right_to_work": "UK (no sponsorship needed)",
     "languages": "English · Spanish",
-    "cv": "/assets/diana_simpson-hernandez_CV.pdf",
+    "cv": "/assets/dsh-contract-cv.pdf",           # 2-page ATS-safe contract CV (DOCX beside it)
+    "cv_docx": "/assets/dsh-contract-cv.docx",
+    "cv_full": "/assets/diana_simpson-hernandez_CV.pdf",   # 8-page portfolio CV for bio + speaking
 }
 
 def utm(url: str, medium: str, campaign: str) -> str:
@@ -333,7 +335,7 @@ def footer() -> str:
 <div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li><li><a href="{LIB}/">Frameworks</a></li><li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li><li><a href="https://standoutpodcast.com" target="_blank" rel="noopener">Stand Out</a></li></ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
 </div>
-<div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London · Madrid · Texas</span>
+<div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London · Texas</span>
 {A('mailto:'+SITE['email'], SITE['email'], '', 'email_click', position='footer')}</div>
 </div></footer>
 <script>
@@ -454,7 +456,7 @@ def body_home():
 <div class="stat"><b class="num">250K+</b><span>members on platforms I've led design for</span></div></div>"""
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
-<div class="eyebrow"><span class="lab">Vol. 02 / 2026</span><span class="lab">London · Madrid · Texas</span><span class="lab">FRSA · AFHEA · CREATE Ambassador</span></div>
+<div class="eyebrow"><span class="lab">Vol. 02 / 2026</span><span class="lab">London · Texas</span><span class="lab">FRSA · AFHEA · CREATE Ambassador</span></div>
 <h1>I design the <em>decision layer</em>.</h1>
 <p class="sub">Founder &amp; CEO of Aletheai, a patent-pending behavioural decision-intelligence engine. I build AI systems, I consult on the decisions they should improve, and I teach operators to ship their own — in public, with methods you can check before you pay for them.</p>
 <div class="row">{A('/work-with-me/', 'Work with me', 'btn', 'cta_click', kind='work-with-me', position='hero')}{A('/learn/', 'Learn to build', 'btn ghost', 'cta_click', kind='learn', position='hero')}{A(utm(CH['youtube'][2],'hero','youtube'), 'Watch on YouTube', 'btn ghost', 'channel_click', channel='youtube', position='hero')}</div>
@@ -513,7 +515,7 @@ def body_home():
 <h4 class="lab" style="margin:28px 0 14px">Memberships</h4>
 <ul class="clean"><li>FRSA · Royal Society of Arts Fellow</li><li>AFHEA · Higher Education Academy Associate</li><li>ILM Level 3 Leadership</li><li>CREATE Ambassador</li></ul>
 <h4 class="lab" style="margin:28px 0 14px">Resources</h4>
-<ul class="clean"><li>{A(CONTRACT['cv'], 'Download CV (PDF) ↓', '', 'cta_click', kind='cv', position='bio')}</li><li><a href="https://linkedin.com/in/dianasimpson" target="_blank" rel="noopener">LinkedIn ↗</a></li><li><a href="https://github.com/dsimpsonh" target="_blank" rel="noopener">GitHub ↗</a></li></ul>
+<ul class="clean"><li>{A(CONTRACT['cv_full'], 'Download CV (PDF) ↓', '', 'cta_click', kind='cv', position='bio')}</li><li><a href="https://linkedin.com/in/dianasimpson" target="_blank" rel="noopener">LinkedIn ↗</a></li><li><a href="https://github.com/dsimpsonh" target="_blank" rel="noopener">GitHub ↗</a></li></ul>
 </div></div></div></section>
 <section id="contact" class="tight"><div class="wrap"><div class="card dark" style="align-items:flex-start">
 <span class="lab">Contact</span><h3 style="font-size:clamp(26px,3vw,38px)">Need a Fractional CAIO, a diagnostic, or a speaker?</h3>
@@ -574,7 +576,7 @@ def body_work():
 def body_contract():
     c = CONTRACT
     facts = "".join(f'<div><span class="lab">{k}</span><b>{v}</b></div>' for k, v in [
-        ("Available from", c["availability"]), ("Day rate", c["day_rate"]), ("IR35", c["ir35"]), ("Pattern", c["pattern"]),
+        ("Availability", c["availability"]), ("Day rate", c["day_rate"]), ("IR35", c["ir35"]), ("Pattern", c["pattern"]),
         ("Location", c["location"]), ("Right to work", c["right_to_work"]), ("Delivery languages", c["languages"]), ("Company", "DiSH Creative Ltd (UK)")])
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
@@ -608,7 +610,7 @@ def body_contract():
 </div></div></div></section>
 <section id="contact" class="tight"><div class="wrap"><div class="card tint" style="align-items:flex-start">
 <span class="lab">Next step</span><h3>Send the brief. I reply within one working day with a yes, a no, or the question that decides it.</h3>
-<div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email']+'?subject=Contract%20brief', 'Send a brief →', 'btn', 'email_click', position='contract')}{A(c['cv'], 'CV (PDF) ↓', 'btn ghost', 'cta_click', kind='cv', position='contract')}{A('https://linkedin.com/in/dianasimpson', 'LinkedIn →', 'btn ghost', 'channel_click', channel='linkedin', position='contract')}</div>
+<div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email']+'?subject=Contract%20brief', 'Send a brief →', 'btn', 'email_click', position='contract')}{A(c['cv'], 'Contract CV (PDF) ↓', 'btn ghost', 'cta_click', kind='cv', position='contract')}{A(c['cv_docx'], 'Word version ↓', 'btn ghost', 'cta_click', kind='cv-docx', position='contract')}{A('https://linkedin.com/in/dianasimpson', 'LinkedIn →', 'btn ghost', 'channel_click', channel='linkedin', position='contract')}</div>
 </div></div></section>
 """
 
@@ -657,8 +659,8 @@ def body_speaking():
 <section id="where"><div class="wrap"><div class="two">
 <div class="prose"><div class="sh"><span class="lab">Where</span><h2>Rooms I've <em>spoken in</em>.</h2></div>
 <p>V&amp;A · Royal College of Art · European Commission · Central Saint Martins · London College of Communication (UAL) · UCL Academy · Nottingham Trent University · Hertfordshire University · IED Madrid · Women's AI Breakfast, London AI Hub · LCC NatWest Accelerator Pitch Day.</p>
-<p>Delivered in English or Spanish. London and Madrid in person; anywhere on video.</p></div>
-<div class="card tint"><span class="lab">Fees</span><h3>Two bands</h3><p><strong>Corporate and conference</strong> — quoted per event.</p><p><strong>Education and non-profit</strong> — a separate, published rate. Universities and accelerators, ask; the answer is usually yes.</p><div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email']+'?subject=Speaking%20enquiry', 'Enquire →', 'btn sm', 'email_click', position='speaking-fees')}{A(CONTRACT['cv'], 'Speaker CV (PDF) ↓', 'btn sm ghost', 'cta_click', kind='cv', position='speaking')}</div></div>
+<p>Delivered in English or Spanish. London in person; anywhere on video.</p></div>
+<div class="card tint"><span class="lab">Fees</span><h3>Two bands</h3><p><strong>Corporate and conference</strong> — quoted per event.</p><p><strong>Education and non-profit</strong> — a separate, published rate. Universities and accelerators, ask; the answer is usually yes.</p><div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email']+'?subject=Speaking%20enquiry', 'Enquire →', 'btn sm', 'email_click', position='speaking-fees')}{A(CONTRACT['cv_full'], 'Speaker CV (PDF) ↓', 'btn sm ghost', 'cta_click', kind='cv', position='speaking')}</div></div>
 </div></div></section>
 """
 
@@ -694,9 +696,9 @@ PAGES = [
     {"slug": "contract", "path": "/contract/", "file": "contract/index.html", "nav": "/contract/",
      "title": "Contract — AI strategy & adoption, outside IR35 | DSH",
      "og_title": "The answers to your first message, first.",
-     "description": f"Contract AI strategist and fractional Chief AI Officer. Day rate {CONTRACT['day_rate']}, outside IR35, {CONTRACT['pattern'].lower()}. London, Madrid, remote.",
+     "description": f"Contract AI strategist and fractional Chief AI Officer. Day rate {CONTRACT['day_rate']}, outside IR35, {CONTRACT['pattern'].lower()}. London or remote.",
      "jsonld": ld_graph(ld_breadcrumb(("Home", "/"), ("Contract", "/contract/"))),
-     "body": body_contract, "og_kicker": "Contract", "og_sub": f"Day rate {CONTRACT['day_rate']} · outside IR35 · from {CONTRACT['availability']}"},
+     "body": body_contract, "og_kicker": "Contract", "og_sub": f"Day rate {CONTRACT['day_rate']} · outside IR35 · {CONTRACT['availability'].lower()}"},
     {"slug": "learn", "path": "/learn/", "file": "learn/index.html", "nav": "/learn/",
      "title": "Learn — AI courses for non-engineers & free frameworks",
      "og_title": "Learn to build the decision layer yourself.",
@@ -706,7 +708,7 @@ PAGES = [
     {"slug": "speaking", "path": "/speaking/", "file": "speaking/index.html", "nav": "/speaking/",
      "title": "Speaking — keynotes & workshops on AI decisions | DSH",
      "og_title": "Talks that leave a method behind.",
-     "description": "Keynotes, workshops and lectures on AI decision intelligence, the Flywheel, Vibecoding and REWIRED. English and Spanish. London, Madrid, video. Education rate.",
+     "description": "Keynotes, workshops and lectures on AI decision intelligence, the Flywheel, Vibecoding and REWIRED. English and Spanish. London, or on video. Education rate.",
      "jsonld": ld_graph(ld_breadcrumb(("Home", "/"), ("Speaking", "/speaking/"))),
      "body": body_speaking, "og_kicker": "Speaking", "og_sub": "Keynotes · workshops · lectures — EN / ES"},
     {"slug": "404", "path": "/404.html", "file": "404.html", "nav": "", "noindex": True,
