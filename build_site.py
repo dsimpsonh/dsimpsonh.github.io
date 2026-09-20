@@ -448,7 +448,7 @@ def body_home():
 {A('/contract/', '<span class="lab">Hiring on contract</span><h3>Contract</h3><p>Day-rate work inside your company: AI adoption, strategy, governance, enablement. Facts first, then the fit.</p><span class="go">Availability and rate →</span>', 'door', 'cta_click', kind='contract', position='doors')}
 </div></div></section>"""
     stats = """<div class="stats">
-<div class="stat"><b class="num">4</b><span>ventures founded across AI, publishing, clean-tech and design</span></div>
+<div class="stat"><b class="num">4</b><span>ventures founded or co-founded across AI, publishing, clean-tech and design</span></div>
 <div class="stat"><b class="num">2</b><span>patents — granted (US) and pending (UK)</span></div>
 <div class="stat"><b class="num">2</b><span>London Design Award Golds</span></div>
 <div class="stat"><b class="num">250K+</b><span>members on platforms I've led design for</span></div></div>"""
@@ -505,7 +505,7 @@ def body_home():
 <div class="prose"><div class="sh"><span class="lab">Long bio</span><h2>15 years · 4 ventures · <em>2 patents</em>.</h2></div>
 <p>I work at the seam where emerging technology meets commercial outcome — and where decisions become reality.</p>
 <p>Today I'm Founder &amp; CEO of <strong>Aletheai</strong>, building the UK's first patent-pending, multi-signal behavioural prediction engine for estate agents. We've secured a strategic partnership and live pilot with Alto (Zoopla Group), unlocking distribution to 10,000+ agents.</p>
-<p>Before Aletheai I founded three other ventures — <strong>Monogram Publishers</strong> (independent publishing, since 2014), <strong>Shake Your Power</strong> (clean-tech education, US patent, two London Design Award Golds) and <strong>Glass Lab / Trash Surface Bureau</strong> (sustainable design, FRAME Magazine feature). I led design teams of 12+ at Slimming World's 250K-member platform, served as Senior Lecturer at Nottingham Trent University, and have lectured, judged, mentored and exhibited internationally — including at the V&amp;A, Royal College of Art, European Commission and London College of Communication.</p>
+<p>Before Aletheai I built three other ventures — <strong>Monogram Publishers</strong> (independent publishing, founded 2014), <strong>Shake Your Power</strong> (clean-tech education, which I co-founded; US patent, two London Design Award Golds) and <strong>Glass Lab / Trash Surface Bureau</strong> (sustainable design, FRAME Magazine feature). I led design teams of 12+ at Slimming World's 250K-member platform, served as Senior Lecturer at Nottingham Trent University, and have lectured, judged, mentored and exhibited internationally — including at the V&amp;A, Royal College of Art, European Commission and London College of Communication.</p>
 <p>I'm a Fellow of the Royal Society of Arts, Associate Fellow of the Higher Education Academy and Education Ambassador for CREATE. I write on Substack, teach on YouTube and Skool, and my playbook lives on Amazon.</p></div>
 <div>
 <h4 class="lab" style="margin:0 0 14px">Roles</h4>
