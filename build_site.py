@@ -67,7 +67,7 @@ COURSES = [
      "for": "Operators rewiring the defaults that stop them building AI-native businesses.",
      "what": "Weekly teaching video, the framework library, and the room where the builds get reviewed.",
      "url": CH["skool"][2], "cta": "Join free"},
-    {"slug": "flywheel-masterclass", "name": "Flywheel Masterclass", "price": "£39", "price_num": 39, "cadence": "one-off",
+    {"slug": "flywheel-masterclass", "name": "FLYWHEEL Masterclass", "price": "£39", "price_num": 39, "cadence": "one-off",
      "for": "Founders who need to know which of the eight dimensions is dragging the business.",
      "what": "90 minutes on the FLYWHEEL canvas, scored live, with the Godmode coaching prompt built from your own evidence.",
      "url": CH["skool"][2], "cta": "Buy the masterclass"},
@@ -102,9 +102,9 @@ METHODS = [
 
 FREE = [  # free resources — the library
     ("REWIRED", "Build the operator before you build the company. A 12-minute diagnostic and a protocol you'll run for life.", f"{LIB}/REWIRED/"),
-    ("The Flywheel", "Score your business on eight dimensions in twenty minutes. See where the drag is.", f"{LIB}/flywheel/"),
+    ("FLYWHEEL", "Score your business on eight dimensions in twenty minutes. See where the drag is.", f"{LIB}/flywheel/"),
     ("Vibecoding", "From a worthy problem to a live URL — the 20-step protocol non-engineers use to ship real software with AI.", f"{LIB}/vibecoding/"),
-    ("The Rediscovery Canvas", "A five-layer canvas for finding your uniquely human edge after a transition.", f"{LIB}/rediscovery-canvas/"),
+    ("Five strategy canvases", "Category Design, Empathy, User Story Matrix, UX Strategy and AI Agent Design — free A3 PDFs with quick guides.", f"{LIB}/canvas/"),
     ("TeamScale", "Build an AI-native team. Don't over-hire. Roles, benchmarks and the 12-month roadmap.", f"{LIB}/teamscale/"),
     ("The full library", "Every framework, method and case study, versioned and forkable.", f"{LIB}/"),
 ]
@@ -652,7 +652,7 @@ def body_speaking():
 <div class="sh"><span class="lab">Talks</span><h2>Four <em>I give often</em>.</h2></div>
 <div class="grid g2">
 <div class="card"><span class="lab">Keynote · 30–45 min</span><h3>Data has no value. Decisions do.</h3><p>Why 91% of the mid-market has deployed AI and 38% can prove it worked — and the one instrument that closes the gap.</p></div>
-<div class="card"><span class="lab">Workshop · half day</span><h3>The Flywheel</h3><p>Every founder scores their business live on eight dimensions, finds the drag, and leaves with a coaching prompt built from their own evidence. Run at LCC.</p></div>
+<div class="card"><span class="lab">Workshop · half day</span><h3>FLYWHEEL</h3><p>Every founder scores their business live on eight dimensions, finds the drag, and leaves with a coaching prompt built from their own evidence. Run at LCC.</p></div>
 <div class="card"><span class="lab">Workshop · full day</span><h3>Vibecoding: from worthy problem to live URL</h3><p>Non-engineers ship a real product in a day. Twenty steps, fifteen prompts, no excuses.</p></div>
 <div class="card"><span class="lab">Lecture · 60 min</span><h3>Build the operator before the company</h3><p>REWIRED for students and early founders: identity is plastic, state is callable, beliefs are rewireable.</p></div>
 </div></div></section>
@@ -702,13 +702,13 @@ PAGES = [
     {"slug": "learn", "path": "/learn/", "file": "learn/index.html", "nav": "/learn/",
      "title": "Learn — AI courses for non-engineers & free frameworks",
      "og_title": "Learn to build the decision layer yourself.",
-     "description": "Courses on Skool from a free community to a £997 ship-it cohort: Vibecoding, the Flywheel, REWIRED. Free interactive frameworks, weekly YouTube video, Substack essays.",
+     "description": "Courses on Skool from a free community to a £997 ship-it cohort: Vibecoding, FLYWHEEL, REWIRED. Free interactive frameworks, weekly YouTube video, Substack essays.",
      "jsonld": ld_graph({"@type": "ItemList", "name": "Courses", "itemListElement": [ld_course(c) for c in COURSES]}, ld_breadcrumb(("Home", "/"), ("Learn", "/learn/"))),
      "body": body_learn, "og_kicker": "Learn", "og_sub": "Free frameworks · YouTube · courses on Skool from £39"},
     {"slug": "speaking", "path": "/speaking/", "file": "speaking/index.html", "nav": "/speaking/",
      "title": "Speaking — keynotes & workshops on AI decisions | DSH",
      "og_title": "Talks that leave a method behind.",
-     "description": "Keynotes, workshops and lectures on AI decision intelligence, the Flywheel, Vibecoding and REWIRED. English and Spanish. London, or on video. Education rate.",
+     "description": "Keynotes, workshops and lectures on AI decision intelligence, FLYWHEEL, Vibecoding and REWIRED. English and Spanish. London, or on video. Education rate.",
      "jsonld": ld_graph(ld_breadcrumb(("Home", "/"), ("Speaking", "/speaking/"))),
      "body": body_speaking, "og_kicker": "Speaking", "og_sub": "Keynotes · workshops · lectures — EN / ES"},
     {"slug": "404", "path": "/404.html", "file": "404.html", "nav": "", "noindex": True,
