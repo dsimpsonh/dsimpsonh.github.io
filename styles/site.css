@@ -105,3 +105,34 @@ footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,
 @media(max-width:480px){.etoast{width:calc(100vw - 32px);border-radius:14px;align-items:flex-start;padding:12px 14px}.etoast i{margin-top:1px}.etoast b{white-space:normal;overflow-wrap:anywhere}}
 .skip{position:absolute;left:-999px;top:0;background:#fff;padding:8px}.skip:focus{left:8px;z-index:99}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* HOLD MODE */
+.hold{position:relative;overflow:hidden;padding:clamp(56px,9vw,120px) 0 clamp(48px,7vw,96px);min-height:calc(100vh - 160px)}
+.hold-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media(max-width:860px){.hold-grid{grid-template-columns:1fr}}
+.hold-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.hold-mark{width:46px;height:46px;animation:hbob 4s ease-in-out infinite}
+.hold-pill{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--coral-ink);border:1px solid #FFC9CB;background:#FFF0F0;border-radius:999px;padding:9px 14px;display:inline-flex;align-items:center;gap:8px}
+.hold-pill b{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:hpulse 1.6s ease-out infinite}
+.hold-copy h1{max-width:11ch;margin-top:14px}
+.hold-copy .sub{font-size:clamp(17px,1.7vw,21px);max-width:52ch;margin:24px 0 28px}
+.hold-copy .row{display:flex;flex-wrap:wrap;gap:12px}
+.hold-term{background:var(--ink);color:var(--pop);border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(26,22,51,.5);transform:rotate(1deg)}
+.hold-term-bar{display:flex;align-items:center;gap:7px;padding:12px 14px;background:var(--deep);font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--pop)}
+.hold-term-bar i{width:10px;height:10px;border-radius:50%;background:var(--coral)}.hold-term-bar i:nth-child(2){background:#F9C74F}.hold-term-bar i:nth-child(3){background:#7BE8A6}
+.hold-term-bar span{margin-left:auto;opacity:.7}
+.hold-term pre{margin:0;padding:18px 20px 20px;font:500 13px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;min-height:14.4em}
+.hold-term .cur{color:var(--coral);animation:hblink 1s steps(1) infinite}
+.hold-chans{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(40px,6vw,72px)}
+@media(max-width:860px){.hold-chans{grid-template-columns:1fr 1fr}}@media(max-width:480px){.hold-chans{grid-template-columns:1fr}}
+.hchan{display:grid;gap:6px;padding:18px;border:1px solid var(--line);border-radius:var(--rs);background:rgba(255,255,255,.8);color:var(--body-ink);font-size:14px;transition:transform .25s,border-color .25s}
+.hchan b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--ink)}.hchan:hover{text-decoration:none;transform:translateY(-3px);border-color:var(--violet)}
+.hold-ribbon-clip{overflow:hidden;position:relative;z-index:3}
+.hold-ribbon{background:var(--coral);color:#fff;overflow:hidden;font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;padding:11px 0;transform:rotate(-1.2deg) scale(1.04);position:relative;z-index:3}
+.hold-ribbon-track{display:inline-flex;gap:28px;white-space:nowrap;animation:hmarquee 40s linear infinite;padding-left:28px}.hold-ribbon i{font-style:normal;color:var(--pop)}
+.hold-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.8;z-index:1;pointer-events:none}
+.hold-blob.a{width:50vw;height:50vw;max-width:640px;max-height:640px;left:-14vw;top:-8vw;background:var(--pop);animation:hdrift 18s ease-in-out infinite alternate}
+.hold-blob.b{width:40vw;height:40vw;max-width:520px;max-height:520px;right:-10vw;bottom:-10vw;background:#FFD9DA;animation:hdrift 22s ease-in-out infinite alternate-reverse}
+@keyframes hmarquee{to{transform:translateX(-50%)}}@keyframes hbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px) rotate(-3deg)}}
+@keyframes hpulse{0%{box-shadow:0 0 0 0 rgba(249,97,103,.55)}100%{box-shadow:0 0 0 12px rgba(249,97,103,0)}}@keyframes hblink{50%{opacity:0}}
+@keyframes hdrift{to{transform:translate(6vw,4vw) scale(1.08)}}
+@media(prefers-reduced-motion:reduce){.hold-ribbon-track,.hold-mark,.hold-pill b,.hold-blob,.hold-term .cur{animation:none}}

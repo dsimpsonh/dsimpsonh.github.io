@@ -3,6 +3,7 @@
 build_site.py — single source of truth for dianasimpsonhernandez.com
 
     python3 build_site.py            # regenerate every page + sitemap + robots + 404
+    python3 build_site.py --hold     # HOLD: holding page at / and /404.html, other pages removed, sitemap = root only
     python3 build_site.py --og       # also re-render the 1200×630 OG cards (needs playwright)
 
 Edit copy, fees, links or nav in the CONFIG / COPY blocks below, run, commit.
@@ -324,14 +325,17 @@ def channels_block(heading="Where to find me", lede="The site is the index. The 
 <div class="sh"><span class="lab">Channels</span><h2>{heading}</h2><p class="lede">{lede}</p></div>
 <div class="chan">{cards}</div></div></section>"""
 
-def footer() -> str:
+SITE_LINKS = '<li><a href="/work-with-me/">Work with me</a></li><li><a href="/contract/">Contract</a></li><li><a href="/learn/">Learn</a></li><li><a href="/speaking/">Speaking</a></li><li><a href="/#bio">Bio</a></li>'
+HOLD_SITE_LINKS = f'<li><a href="/">Home (rebuilding)</a></li><li><a href="{LIB}/">Framework library</a></li><li><a href="{LIB}/canvas/">Canvases</a></li><li><a href="https://projects.dianasimpsonhernandez.com/">Projects (upcoming)</a></li>'
+
+def footer(site_links: str = SITE_LINKS) -> str:
     ch = "".join(f'<li><a href="{utm(u,"footer",k)}" target="_blank" rel="noopener" {ev("channel_click", channel=k, position="footer")}>{l}</a></li>' for k, l, u, b, kind in CHANNELS)
     return f"""</main>
 <footer><div class="wrap">
 <div class="cols">
 <div><p class="big">Designing the systems where <em class="grad">signal becomes decision</em>.</p>
 <p style="font-size:14px;max-width:38ch">Founder &amp; CEO, Aletheai. Fractional Chief AI Officer. Educator. FRSA · AFHEA.</p></div>
-<div><h4>Site</h4><ul><li><a href="/work-with-me/">Work with me</a></li><li><a href="/contract/">Contract</a></li><li><a href="/learn/">Learn</a></li><li><a href="/speaking/">Speaking</a></li><li><a href="/#bio">Bio</a></li></ul></div>
+<div><h4>Site</h4><ul>{site_links}</ul></div>
 <div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li><li><a href="{LIB}/">Frameworks</a></li><li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li><li><a href="https://standoutpodcast.com" target="_blank" rel="noopener">Stand Out</a></li></ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
 </div>
@@ -677,6 +681,101 @@ def body_404():
 </div></div></section>
 """
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HOLD MODE — "I'm rebuilding this site." (python3 build_site.py --hold)
+# Keeps the homepage indexable so the domain is not dropped; deep links land on the same page via 404.html.
+# ─────────────────────────────────────────────────────────────────────────────
+HOLD_LINES = ["$ dsh rebuild site --v4", "reading the brief ......... ok", "design system ............. ok",
+              "writing the pages ......... in progress", "checking every claim ...... in progress",
+              "framework library ......... live", "projects .................. upcoming", "publish ................... soon"]
+
+def body_hold():
+    chans = "".join(f'<a class="hchan" href="{u}" target="_blank" rel="noopener" {ev("cta_click", kind=k, position="hold")}><span class="lab">{H.escape(kind)}</span><b>{H.escape(label)}</b><span>{H.escape(blurb)}</span></a>'
+                    for k, label, u, blurb, kind in CHANNELS if k in ("linkedin", "youtube", "substack", "skool"))
+    ribbon = "".join("<span>Rebuilding</span><i>✦</i><span>Upcoming</span><i>✦</i><span>Back soon</span><i>✦</i>" for _ in range(6))
+    return f"""
+<div class="hold-ribbon-clip" aria-hidden="true"><div class="hold-ribbon"><div class="hold-ribbon-track">{ribbon}</div></div></div>
+<section class="hold"><div class="wrap hold-grid">
+<div class="hold-copy">
+<div class="hold-top"><img class="hold-mark" src="/assets/mark-ink.svg" alt="" width="46" height="46"><span class="hold-pill"><b></b>rebuilding</span></div>
+<span class="lab">Diana Simpson-Hernandez · site v4</span>
+<h1>I'm rebuilding <em>this site.</em></h1>
+<p class="sub">New pages, same promise: published methods, fixed fees, and courses for people who ship software with AI. While the paint dries, the work is on the channels — and the framework library is open.</p>
+<div class="row">
+{A(LIB + '/', 'Open the framework library →', 'btn', 'cta_click', kind='frameworks', position='hold')}
+{A('mailto:' + SITE['email'], 'Email me', 'btn ghost', 'email_click', position='hold')}
+</div>
+</div>
+<div class="hold-term" aria-label="Build log, illustrative"><div class="hold-term-bar"><i></i><i></i><i></i><span>rebuild.log</span></div><pre id="hold-log" data-lines='{json.dumps(HOLD_LINES)}'></pre></div>
+</div>
+<div class="wrap hold-chans">{chans}</div>
+<div class="hold-blob a" aria-hidden="true"></div><div class="hold-blob b" aria-hidden="true"></div>
+</section>
+<script>
+(function(){{var el=document.getElementById('hold-log');if(!el)return;var lines=JSON.parse(el.dataset.lines),NL=String.fromCharCode(10);
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){{el.textContent=lines.join(NL);return;}}
+var li=0,ci=0,out='';function tick(){{if(li>=lines.length){{el.innerHTML=out+'<span class="cur">▍</span>';return;}}
+var L=lines[li];if(ci<=L.length){{el.innerHTML=out+L.slice(0,ci)+'<span class="cur">▍</span>';ci++;setTimeout(tick,L[ci-2]==='.'?12:28);}}
+else{{out+=L+NL;li++;ci=0;setTimeout(tick,L.indexOf('$')===0?500:260);}}}}
+setTimeout(tick,600);}})();
+</script>
+"""
+
+HOLD_CSS = """
+/* HOLD MODE */
+.hold{position:relative;overflow:hidden;padding:clamp(56px,9vw,120px) 0 clamp(48px,7vw,96px);min-height:calc(100vh - 160px)}
+.hold-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media(max-width:860px){.hold-grid{grid-template-columns:1fr}}
+.hold-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.hold-mark{width:46px;height:46px;animation:hbob 4s ease-in-out infinite}
+.hold-pill{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--coral-ink);border:1px solid #FFC9CB;background:#FFF0F0;border-radius:999px;padding:9px 14px;display:inline-flex;align-items:center;gap:8px}
+.hold-pill b{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:hpulse 1.6s ease-out infinite}
+.hold-copy h1{max-width:11ch;margin-top:14px}
+.hold-copy .sub{font-size:clamp(17px,1.7vw,21px);max-width:52ch;margin:24px 0 28px}
+.hold-copy .row{display:flex;flex-wrap:wrap;gap:12px}
+.hold-term{background:var(--ink);color:var(--pop);border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(26,22,51,.5);transform:rotate(1deg)}
+.hold-term-bar{display:flex;align-items:center;gap:7px;padding:12px 14px;background:var(--deep);font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--pop)}
+.hold-term-bar i{width:10px;height:10px;border-radius:50%;background:var(--coral)}.hold-term-bar i:nth-child(2){background:#F9C74F}.hold-term-bar i:nth-child(3){background:#7BE8A6}
+.hold-term-bar span{margin-left:auto;opacity:.7}
+.hold-term pre{margin:0;padding:18px 20px 20px;font:500 13px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;min-height:14.4em}
+.hold-term .cur{color:var(--coral);animation:hblink 1s steps(1) infinite}
+.hold-chans{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(40px,6vw,72px)}
+@media(max-width:860px){.hold-chans{grid-template-columns:1fr 1fr}}@media(max-width:480px){.hold-chans{grid-template-columns:1fr}}
+.hchan{display:grid;gap:6px;padding:18px;border:1px solid var(--line);border-radius:var(--rs);background:rgba(255,255,255,.8);color:var(--body-ink);font-size:14px;transition:transform .25s,border-color .25s}
+.hchan b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--ink)}.hchan:hover{text-decoration:none;transform:translateY(-3px);border-color:var(--violet)}
+.hold-ribbon-clip{overflow:hidden;position:relative;z-index:3}
+.hold-ribbon{background:var(--coral);color:#fff;overflow:hidden;font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;padding:11px 0;transform:rotate(-1.2deg) scale(1.04);position:relative;z-index:3}
+.hold-ribbon-track{display:inline-flex;gap:28px;white-space:nowrap;animation:hmarquee 40s linear infinite;padding-left:28px}.hold-ribbon i{font-style:normal;color:var(--pop)}
+.hold-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.8;z-index:1;pointer-events:none}
+.hold-blob.a{width:50vw;height:50vw;max-width:640px;max-height:640px;left:-14vw;top:-8vw;background:var(--pop);animation:hdrift 18s ease-in-out infinite alternate}
+.hold-blob.b{width:40vw;height:40vw;max-width:520px;max-height:520px;right:-10vw;bottom:-10vw;background:#FFD9DA;animation:hdrift 22s ease-in-out infinite alternate-reverse}
+@keyframes hmarquee{to{transform:translateX(-50%)}}@keyframes hbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px) rotate(-3deg)}}
+@keyframes hpulse{0%{box-shadow:0 0 0 0 rgba(249,97,103,.55)}100%{box-shadow:0 0 0 12px rgba(249,97,103,0)}}@keyframes hblink{50%{opacity:0}}
+@keyframes hdrift{to{transform:translate(6vw,4vw) scale(1.08)}}
+@media(prefers-reduced-motion:reduce){.hold-ribbon-track,.hold-mark,.hold-pill b,.hold-blob,.hold-term .cur{animation:none}}
+"""
+
+HOLD_PAGE = {"slug": "hold", "path": "/", "file": "index.html", "nav": "/",
+    "title": "Diana Simpson-Hernandez — rebuilding the site",
+    "og_title": "I'm rebuilding this site.",
+    "description": "Diana Simpson-Hernandez — founder of Aletheai, AI decision intelligence, courses for people who ship software with AI. The site is being rebuilt; the framework library and the channels are open.",
+    "jsonld": None, "og": "/assets/og/home.png"}
+
+def build_hold():
+    import shutil
+    write("styles/site.css", CSS.strip() + "\n" + HOLD_CSS.strip() + "\n")
+    html = head(HOLD_PAGE) + '<main id="main">\n' + body_hold() + footer(HOLD_SITE_LINKS)
+    write("index.html", html); print(f"  ✓ index.html (HOLD) {len(html)//1024} KB")
+    nf = dict(HOLD_PAGE, path="/404.html", file="404.html", noindex=True, title="Page moved — Diana Simpson-Hernandez")
+    write("404.html", head(nf) + '<main id="main">\n' + body_hold() + footer(HOLD_SITE_LINKS)); print("  ✓ 404.html (HOLD)")
+    for p in PAGES:
+        d = os.path.dirname(p["file"])
+        if d and os.path.isdir(os.path.join(ROOT, d)): shutil.rmtree(os.path.join(ROOT, d)); print(f"  – removed {d}/")
+    write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{SITE["domain"]}/</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url></urlset>\n')
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /404.html\n\nSitemap: {SITE['domain']}/sitemap.xml\nSitemap: {LIB}/sitemap.xml\n")
+    print("  ✓ sitemap.xml (root only), robots.txt")
+
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGES
 # ─────────────────────────────────────────────────────────────────────────────
@@ -779,6 +878,9 @@ def build_og():
         b.close()
 
 if __name__ == "__main__":
+    if "--hold" in sys.argv:
+        print("building dianasimpsonhernandez.com — HOLD MODE"); build_hold()
+        assert os.path.getsize(os.path.join(ROOT, "index.html")) > 4000; print("done"); sys.exit(0)
     print("building dianasimpsonhernandez.com")
     build_css(); build_pages(); build_sitemap()
     if "--og" in sys.argv: build_og()
