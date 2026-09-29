@@ -692,7 +692,7 @@ HOLD_LINES = ["$ dsh rebuild site --v4", "reading the brief ......... ok", "desi
 
 def body_hold():
     chans = "".join(f'<a class="hchan" href="{u}" target="_blank" rel="noopener" {ev("cta_click", kind=k, position="hold")}><span class="lab">{H.escape(kind)}</span><b>{H.escape(label)}</b><span>{H.escape(blurb)}</span></a>'
-                    for k, label, u, blurb, kind in CHANNELS if k in ("linkedin", "youtube", "substack", "skool"))
+                    for k, label, u, blurb, kind in CHANNELS if k in ("substack", "linkedin"))
     ribbon = "".join("<span>Rebuilding</span><i>✦</i><span>Upcoming</span><i>✦</i><span>Back soon</span><i>✦</i>" for _ in range(6))
     return f"""
 <div class="hold-ribbon-clip" aria-hidden="true"><div class="hold-ribbon"><div class="hold-ribbon-track">{ribbon}</div></div></div>
@@ -701,7 +701,7 @@ def body_hold():
 <div class="hold-top"><img class="hold-mark" src="/assets/mark-ink.svg" alt="" width="46" height="46"><span class="hold-pill"><b></b>rebuilding</span></div>
 <span class="lab">Diana Simpson-Hernandez · site v4</span>
 <h1>I'm rebuilding <em>this site.</em></h1>
-<p class="sub">New pages, same promise: published methods, fixed fees, and courses for people who ship software with AI. While the paint dries, the work is on the channels — and the framework library is open.</p>
+<p class="sub">New pages, same work: AI decision intelligence, designed in public with the limits stated. While the paint dries, I'm writing on Substack and LinkedIn — and the framework library is open.</p>
 <div class="row">
 {A(LIB + '/', 'Open the framework library →', 'btn', 'cta_click', kind='frameworks', position='hold')}
 {A('mailto:' + SITE['email'], 'Email me', 'btn ghost', 'email_click', position='hold')}
@@ -740,8 +740,8 @@ HOLD_CSS = """
 .hold-term-bar span{margin-left:auto;opacity:.7}
 .hold-term pre{margin:0;padding:18px 20px 20px;font:500 13px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;min-height:14.4em}
 .hold-term .cur{color:var(--coral);animation:hblink 1s steps(1) infinite}
-.hold-chans{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(40px,6vw,72px)}
-@media(max-width:860px){.hold-chans{grid-template-columns:1fr 1fr}}@media(max-width:480px){.hold-chans{grid-template-columns:1fr}}
+.hold-chans{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,minmax(0,380px));gap:12px;margin-top:clamp(40px,6vw,72px)}
+@media(max-width:560px){.hold-chans{grid-template-columns:1fr}}
 .hchan{display:grid;gap:6px;padding:18px;border:1px solid var(--line);border-radius:var(--rs);background:rgba(255,255,255,.8);color:var(--body-ink);font-size:14px;transition:transform .25s,border-color .25s}
 .hchan b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--ink)}.hchan:hover{text-decoration:none;transform:translateY(-3px);border-color:var(--violet)}
 .hold-ribbon-clip{overflow:hidden;position:relative;z-index:3}
@@ -759,7 +759,7 @@ HOLD_CSS = """
 HOLD_PAGE = {"slug": "hold", "path": "/", "file": "index.html", "nav": "/",
     "title": "Diana Simpson-Hernandez — rebuilding the site",
     "og_title": "I'm rebuilding this site.",
-    "description": "Diana Simpson-Hernandez — founder of Aletheai, AI decision intelligence, courses for people who ship software with AI. The site is being rebuilt; the framework library and the channels are open.",
+    "description": "Diana Simpson-Hernandez — founder of Aletheai, AI decision intelligence. The site is being rebuilt; the framework library, Substack and LinkedIn are open.",
     "jsonld": None, "og": "/assets/og/home.png"}
 
 def build_hold():
