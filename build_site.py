@@ -326,17 +326,17 @@ def channels_block(heading="Where to find me", lede="The site is the index. The 
 <div class="chan">{cards}</div></div></section>"""
 
 SITE_LINKS = '<li><a href="/work-with-me/">Work with me</a></li><li><a href="/contract/">Contract</a></li><li><a href="/learn/">Learn</a></li><li><a href="/speaking/">Speaking</a></li><li><a href="/#bio">Bio</a></li>'
-HOLD_SITE_LINKS = f'<li><a href="/">Home (rebuilding)</a></li><li><a href="{LIB}/">Framework library</a></li><li><a href="{LIB}/canvas/">Canvases</a></li><li><a href="https://projects.dianasimpsonhernandez.com/">Projects (upcoming)</a></li>'
+HOLD_SITE_LINKS = '<li><a href="/">Home (rebuilding)</a></li><li><a href="mailto:' + SITE["email"] + '">Email me</a></li>'
 
-def footer(site_links: str = SITE_LINKS) -> str:
-    ch = "".join(f'<li><a href="{utm(u,"footer",k)}" target="_blank" rel="noopener" {ev("channel_click", channel=k, position="footer")}>{l}</a></li>' for k, l, u, b, kind in CHANNELS)
+def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
+    ch = "".join(f'<li><a href="{utm(u,"footer",k)}" target="_blank" rel="noopener" {ev("channel_click", channel=k, position="footer")}>{l}</a></li>' for k, l, u, b, kind in CHANNELS if not hold or k in ("substack", "linkedin"))
     return f"""</main>
 <footer><div class="wrap">
 <div class="cols">
 <div><p class="big">Designing the systems where <em class="grad">signal becomes decision</em>.</p>
 <p style="font-size:14px;max-width:38ch">Founder &amp; CEO, Aletheai. Fractional Chief AI Officer. Educator. FRSA · AFHEA.</p></div>
 <div><h4>Site</h4><ul>{site_links}</ul></div>
-<div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li><li><a href="{LIB}/">Frameworks</a></li><li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li><li><a href="https://standoutpodcast.com" target="_blank" rel="noopener">Stand Out</a></li></ul></div>
+<div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Frameworks</a></li>'}<li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li><li><a href="https://standoutpodcast.com" target="_blank" rel="noopener">Stand Out</a></li></ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
 </div>
 <div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London · Texas</span>
@@ -688,7 +688,7 @@ def body_404():
 # ─────────────────────────────────────────────────────────────────────────────
 HOLD_LINES = ["$ dsh rebuild site --v4", "reading the brief ......... ok", "design system ............. ok",
               "writing the pages ......... in progress", "checking every claim ...... in progress",
-              "framework library ......... live", "projects .................. upcoming", "publish ................... soon"]
+              "frameworks ................ polishing", "projects .................. upcoming", "publish ................... soon"]
 
 def body_hold():
     chans = "".join(f'<a class="hchan" href="{u}" target="_blank" rel="noopener" {ev("cta_click", kind=k, position="hold")}><span class="lab">{H.escape(kind)}</span><b>{H.escape(label)}</b><span>{H.escape(blurb)}</span></a>'
@@ -701,9 +701,9 @@ def body_hold():
 <div class="hold-top"><img class="hold-mark" src="/assets/mark-ink.svg" alt="" width="46" height="46"><span class="hold-pill"><b></b>rebuilding</span></div>
 <span class="lab">Diana Simpson-Hernandez · site v4</span>
 <h1>I'm rebuilding <em>this site.</em></h1>
-<p class="sub">New pages, same work: AI decision intelligence, designed in public with the limits stated. While the paint dries, I'm writing on Substack and LinkedIn — and the framework library is open.</p>
+<p class="sub">New pages, same work: AI decision intelligence, designed in public with the limits stated. While the paint dries, I'm writing on Substack and LinkedIn.</p>
 <div class="row">
-{A(LIB + '/', 'Open the framework library →', 'btn', 'cta_click', kind='frameworks', position='hold')}
+{A('https://linkedin.com/in/dianasimpson', 'Find me on LinkedIn →', 'btn', 'cta_click', kind='linkedin', position='hold')}
 {A('mailto:' + SITE['email'], 'Email me', 'btn ghost', 'email_click', position='hold')}
 </div>
 </div>
@@ -759,16 +759,16 @@ HOLD_CSS = """
 HOLD_PAGE = {"slug": "hold", "path": "/", "file": "index.html", "nav": "/",
     "title": "Diana Simpson-Hernandez — rebuilding the site",
     "og_title": "I'm rebuilding this site.",
-    "description": "Diana Simpson-Hernandez — founder of Aletheai, AI decision intelligence. The site is being rebuilt; the framework library, Substack and LinkedIn are open.",
+    "description": "Diana Simpson-Hernandez — founder of Aletheai, AI decision intelligence. The site is being rebuilt; Substack and LinkedIn are open.",
     "jsonld": None, "og": "/assets/og/home.png"}
 
 def build_hold():
     import shutil
     write("styles/site.css", CSS.strip() + "\n" + HOLD_CSS.strip() + "\n")
-    html = head(HOLD_PAGE) + '<main id="main">\n' + body_hold() + footer(HOLD_SITE_LINKS)
+    html = head(HOLD_PAGE) + '<main id="main">\n' + body_hold() + footer(HOLD_SITE_LINKS, hold=True)
     write("index.html", html); print(f"  ✓ index.html (HOLD) {len(html)//1024} KB")
     nf = dict(HOLD_PAGE, path="/404.html", file="404.html", noindex=True, title="Page moved — Diana Simpson-Hernandez")
-    write("404.html", head(nf) + '<main id="main">\n' + body_hold() + footer(HOLD_SITE_LINKS)); print("  ✓ 404.html (HOLD)")
+    write("404.html", head(nf) + '<main id="main">\n' + body_hold() + footer(HOLD_SITE_LINKS, hold=True)); print("  ✓ 404.html (HOLD)")
     for p in PAGES:
         d = os.path.dirname(p["file"])
         if d and os.path.isdir(os.path.join(ROOT, d)): shutil.rmtree(os.path.join(ROOT, d)); print(f"  – removed {d}/")
