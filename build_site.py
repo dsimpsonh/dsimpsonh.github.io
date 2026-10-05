@@ -34,7 +34,7 @@ SITE = {
 LIB = "https://frameworks.dianasimpsonhernandez.com"
 
 CONTRACT = {
-    "availability": "From October 2026",
+    "availability": "From January 2027",
     "roles": "Chief AI Officer (contract or fractional) · Head of AI · AI strategy lead",
     "pattern": "2–4 days a week, or interim",
     "location": "London · hybrid or remote",
@@ -522,7 +522,7 @@ def body_home():
 <p>I'm a Fellow of the Royal Society of Arts, Associate Fellow of the Higher Education Academy and Education Ambassador for CREATE. I write on Substack, teach on YouTube and Skool, and my playbook lives on Amazon.</p></div>
 <div>
 <h4 class="lab" style="margin:0 0 14px">Roles</h4>
-<ul class="clean roles"><li><span>Founder &amp; CEO, Aletheai</span><span>2024 —</span></li><li><span>Founder &amp; CEO, Monogram</span><span>2014 —</span></li><li><span>Chief AI Officer, on contract</span><span>From Oct 2026</span></li><li><span>Lecturer, IED Madrid</span><span>2026 —</span></li><li><span>Mentor, LCC (UAL)</span><span>2026 —</span></li></ul>
+<ul class="clean roles"><li><span>Founder &amp; CEO, Aletheai</span><span>2024 —</span></li><li><span>Founder &amp; CEO, Monogram</span><span>2014 —</span></li><li><span>Chief AI Officer, on contract</span><span>From Jan 2027</span></li><li><span>Lecturer, IED Madrid</span><span>2026 —</span></li><li><span>Mentor, LCC (UAL)</span><span>2026 —</span></li></ul>
 <h4 class="lab" style="margin:28px 0 14px">Memberships</h4>
 <ul class="clean"><li>FRSA · Royal Society of Arts Fellow</li><li>AFHEA · Higher Education Academy Associate</li><li>ILM Level 3 Leadership</li><li>CREATE Ambassador</li></ul>
 <h4 class="lab" style="margin:28px 0 14px">Resources</h4>
