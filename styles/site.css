@@ -47,7 +47,7 @@ background:var(--ink);color:#fff;border:1px solid var(--ink);white-space:nowrap}
 .door .lab{margin-bottom:10px}.door h3{margin-bottom:6px}.door p{margin:0;color:var(--body-ink);font-size:15px}
 .door .go{display:block;margin-top:14px;font-weight:600;color:var(--purple)}
 /* grids + cards */
-.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.g2x{grid-template-columns:1fr 1fr}@media(max-width:720px){.g2x{grid-template-columns:1fr}}
 .card{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:#fff;display:flex;flex-direction:column;gap:10px;min-width:0}
 .card.tint{background:var(--lilac)}.card.dark{background:var(--deep);color:#DDD6F6;border-color:transparent}
 .card.dark h3,.card.dark strong{color:#fff}.card.dark .lab{color:var(--pop)}.card.dark a{color:#fff}
@@ -77,8 +77,8 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:now
 ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}ul.clean li{padding-left:18px;position:relative}
 ul.clean li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--violet)}
 .yes li::before{background:#2E8B57}.no li::before{background:var(--coral)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--rs);overflow:hidden}
-.facts div{background:#fff;padding:18px}.facts .lab{margin-bottom:6px}.facts b{font-size:17px;color:var(--ink);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--rs);overflow:hidden}
+.facts div{background:#fff;padding:18px}.facts .lab{display:block;margin-bottom:6px}@media(max-width:860px){.facts{grid-template-columns:1fr 1fr}}@media(max-width:480px){.facts{grid-template-columns:1fr}}.facts b{font-size:17px;color:var(--ink);font-weight:600}
 /* channels */
 .chan{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .chan a{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:var(--rs);color:var(--ink)}

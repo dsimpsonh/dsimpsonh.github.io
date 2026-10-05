@@ -24,7 +24,7 @@ SITE = {
     "name":     "Diana Simpson-Hernandez",
     "short":    "DSH",
     "email":    "dianasimpsonhernandez@gmail.com",
-    "tagline":  "I design the decision layer.",
+    "tagline":  "Decisions a business will act on — and can defend.",
     "locale":   "en_GB",
     # Umami Cloud (free): one website covers both hosts. Paste the Website ID from cloud.umami.is → Settings → Websites.
     # Leave empty and NO analytics script is emitted — nothing ships half-configured.
@@ -34,15 +34,14 @@ SITE = {
 LIB = "https://frameworks.dianasimpsonhernandez.com"
 
 CONTRACT = {
-    "availability": "Available now",
-    "day_rate": "£650–850",
-    "ir35": "Outside — via DiSH Creative Ltd",
-    "pattern": "2–4 days a week · 2–6 months",
-    "location": "London · remote-first",
+    "availability": "From October 2026",
+    "roles": "Chief AI Officer (contract or fractional) · Head of AI · AI strategy lead",
+    "pattern": "2–4 days a week, or interim",
+    "location": "London · hybrid or remote",
     "right_to_work": "UK (no sponsorship needed)",
     "languages": "English · Spanish",
-    "cv": "/assets/dsh-contract-cv.pdf",           # 2-page ATS-safe contract CV (DOCX beside it)
-    "cv_docx": "/assets/dsh-contract-cv.docx",
+    "cv": "/assets/dsh-caio-cv.pdf",               # 2-page ATS-safe CAIO / strategy CV (DOCX beside it). No rate on the site: discussed on a call.
+    "cv_docx": "/assets/dsh-caio-cv.docx",
     "cv_full": "/assets/diana_simpson-hernandez_CV.pdf",   # 8-page portfolio CV for bio + speaking
 }
 
@@ -90,15 +89,15 @@ METHODS = [
     {"slug": "lever", "name": "LEVER", "unit": "The unit is a decision",
      "line": "Align the goal. Expose the friction. Sequence the fix.",
      "prop": "For operations businesses that have bought AI and can't prove it worked. LEVER prices the friction in every recurring decision, then builds the one tool that recovers it — in the one sequence that doesn't break something downstream.",
-     "url": f"{LIB}/lever/", "fee": "Diagnostic £32,000 · Build from £45,000"},
+     "url": f"{LIB}/lever/", "fee": "Scan · Diagnostic (4 weeks) · Build (6–10 weeks)"},
     {"slug": "recall", "name": "RECALL", "unit": "The unit is a question",
      "line": "Ask first. Score the corpus. Earn the right to build.",
      "prop": "A retrieval system cannot be better than the corpus it retrieves from — and nobody measures the corpus before quoting the build. RECALL does, in four to five weeks, and will recommend against building if the numbers say so.",
-     "url": f"{LIB}/recall/", "fee": "Diagnostic £34,000 · Build from £55,000"},
+     "url": f"{LIB}/recall/", "fee": "Scan · Diagnostic (4–5 weeks) · Remediation · Build · Run"},
     {"slug": "stake", "name": "STAKE", "unit": "The unit is a revenue stream",
      "line": "I build it. I run it. You sell it.",
-     "prop": "For a business that owns a vertical and needs a product it can't build. I build and run it on a royalty plus a service fee; you keep around 82% and sell to the market you already stand in.",
-     "url": f"{LIB}/stake/", "fee": "Royalty 5–18% · Service fee 3–12%"},
+     "prop": "For a business that owns a vertical and needs a product it can't build. I build and run it on a royalty plus a service fee; you keep the majority and sell to the market you already stand in.",
+     "url": f"{LIB}/stake/", "fee": "Royalty plus service fee · revenue ledger per deal"},
 ]
 
 FREE = [  # free resources — the library
@@ -192,7 +191,7 @@ background:var(--ink);color:#fff;border:1px solid var(--ink);white-space:nowrap}
 .door .lab{margin-bottom:10px}.door h3{margin-bottom:6px}.door p{margin:0;color:var(--body-ink);font-size:15px}
 .door .go{display:block;margin-top:14px;font-weight:600;color:var(--purple)}
 /* grids + cards */
-.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.g2x{grid-template-columns:1fr 1fr}@media(max-width:720px){.g2x{grid-template-columns:1fr}}
 .card{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:#fff;display:flex;flex-direction:column;gap:10px;min-width:0}
 .card.tint{background:var(--lilac)}.card.dark{background:var(--deep);color:#DDD6F6;border-color:transparent}
 .card.dark h3,.card.dark strong{color:#fff}.card.dark .lab{color:var(--pop)}.card.dark a{color:#fff}
@@ -222,8 +221,8 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:now
 ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}ul.clean li{padding-left:18px;position:relative}
 ul.clean li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--violet)}
 .yes li::before{background:#2E8B57}.no li::before{background:var(--coral)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--rs);overflow:hidden}
-.facts div{background:#fff;padding:18px}.facts .lab{margin-bottom:6px}.facts b{font-size:17px;color:var(--ink);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--rs);overflow:hidden}
+.facts div{background:#fff;padding:18px}.facts .lab{display:block;margin-bottom:6px}@media(max-width:860px){.facts{grid-template-columns:1fr 1fr}}@media(max-width:480px){.facts{grid-template-columns:1fr}}.facts b{font-size:17px;color:var(--ink);font-weight:600}
 /* channels */
 .chan{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .chan a{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:var(--rs);color:var(--ink)}
@@ -255,7 +254,7 @@ footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,
 # ─────────────────────────────────────────────────────────────────────────────
 # SHARED CHROME
 # ─────────────────────────────────────────────────────────────────────────────
-NAV = [("/work-with-me/", "Work with me"), ("/learn/", "Learn"), (f"{LIB}/", "Frameworks"), ("/speaking/", "Speaking"), ("/#bio", "Bio")]
+NAV = [("/contract/", "Contract"), ("/work-with-me/", "Work with me"), ("/learn/", "Learn"), (f"{LIB}/", "Frameworks"), ("/speaking/", "Speaking"), ("/#bio", "Bio")]
 
 def analytics() -> str:
     wid = SITE.get("umami_website_id", "").strip()
@@ -334,7 +333,7 @@ def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
 <footer><div class="wrap">
 <div class="cols">
 <div><p class="big">Designing the systems where <em class="grad">signal becomes decision</em>.</p>
-<p style="font-size:14px;max-width:38ch">Founder &amp; CEO, Aletheai. Fractional Chief AI Officer. Educator. FRSA · AFHEA.</p></div>
+<p style="font-size:14px;max-width:38ch">Founder &amp; CEO, Aletheai. Chief AI Officer on contract. Educator. FRSA · AFHEA.</p></div>
 <div><h4>Site</h4><ul>{site_links}</ul></div>
 <div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Frameworks</a></li>'}<li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li><li><a href="https://standoutpodcast.com" target="_blank" rel="noopener">Stand Out</a></li></ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
@@ -369,7 +368,7 @@ PERSON = {
     "@type": "Person", "@id": SITE["domain"] + "/#person",
     "name": "Diana Simpson-Hernandez", "alternateName": "Diana Simpson Hernandez",
     "url": SITE["domain"] + "/", "image": SITE["domain"] + "/assets/dshlogo.png",
-    "jobTitle": "Founder & CEO, Aletheai · Fractional Chief AI Officer",
+    "jobTitle": "Founder & CEO, Aletheai · Chief AI Officer (contract) · AI product strategy",
     "description": "Founder of Aletheai, a patent-pending behavioural decision-intelligence engine. Fractional Chief AI Officer, educator at IED Madrid and LCC (UAL), FRSA.",
     "email": "mailto:" + SITE["email"],
     "knowsLanguage": ["en", "es"],
@@ -449,32 +448,40 @@ def testimonial_block():
 
 def body_home():
     doors = f"""<section class="tight" id="doors"><div class="wrap"><div class="doors">
-{A('/work-with-me/', '<span class="lab">Buying a project</span><h3>Work with me</h3><p>Fixed-fee diagnostics and builds. LEVER, RECALL and STAKE — methods you can read before you hire me.</p><span class="go">See the methods and fees →</span>', 'door', 'cta_click', kind='work-with-me', position='doors')}
-{A('/learn/', '<span class="lab">Learning to build</span><h3>Learn</h3><p>Free frameworks, the YouTube channel, and the paid courses on Skool — from a £39 masterclass to a shipped product.</p><span class="go">Courses and free resources →</span>', 'door', 'cta_click', kind='learn', position='doors')}
-{A('/contract/', '<span class="lab">Hiring on contract</span><h3>Contract</h3><p>Day-rate work inside your company: AI adoption, strategy, governance, enablement. Facts first, then the fit.</p><span class="go">Availability and rate →</span>', 'door', 'cta_click', kind='contract', position='doors')}
+{A('/contract/', '<span class="lab">Hiring a Chief AI Officer</span><h3>Contract &amp; strategy</h3><p>Chief AI Officer, Head of AI or strategy lead inside your company — contract, fractional or interim. What to build, buy or leave alone, and how to make it defensible.</p><span class="go">Availability and fit →</span>', 'door', 'cta_click', kind='contract', position='doors')}
+{A('/work-with-me/', '<span class="lab">Buying a project</span><h3>Work with me</h3><p>Scoped diagnostics and builds. LEVER, RECALL and STAKE — methods you can read before you hire me.</p><span class="go">See the methods →</span>', 'door', 'cta_click', kind='work-with-me', position='doors')}
+{A('/learn/', '<span class="lab">Learning to build</span><h3>Learn</h3><p>Free frameworks, the YouTube channel, and the courses on Skool — from a masterclass to a shipped product.</p><span class="go">Courses and free resources →</span>', 'door', 'cta_click', kind='learn', position='doors')}
 </div></div></section>"""
     stats = """<div class="stats">
 <div class="stat"><b class="num">4</b><span>ventures founded or co-founded across AI, publishing, clean-tech and design</span></div>
-<div class="stat"><b class="num">2</b><span>patents — granted (US) and pending (UK)</span></div>
+<div class="stat"><b class="num">3</b><span>patents — one granted (US), two applications pending (behavioural decision intelligence; governing agent automations)</span></div>
 <div class="stat"><b class="num">2</b><span>London Design Award Golds</span></div>
 <div class="stat"><b class="num">250K+</b><span>members on platforms I've led design for</span></div></div>"""
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
 <div class="eyebrow"><span class="lab">Vol. 02 / 2026</span><span class="lab">London · Texas</span><span class="lab">FRSA · AFHEA · CREATE Ambassador</span></div>
-<h1>I design the <em>decision layer</em>.</h1>
-<p class="sub">Founder &amp; CEO of Aletheai, a patent-pending behavioural decision-intelligence engine. I build AI systems, I consult on the decisions they should improve, and I teach operators to ship their own — in public, with methods you can check before you pay for them.</p>
-<div class="row">{A('/work-with-me/', 'Work with me', 'btn', 'cta_click', kind='work-with-me', position='hero')}{A('/learn/', 'Learn to build', 'btn ghost', 'cta_click', kind='learn', position='hero')}{A(utm(CH['youtube'][2],'hero','youtube'), 'Watch on YouTube', 'btn ghost', 'channel_click', channel='youtube', position='hero')}</div>
+<h1 style="max-width:14ch">AI decisions you can <em>act on and defend</em>.</h1>
+<p class="sub">Founder of Aletheai, a patent-pending behavioural decision-intelligence company, and Chief AI Officer on contract. I decide what to build, buy or leave alone; I make what ships honest about what it knows; and I write the methods down so you can check them before you hire me.</p>
+<div class="row">{A('/contract/', 'Hire me as Chief AI Officer', 'btn', 'cta_click', kind='contract', position='hero')}{A('/work-with-me/', 'Work with me on a project', 'btn ghost', 'cta_click', kind='work-with-me', position='hero')}{A('#ip', 'The original work ↓', 'btn ghost', 'cta_click', kind='ip', position='hero')}</div>
 </div></section>
 {doors}
 <section id="what"><div class="wrap">
-<div class="sh"><span class="lab">What I do</span><h2>Three things, <em>one discipline</em>.</h2><p class="lede">Data has no value. Decisions have value. Everything below is about making a specific decision measurably better — in a product, in a company, or in the person building one.</p></div>
+<div class="sh"><span class="lab">What I do</span><h2>Three things, <em>one discipline</em>.</h2><p class="lede">Data has no value. Decisions have value. Everything below is about making a specific decision measurably better — and defensible afterwards — in a product, in a company, or in the person building one.</p></div>
 <div class="grid g3">
-<div class="card"><span class="lab">Build</span><h3>Aletheai</h3><p>The UK's first multi-signal behavioural prediction engine for estate agents. Patent-pending. In pilot with Alto (Zoopla Group).</p><div class="foot">{A('https://aletheai.ai','aletheai.ai →','', 'cta_click', kind='aletheai')}</div></div>
-<div class="card"><span class="lab">Consult</span><h3>Decision diagnostics</h3><p>Three published methods — LEVER, RECALL, STAKE — each with a paid diagnostic that can recommend against building. Fixed fees, engine-neutral, no day rate.</p><div class="foot">{A('/work-with-me/','Methods and fees →','', 'cta_click', kind='work-with-me', position='what')}</div></div>
+<div class="card"><span class="lab">Build</span><h3>Aletheai</h3><p>Behavioural decision intelligence: who to act on next, why, and what to say — and an honest refusal where the evidence runs out. Patent pending. Launching through the Alto (Zoopla Group) marketplace.</p><div class="foot">{A('https://aletheai.ai','aletheai.ai →','', 'cta_click', kind='aletheai')}</div></div>
+<div class="card"><span class="lab">Advise</span><h3>Chief AI Officer &amp; strategy</h3><p>Inside your company on contract: AI strategy, governance and adoption. Three published methods — LEVER, RECALL, STAKE — each able to recommend against building.</p><div class="foot">{A('/contract/','Hire me →','', 'cta_click', kind='contract', position='what')}</div></div>
 <div class="card"><span class="lab">Teach</span><h3>Courses and community</h3><p>Lecturer at IED Madrid, mentor at LCC (UAL), and the REWIRED community on Skool — where non-engineers learn to ship real software with AI.</p><div class="foot">{A('/learn/','Learn →','', 'cta_click', kind='learn', position='what')}</div></div>
 </div></div></section>
+<section id="ip"><div class="wrap">
+<div class="sh"><span class="lab">Original work</span><h2>Two patent applications. <em>One principle.</em></h2><p class="lede">A machine decision is only worth the hours it redirects, and it is only followed if it is honest about where it cannot see. Everything I have filed, built or published comes from that.</p></div>
+<div class="grid g2x">
+<div class="card"><span class="lab">Patent application 1 · international (PCT), 2026</span><h3>Behavioural decision intelligence</h3><p>An engine that reads behavioural signals from the systems a business already runs, ranks who or what deserves attention by the evidence rather than a score over everything, attaches a plain-English reason and next action to every item — and refuses to rank where the evidence is insufficient, with the refusal recorded. Its behavioural archetypes live in a fixed, versioned library that changes only at signed releases, never silently in production.</p></div>
+<div class="card"><span class="lab">Patent application 2 · UK, 2026</span><h3>Governing agent automations</h3><p>Action gating for AI agents: every act an agent takes passes through a gate the agent cannot reach, is registered before it happens, and must be justified by evidence the agent did not write. Refusals are recorded. The gate uses no model — deterministic, replayable, zero marginal inference cost. Governance of machine conduct, not machine thought.</p></div>
+<div class="card tint"><span class="lab">Missingness and refusal</span><h3>Knowing what you don't know</h3><p>With the STFC Hartree Centre feasibility study I designed the data strategy for proving the engine on real human-behaviour datasets, including a method for decomposing why data is missing before trusting a model on it. The honest-refusal principle grew out of that work. A further filing is in preparation on what a system should do after it refuses.</p></div>
+<div class="card tint"><span class="lab">Methods, published</span><h3>LEVER · RECALL · STAKE · FLYWHEEL · Vibecoding · Design Poiesis</h3><p>Decision diagnostics, corpus readiness, product partnerships, the eight-dimension venture diagnostic, non-engineers shipping with AI coding agents — and Design Poiesis (working name), a method for designers working with AI: five moves between two rails, every insight carrying its trail from grounds to claim.</p><div class="foot">{A(LIB + '/', 'Open the library →', '', 'framework_open', framework='library')}</div></div>
+</div></div></section>
 <section id="methods"><div class="wrap">
-<div class="sh"><span class="lab">Methods</span><h2>Read the method <em>before</em> you hire me.</h2><p class="lede">Nobody sends a consultant's method ahead of the consultant. These are published in full — instruments, equations, gates and prices — so you can check the reasoning before the first call.</p></div>
+<div class="sh"><span class="lab">Methods</span><h2>Read the method <em>before</em> you hire me.</h2><p class="lede">Nobody sends a consultant's method ahead of the consultant. These are published in full — instruments, equations and gates — so you can check the reasoning before the first call.</p></div>
 <div class="grid g3">{methods_cards()}</div>
 <p style="margin-top:18px;font-size:15px;color:var(--muted)">Routing question, asked in the first meeting: <em style="color:var(--ink)">“When this goes wrong, is it because someone chose badly, or because someone couldn't find out?”</em> Chose badly → LEVER. Couldn't find out → RECALL. Neither, but you own a vertical → STAKE.</p>
 </div></section>
@@ -490,7 +497,7 @@ def body_home():
 <div class="sh"><span class="lab">The work</span><h2>Ventures, bodies of work, <em>output</em>.</h2></div>
 {stats}
 <div class="grid g2" style="margin-top:18px">
-<div class="card"><span class="lab">№ 01 · Shipping</span><h3>Aletheai</h3><p>Patent-pending decision intelligence for PropTech. Pilot with Alto (Zoopla Group). 10,000+ agent distribution pathway.</p><div class="foot"><a href="https://aletheai.com" target="_blank" rel="noopener">Visit aletheai.com →</a></div></div>
+<div class="card"><span class="lab">№ 01 · Shipping</span><h3>Aletheai</h3><p>Patent-pending behavioural decision intelligence. First market: UK estate agencies, launching through the Alto (Zoopla Group) marketplace. Feasibility study with the STFC Hartree Centre; backed by RTC North.</p><div class="foot"><a href="https://aletheai.ai" target="_blank" rel="noopener">Visit aletheai.ai →</a></div></div>
 <div class="card"><span class="lab">№ 02 · Open</span><h3>Open Frameworks</h3><p>An open library of frameworks, methods and case studies distilled from fifteen years of building. Versioned. Forkable.</p><div class="foot"><a href="{LIB}/">Browse the library →</a></div></div>
 <div class="card"><span class="lab">№ 03 · 2014 —</span><h3>Monogram Publishers</h3><p>Independent publishing for the creator-entrepreneur economy. Books, podcasts and digital content. Home of the Stand Out podcast.</p><div class="foot"><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Visit Monogram →</a></div></div>
 <div class="card"><span class="lab">№ 04 · 2022</span><h3>The Art of Getting Stuff Done</h3><p>Fifteen strategies to integrate into your life, accomplish your goals and achieve success. Amazon paperback, Monogram Publishers.</p><div class="foot"><a href="https://www.amazon.com/dp/B09Z6DVXQB" target="_blank" rel="noopener">Read on Amazon →</a></div></div>
@@ -508,48 +515,48 @@ def body_home():
 <p style="margin-top:22px">{A('/speaking/', 'Book a talk or a workshop →', 'btn ghost', 'cta_click', kind='speaking', position='teaching')}</p>
 </div></section>
 <section id="bio"><div class="wrap"><div class="two">
-<div class="prose"><div class="sh"><span class="lab">Long bio</span><h2>15 years · 4 ventures · <em>2 patents</em>.</h2></div>
+<div class="prose"><div class="sh"><span class="lab">Long bio</span><h2>15 years · 4 ventures · <em>3 patents</em>.</h2></div>
 <p>I work at the seam where emerging technology meets commercial outcome — and where decisions become reality.</p>
-<p>Today I'm Founder &amp; CEO of <strong>Aletheai</strong>, building the UK's first patent-pending, multi-signal behavioural prediction engine for estate agents. We've secured a strategic partnership and live pilot with Alto (Zoopla Group), unlocking distribution to 10,000+ agents.</p>
+<p>Today I'm Founder &amp; CEO of <strong>Aletheai</strong>, a patent-pending behavioural decision-intelligence company: it tells a team who to act on next, why, and what to say — and says so when the evidence isn't there. Two patent applications (the engine, and the governance of AI agents' actions), a feasibility study with the STFC Hartree Centre, and a first market in UK estate agencies, launching through the Alto (Zoopla Group) marketplace. Alongside it I work inside other companies as a Chief AI Officer on contract.</p>
 <p>Before Aletheai I built three other ventures — <strong>Monogram Publishers</strong> (independent publishing, founded 2014), <strong>Shake Your Power</strong> (clean-tech education, which I co-founded; US patent, two London Design Award Golds) and <strong>Glass Lab / Trash Surface Bureau</strong> (sustainable design, FRAME Magazine feature). I led design teams of 12+ at Slimming World's 250K-member platform, served as Senior Lecturer at Nottingham Trent University, and have lectured, judged, mentored and exhibited internationally — including at the V&amp;A, Royal College of Art, European Commission and London College of Communication.</p>
 <p>I'm a Fellow of the Royal Society of Arts, Associate Fellow of the Higher Education Academy and Education Ambassador for CREATE. I write on Substack, teach on YouTube and Skool, and my playbook lives on Amazon.</p></div>
 <div>
 <h4 class="lab" style="margin:0 0 14px">Roles</h4>
-<ul class="clean roles"><li><span>Founder &amp; CEO, Aletheai</span><span>2024 —</span></li><li><span>Founder &amp; CEO, Monogram</span><span>2014 —</span></li><li><span>Fractional Chief AI Officer</span><span>Available</span></li><li><span>Lecturer, IED Madrid</span><span>2026 —</span></li><li><span>Mentor, LCC (UAL)</span><span>2026 —</span></li></ul>
+<ul class="clean roles"><li><span>Founder &amp; CEO, Aletheai</span><span>2024 —</span></li><li><span>Founder &amp; CEO, Monogram</span><span>2014 —</span></li><li><span>Chief AI Officer, on contract</span><span>From Oct 2026</span></li><li><span>Lecturer, IED Madrid</span><span>2026 —</span></li><li><span>Mentor, LCC (UAL)</span><span>2026 —</span></li></ul>
 <h4 class="lab" style="margin:28px 0 14px">Memberships</h4>
 <ul class="clean"><li>FRSA · Royal Society of Arts Fellow</li><li>AFHEA · Higher Education Academy Associate</li><li>ILM Level 3 Leadership</li><li>CREATE Ambassador</li></ul>
 <h4 class="lab" style="margin:28px 0 14px">Resources</h4>
 <ul class="clean"><li>{A(CONTRACT['cv_full'], 'Download CV (PDF) ↓', '', 'cta_click', kind='cv', position='bio')}</li><li><a href="https://linkedin.com/in/dianasimpson" target="_blank" rel="noopener">LinkedIn ↗</a></li><li><a href="https://github.com/dsimpsonh" target="_blank" rel="noopener">GitHub ↗</a></li></ul>
 </div></div></div></section>
 <section id="contact" class="tight"><div class="wrap"><div class="card dark" style="align-items:flex-start">
-<span class="lab">Contact</span><h3 style="font-size:clamp(26px,3vw,38px)">Need a Fractional CAIO, a diagnostic, or a speaker?</h3>
-<p>Aletheai pilots, AI advisory, board-level strategy, guest lectures — one email, and I'll tell you in a paragraph whether I'm the right person.</p>
+<span class="lab">Contact</span><h3 style="font-size:clamp(26px,3vw,38px)">Need a Chief AI Officer, a diagnostic, or a speaker?</h3>
+<p>AI strategy and governance inside your company, a scoped diagnostic, a board session, a guest lecture — one email, and I'll tell you in a paragraph whether I'm the right person.</p>
 <div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email'], 'Email me →', 'btn coral', 'email_click', position='contact')}{A('https://linkedin.com/in/dianasimpson', 'LinkedIn →', 'btn ghost', 'channel_click', channel='linkedin', position='contact')}</div>
 </div></div></section>
 """
 
 def body_work():
     ladder = [
-        ("Friction Teardown", "Free", "30-minute call. I tell you which method fits, or that neither does."),
-        ("Product & Portfolio Review", "£750", "One product or portfolio, one written verdict, one call."),
-        ("AI Working Session", "£1,950", "Half-day with your leadership team on one decision."),
-        ("AI for Leaders", "£3,500", "One-day executive session: what to build, buy, or leave alone."),
-        ("Build Without Permission", "£8,500", "Four sessions taking one operator from idea to shipped internal tool. £7,000 repeat."),
-        ("The Scan", "£6,500", "Two-week pre-diagnostic. Credited in full against any diagnostic below."),
-        ("LEVER Diagnostic", "£32,000", "Four weeks. Goal Ladder, Decision Blueprint, Friction Index, Leverage Equation, sequenced plan."),
-        ("RECALL Diagnostic", "£34,000", "Four to five weeks. Question Ledger, Corpus Condition Index, gold set, Answerability Equation."),
-        ("Programme Diagnostic", "£55,000", "Both methods across one operation, one plan."),
-        ("Corpus Remediation", "from £28,000", "The RECALL finding turned into a purchase order rather than an apology."),
-        ("LEVER Build", "from £45,000", "12–18% of L£. The one tool the diagnostic priced."),
-        ("RECALL Build", "from £55,000", "16–24% of A£. Retrieval people can rely on."),
-        ("Run retainer", "from £5,500 /mo", "Monitoring, drift, quarterly regression, published quality report."),
+        ("Friction Teardown", "30 min · free", "A call. I tell you which method fits, or that neither does."),
+        ("Product & Portfolio Review", "1 week", "One product or portfolio, one written verdict, one call."),
+        ("AI Working Session", "Half day", "Your leadership team on one decision."),
+        ("AI for Leaders", "One day", "Executive session: what to build, buy, or leave alone."),
+        ("Build Without Permission", "4 sessions", "One operator from idea to shipped internal tool."),
+        ("The Scan", "5 days", "Pre-diagnostic. Credited against the diagnostic it leads to."),
+        ("LEVER Diagnostic", "4 weeks", "Goal Ladder, Decision Blueprint, Friction Index, Leverage Equation, sequenced plan."),
+        ("RECALL Diagnostic", "4–5 weeks", "Question Ledger, Corpus Condition Index, gold set, Answerability Equation."),
+        ("Programme Diagnostic", "7–9 weeks", "Both methods across one operation, one plan."),
+        ("Corpus Remediation", "4–8 weeks", "The RECALL finding turned into a purchase order rather than an apology."),
+        ("LEVER Build", "6–10 weeks", "The one tool the diagnostic prioritised, end to end."),
+        ("RECALL Build", "8–14 weeks", "Retrieval people can rely on: cited answers with abstention."),
+        ("Run", "12 months", "Monitoring, drift, quarterly regression, published quality report."),
     ]
-    rows = "".join(f"<tr><td><strong>{n}</strong></td><td class=\"num\">{p}</td><td>{d}</td></tr>" for n, p, d in ladder)
+    rows = "".join(f"<tr><td><strong>{n}</strong></td><td>{p}</td><td>{d}</td></tr>" for n, p, d in ladder)
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
 <span class="lab">Work with me · buying a project</span>
-<h1 style="margin-top:14px">Fixed fees. Published methods. <em>No day rate.</em></h1>
-<p class="sub">Every engagement starts with a paid diagnostic that can recommend against building — which is exactly why clients say yes to it. The methods are public, so you can check the reasoning before the first call.</p>
+<h1 style="margin-top:14px">Published methods. <em>Scoped engagements.</em></h1>
+<p class="sub">Every engagement starts with a diagnostic that can recommend against building — which is exactly why clients say yes to it. The methods are public, so you can check the reasoning before the first call; each engagement is scoped and quoted after it.</p>
 <div class="row">{A('mailto:'+SITE['email']+'?subject=Friction%20Teardown', 'Book the free Friction Teardown', 'btn', 'email_click', position='work-hero')}{A('/contract/', 'Hiring on contract instead? →', 'btn ghost', 'cta_click', kind='contract', position='work-hero')}</div>
 </div></section>
 <section id="methods"><div class="wrap">
@@ -557,8 +564,8 @@ def body_work():
 <div class="grid g3">{methods_cards()}</div>
 </div></section>
 <section id="fees"><div class="wrap">
-<div class="sh"><span class="lab">Fees</span><h2>The <em>ladder</em>.</h2><p class="lede">Start anywhere. Everything above the Scan is credited against the diagnostic it leads to. Prices exclude VAT.</p></div>
-<div class="tbl"><table><thead><tr><th>Engagement</th><th class="num">Fee</th><th>What you get</th></tr></thead><tbody>{rows}</tbody></table></div>
+<div class="sh"><span class="lab">Engagements</span><h2>The <em>ladder</em>.</h2><p class="lede">Start anywhere. Each step is scoped so you can stop after it with something signed and usable. Ask for a proposal and you'll have one within a week.</p></div>
+<div class="tbl"><table><thead><tr><th>Engagement</th><th>Duration</th><th>What you get</th></tr></thead><tbody>{rows}</tbody></table></div>
 </div></section>
 <section id="guards"><div class="wrap"><div class="two">
 <div class="prose"><div class="sh"><span class="lab">Guarantees</span><h2>What every engagement <em>holds to</em>.</h2></div>
@@ -580,27 +587,27 @@ def body_work():
 def body_contract():
     c = CONTRACT
     facts = "".join(f'<div><span class="lab">{k}</span><b>{v}</b></div>' for k, v in [
-        ("Availability", c["availability"]), ("Day rate", c["day_rate"]), ("IR35", c["ir35"]), ("Pattern", c["pattern"]),
-        ("Location", c["location"]), ("Right to work", c["right_to_work"]), ("Delivery languages", c["languages"]), ("Company", "DiSH Creative Ltd (UK)")])
+        ("Availability", c["availability"]), ("Roles", c["roles"]), ("Pattern", c["pattern"]), ("Location", c["location"]),
+        ("Right to work", c["right_to_work"]), ("Delivery languages", c["languages"]), ("Company", "DiSH Creative Ltd (UK)"), ("Terms", "Discussed on a call")])
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
-<span class="lab">Contract · hiring inside your company</span>
+<span class="lab">Contract · Chief AI Officer &amp; AI strategy</span>
 <h1 style="margin-top:14px">The answers to your <em>first message</em>, first.</h1>
-<p class="sub">Day-rate work inside other people's companies. Below is what a recruiter or hiring manager asks in the first email, answered before you send it.</p>
+<p class="sub">Chief AI Officer, Head of AI or AI strategy lead inside your company — contract, fractional or interim. Below is what a recruiter or hiring manager asks in the first email, answered before you send it.</p>
 </div></section>
 <section class="tight" style="border-top:0"><div class="wrap"><div class="facts">{facts}</div>
-<p style="margin-top:14px;font-size:14px;color:var(--muted)">Prices are for contract roles only. Project work is priced as fixed-fee diagnostics on {A('/work-with-me/','the work-with-me page')} and never as a day rate.</p></div></section>
+<p style="margin-top:14px;font-size:14px;color:var(--muted)">Project work — a scoped diagnostic or build — lives on {A('/work-with-me/','the work-with-me page')}. This page is for a role inside your team.</p></div></section>
 <section id="roles"><div class="wrap">
 <div class="sh"><span class="lab">Role shapes</span><h2>Four shapes I take. <em>One I don't.</em></h2></div>
 <div class="grid g2">
-<div class="card"><span class="lab">01</span><h3>AI adoption &amp; change</h3><p>Taking a team from “we bought the licence” to “we can show the board which decision got better, and by how much”.</p></div>
-<div class="card"><span class="lab">02</span><h3>AI strategy</h3><p>Fractional Chief AI Officer. What to build, buy or leave alone — with the Leverage Equation applied to your own backlog.</p></div>
-<div class="card"><span class="lab">03</span><h3>Governance &amp; assurance</h3><p>Decision ledgers, gold sets, trust discounts. The evidence trail that lets an AI system survive an audit.</p></div>
-<div class="card"><span class="lab">04</span><h3>Literacy &amp; enablement</h3><p>Teaching operators to ship their own tools. Curriculum, workshops, and the Vibecoding protocol inside your company.</p></div>
+<div class="card"><span class="lab">01</span><h3>Chief AI Officer &amp; strategy</h3><p>What to build, buy or leave alone, priced at the decision level; roadmap, operating model, pilot design, vendor and model selection — with the Leverage Equation applied to your own backlog.</p></div>
+<div class="card"><span class="lab">02</span><h3>Governance &amp; assurance</h3><p>What a system may infer, say and do about people; evidence-ranked priority and honest refusal; the decision record, DPIA-ready evidence trails, model evaluation, agent action gating — the practice behind two patent applications.</p></div>
+<div class="card"><span class="lab">03</span><h3>AI adoption &amp; change</h3><p>Taking a team from “we bought the licence” to “we can show the board which decision got better, and by how much” — sequenced so nothing breaks downstream.</p></div>
+<div class="card"><span class="lab">04</span><h3>Training &amp; enablement</h3><p>In-house AI training that gets teams shipping: Vibecoding workshops for non-engineers, AI-in-the-workflow sessions, board and ExCo briefings, curriculum for product, design and leadership teams.</p></div>
 </div>
 <div class="grid g2" style="margin-top:18px">
-<div class="card tint"><span class="lab">A brief is a fit if</span><ul class="clean yes"><li>The outcome is a decision that gets measurably better</li><li>There is data with recorded outcomes, or a corpus someone needs answers from</li><li>A named sponsor owns the result</li><li>2–4 days a week, 2–6 months, outside IR35</li></ul></div>
-<div class="card tint"><span class="lab">It is not a fit if</span><ul class="clean no"><li>The role is pure ML engineering with no decision owner</li><li>The deliverable is a slide deck about AI, with nothing to ship</li><li>It's inside IR35, five days a week, or open-ended</li><li>It's in property or wealth management</li></ul></div>
+<div class="card tint"><span class="lab">A brief is a fit if</span><ul class="clean yes"><li>The outcome is a decision that gets measurably better</li><li>There is data with recorded outcomes, or a corpus someone needs answers from</li><li>A named sponsor owns the result</li><li>Contract, fractional or interim — 2–4 days a week</li></ul></div>
+<div class="card tint"><span class="lab">It is not a fit if</span><ul class="clean no"><li>The role is pure ML engineering with no decision owner</li><li>The deliverable is a slide deck about AI, with nothing to ship</li><li>It's five days a week in the office, or open-ended with no sponsor</li><li>It's in property or wealth management</li></ul></div>
 </div></div></section>
 <section id="thirty"><div class="wrap"><div class="two">
 <div class="prose"><div class="sh"><span class="lab">First thirty days</span><h2>The method, <em>applied in-house</em>.</h2></div>
@@ -614,7 +621,7 @@ def body_contract():
 </div></div></div></section>
 <section id="contact" class="tight"><div class="wrap"><div class="card tint" style="align-items:flex-start">
 <span class="lab">Next step</span><h3>Send the brief. I reply within one working day with a yes, a no, or the question that decides it.</h3>
-<div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email']+'?subject=Contract%20brief', 'Send a brief →', 'btn', 'email_click', position='contract')}{A(c['cv'], 'Contract CV (PDF) ↓', 'btn ghost', 'cta_click', kind='cv', position='contract')}{A(c['cv_docx'], 'Word version ↓', 'btn ghost', 'cta_click', kind='cv-docx', position='contract')}{A('https://linkedin.com/in/dianasimpson', 'LinkedIn →', 'btn ghost', 'channel_click', channel='linkedin', position='contract')}</div>
+<div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email']+'?subject=Contract%20brief', 'Send a brief →', 'btn', 'email_click', position='contract')}{A(c['cv'], 'CV — Chief AI Officer (PDF) ↓', 'btn ghost', 'cta_click', kind='cv', position='contract')}{A(c['cv_docx'], 'Word version ↓', 'btn ghost', 'cta_click', kind='cv-docx', position='contract')}{A('https://linkedin.com/in/dianasimpson', 'LinkedIn →', 'btn ghost', 'channel_click', channel='linkedin', position='contract')}</div>
 </div></div></section>
 """
 
@@ -781,23 +788,23 @@ def build_hold():
 # ─────────────────────────────────────────────────────────────────────────────
 PAGES = [
     {"slug": "home", "path": "/", "file": "index.html", "nav": "/",
-     "title": "Diana Simpson-Hernandez — AI decision intelligence",
-     "og_title": "I design the decision layer.",
-     "description": "Founder of Aletheai. Fixed-fee AI diagnostics (LEVER, RECALL, STAKE), courses for non-engineers who ship software with AI, and an open framework library.",
+     "title": "Diana Simpson-Hernandez — Chief AI Officer · behavioural decision intelligence",
+     "og_title": "AI decisions you can act on and defend.",
+     "description": "Founder of Aletheai (patent pending) and Chief AI Officer on contract. AI product strategy and governance, published methods (LEVER, RECALL, STAKE), and courses for non-engineers who ship software with AI.",
      "jsonld": ld_graph(LD_REVIEW, {"@type": "ItemList", "name": "Courses", "itemListElement": [ld_course(c) for c in COURSES]}),
-     "body": body_home, "og_kicker": "Diana Simpson-Hernandez", "og_sub": "Founder & CEO, Aletheai · Fractional Chief AI Officer · Educator"},
+     "body": body_home, "og_kicker": "Diana Simpson-Hernandez", "og_sub": "Founder & CEO, Aletheai · Chief AI Officer on contract · Educator"},
     {"slug": "work-with-me", "path": "/work-with-me/", "file": "work-with-me/index.html", "nav": "/work-with-me/",
-     "title": "Work with me — fixed-fee AI diagnostics | DSH",
-     "og_title": "Fixed fees. Published methods. No day rate.",
-     "description": "AI decision diagnostics for mid-market operations businesses. LEVER, RECALL and STAKE: published methods, fixed fees from £750 to £55,000, engine-neutral.",
+     "title": "Work with me — scoped AI diagnostics and builds | DSH",
+     "og_title": "Published methods. Scoped engagements.",
+     "description": "AI decision diagnostics for mid-market operations businesses. LEVER, RECALL and STAKE: published methods, scoped engagements, engine-neutral.",
      "jsonld": ld_graph(LD_REVIEW, ld_breadcrumb(("Home", "/"), ("Work with me", "/work-with-me/"))),
      "body": body_work, "og_kicker": "Work with me", "og_sub": "LEVER · RECALL · STAKE — read the method before you hire me"},
     {"slug": "contract", "path": "/contract/", "file": "contract/index.html", "nav": "/contract/",
-     "title": "Contract — AI strategy & adoption, outside IR35 | DSH",
+     "title": "Contract — Chief AI Officer & AI strategy | DSH",
      "og_title": "The answers to your first message, first.",
-     "description": f"Contract AI strategist and fractional Chief AI Officer. Day rate {CONTRACT['day_rate']}, outside IR35, {CONTRACT['pattern'].lower()}. London or remote.",
+     "description": f"Chief AI Officer, Head of AI or AI strategy lead on contract, fractional or interim. {CONTRACT['pattern']}. {CONTRACT['availability']}. London, hybrid or remote.",
      "jsonld": ld_graph(ld_breadcrumb(("Home", "/"), ("Contract", "/contract/"))),
-     "body": body_contract, "og_kicker": "Contract", "og_sub": f"Day rate {CONTRACT['day_rate']} · outside IR35 · {CONTRACT['availability'].lower()}"},
+     "body": body_contract, "og_kicker": "Contract", "og_sub": f"Chief AI Officer · AI strategy · governance — {CONTRACT['availability'].lower()}"},
     {"slug": "learn", "path": "/learn/", "file": "learn/index.html", "nav": "/learn/",
      "title": "Learn — AI courses for non-engineers & free frameworks",
      "og_title": "Learn to build the decision layer yourself.",
