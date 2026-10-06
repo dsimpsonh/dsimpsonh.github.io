@@ -56,7 +56,6 @@ CHANNELS = [
     ("substack",  "Substack",  "https://substack.com/@dianasimpsonhernandez", "Long-form essays on decision intelligence, AI strategy and the creator economy.", "writing"),
     ("skool",     "Skool",     "https://www.skool.com/@diana-simpson-hernandez-4490", "REWIRED — the free community and the paid courses.", "community"),
     ("linkedin",  "LinkedIn",  "https://linkedin.com/in/dianasimpson", "Founder field notes and product breakdowns.", "social"),
-    ("podcast",   "Stand Out", "https://standoutpodcast.com", "The podcast — innovation, creativity and the publishing path.", "audio"),
     ("github",    "GitHub",    "https://github.com/dsimpsonh", "Open frameworks and code in public.", "code"),
 ]
 CH = {c[0]: c for c in CHANNELS}
@@ -335,7 +334,7 @@ def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
 <div><p class="big">Designing the systems where <em class="grad">signal becomes decision</em>.</p>
 <p style="font-size:14px;max-width:38ch">Founder &amp; CEO, Aletheai. Chief AI Officer on contract. Educator. FRSA · AFHEA.</p></div>
 <div><h4>Site</h4><ul>{site_links}</ul></div>
-<div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Frameworks</a></li>'}<li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li><li><a href="https://standoutpodcast.com" target="_blank" rel="noopener">Stand Out</a></li></ul></div>
+<div><h4>Ventures</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Frameworks</a></li>'}<li><a href="https://monogrampublishers.com" target="_blank" rel="noopener">Monogram Publishers</a></li></ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
 </div>
 <div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London · Texas</span>
