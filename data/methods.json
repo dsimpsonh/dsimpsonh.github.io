@@ -2,6 +2,14 @@
   "_note": "Methods page. Published in full on the frameworks library. No prices, no service ladders. 'url' empty = in development (shown without a link).",
   "methods": [
     {
+      "name": "Design Poiesis",
+      "unit": "The unit is an insight",
+      "line": "Every insight carries its trail.",
+      "text": "Five moves, two rails and a gate that turn informed intuition into design claims you can trace and test.",
+      "url": "",
+      "featured": true
+    },
+    {
       "name": "LEVER",
       "unit": "The unit is a decision",
       "line": "Align the goal. Expose the friction. Sequence the fix.",
@@ -35,13 +43,6 @@
       "line": "From a worthy problem to a live URL.",
       "text": "The twenty-step protocol taught at IED Madrid, LCC and in company training: how people who are not engineers ship working software with AI coding agents, under specification and review gates.",
       "url": "/vibecoding/"
-    },
-    {
-      "name": "Design Poiesis",
-      "unit": "In development",
-      "line": "Every insight carries its trail from grounds to claim.",
-      "text": "A method for designers working with AI: five moves between two rails, so that each finding can be traced back to the evidence it came from. Working name.",
-      "url": ""
     }
   ],
   "tools": [

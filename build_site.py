@@ -32,7 +32,7 @@ SITE = {
     "name":     "Diana Simpson-Hernandez",
     "short":    "DSH",
     "email":    "dianasimpsonhernandez@gmail.com",
-    "tagline":  "Designer, researcher and founder. AI that keeps a record people can open.",
+    "tagline":  "Designer, educator, innovator and founder. Author of Design Poiesis.",
     "locale":   "en_GB",
     # Umami Cloud (free). Leave empty and NO analytics script is emitted.
     "umami_website_id": "a98055b4-17b2-4091-b09e-3b3b5b34b4ad",
@@ -85,6 +85,7 @@ TEACHING = _load("teaching", {"roles": ["years", "role", "org", "detail"]})["rol
 METHODS  = _load("methods",  {"methods": ["name", "unit", "line", "text"], "tools": ["name", "text", "url"], "case": ["name", "text", "url"]})
 ARCHIVE  = _load("archive",  {"projects": ["years", "name", "role", "text"], "exhibitions": [], "press": [], "awards": []})
 ALETHEAI = _load("aletheai", {"patents": ["label", "title", "text"]})
+POIESIS  = _load("poiesis",  {"moves": ["n", "name", "title", "line", "what", "artefact", "pass", "signal", "ai", "risk"], "gate": [], "tests": []})
 
 NUMBER_WORDS = {2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten"}
 
@@ -254,12 +255,44 @@ EXTRA_CSS = """
 .book{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
 .book .cover{width:120px;aspect-ratio:2/3;border-radius:6px;background:var(--grad);display:flex;align-items:flex-end;padding:12px;color:#fff;font:italic 300 17px/1.1 var(--display);box-shadow:0 18px 30px -18px rgba(42,27,94,.6)}
 @media(max-width:520px){.book{grid-template-columns:1fr}}
+/* Design Poiesis */
+.dp-shape{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.dp-rail{padding:12px 20px;font:600 11px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.dp-rail.a{background:var(--lilac);color:var(--purple);border-bottom:1px solid var(--line)}.dp-rail.b{background:var(--ink);color:var(--pop)}
+.dp-ground{padding:14px 20px 0;font-size:14px;color:var(--muted)}
+.dp-flow{list-style:none;margin:0;padding:18px 20px 8px;display:grid;grid-template-columns:1fr 2.1fr 1fr 1fr 1.25fr;gap:22px}
+.dp-flow>li{border:1px solid var(--line);border-radius:var(--rs);padding:14px 14px 16px;display:flex;flex-direction:column;gap:5px;position:relative;background:#fff;min-width:0}
+.dp-flow>li:not(:last-child)::after{content:"→";position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--violet);font-weight:700;font-size:15px}
+.dp-flow .n{font:600 10.5px/1 var(--sans);letter-spacing:.14em;color:var(--purple)}
+.dp-flow b{font:700 15px/1.15 var(--sans);letter-spacing:.06em;color:var(--ink)}
+.dp-flow small{font-size:13px;line-height:1.35;color:var(--muted)}
+.dp-flow .loop{background:var(--lilac);border-color:var(--pop);flex-direction:row;align-items:stretch;gap:10px;padding:10px}
+.dp-flow .loop>div{flex:1;display:flex;flex-direction:column;gap:5px;background:#fff;border-radius:8px;padding:10px 12px;min-width:0}
+.dp-flow .loop>i{align-self:center;font-style:normal;font-weight:700;color:var(--coral-ink);font-size:18px}
+.dp-flow .gate{background:var(--deep);border-color:transparent}.dp-flow .gate b{color:#fff}.dp-flow .gate small{color:#C9C0F0}.dp-flow .gate .n{color:var(--pop)}
+.dp-axis{display:flex;align-items:center;gap:12px;padding:6px 20px 16px;font:600 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dp-axis span{flex:1;height:2px;background:var(--grad);border-radius:2px}
+.dp-note{padding:0 20px 18px;font-size:13.5px;color:var(--muted);margin:0}
+@media(max-width:900px){.dp-flow{grid-template-columns:1fr;gap:20px}.dp-flow>li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}}
+@media(max-width:480px){.dp-flow .loop{flex-direction:column}.dp-flow .loop>i{transform:rotate(90deg)}}
+.dp-dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:7px 14px;margin:8px 0 0;font-size:14.5px}
+.dp-dl dt{font:600 10.5px/1.7 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.dp-dl dd{margin:0}
+@media(max-width:480px){.dp-dl{grid-template-columns:1fr;gap:2px}.dp-dl dd{margin-bottom:8px}}
+.dots{letter-spacing:.12em;color:var(--purple);font-size:12px}
+.dp-feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;margin-bottom:28px}
+@media(max-width:820px){.dp-feature{grid-template-columns:1fr}}
+.dp-feature ul.clean{font-size:15.5px}
+.pull{font:italic 300 clamp(22px,2.4vw,30px)/1.3 var(--display);color:var(--ink);border-left:3px solid var(--coral);padding-left:20px;margin:0;max-width:40ch}
+.ol-num{counter-reset:o;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.ol-num li{counter-increment:o;position:relative;padding-left:40px;font-size:16px}
+.ol-num li::before{content:counter(o,decimal-leading-zero);position:absolute;left:0;top:1px;font:600 12px/1.6 var(--sans);letter-spacing:.08em;color:var(--purple)}
+.badge{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--coral-ink);border:1px solid #FFC9CB;background:#FFF0F0;border-radius:999px;padding:8px 12px}
 """
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SHARED CHROME
 # ─────────────────────────────────────────────────────────────────────────────
-NAV = [("/aletheai/", "Aletheai"), ("/writing/", "Writing"), ("/methods/", "Methods"), ("/teaching/", "Teaching"), ("/archive/", "Archive"), ("/contact/", "Contact")]
+NAV = [("/design-poiesis/", "Design Poiesis"), ("/aletheai/", "Aletheai"), ("/writing/", "Writing"), ("/methods/", "Methods"), ("/teaching/", "Teaching"), ("/archive/", "Archive"), ("/contact/", "Contact")]
 
 def analytics() -> str:
     wid = SITE.get("umami_website_id", "").strip()
@@ -347,8 +380,8 @@ def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
     return f"""</main>
 <footer><div class="wrap">
 <div class="cols">
-<div><p class="big">AI that keeps a <em class="grad">record you can open</em>.</p>
-<p style="font-size:14px;max-width:38ch">Designer, researcher and founder. Founder &amp; CEO, Aletheai. Lecturer, IED Madrid. FRSA · AFHEA.</p></div>
+<div><p class="big">Every insight <em class="grad">carries its trail</em>.</p>
+<p style="font-size:14px;max-width:40ch">Designer, educator, innovator and founder. Author of <a href="/design-poiesis/">Design Poiesis</a>. Founder &amp; CEO, Aletheai. Lecturer, IED Madrid. FRSA · AFHEA.</p></div>
 <div><h4>Site</h4><ul>{site_links}</ul></div>
 <div><h4>Work</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Framework library</a></li>'}</ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
@@ -383,11 +416,11 @@ PERSON = {
     "@type": "Person", "@id": SITE["domain"] + "/#person",
     "name": "Diana Simpson-Hernandez", "alternateName": "Diana Simpson Hernandez",
     "url": SITE["domain"] + "/", "image": SITE["domain"] + "/assets/dshlogo.png",
-    "jobTitle": "Founder & CEO, Aletheai",
-    "description": "Designer, researcher and founder. Founder and CEO of Aletheai (behavioural decision intelligence; six patent applications filed). Lecturer at IED Madrid; mentor at London College of Communication (UAL). FRSA, AFHEA.",
+    "jobTitle": "Designer, educator and founder · Author of Design Poiesis · Founder & CEO, Aletheai",
+    "description": "Designer, educator, innovator and founder. Author of Design Poiesis, a design methodology for the age of AI. Founder and CEO of Aletheai (behavioural decision intelligence; six patent applications filed). Lecturer at IED Madrid; mentor at London College of Communication (UAL). FRSA, AFHEA.",
     "email": "mailto:" + SITE["email"],
     "knowsLanguage": ["en", "es"],
-    "knowsAbout": ["Decision intelligence", "AI governance", "AI assurance", "Behavioural design", "Product design", "Speculative design", "AI-native product development"],
+    "knowsAbout": ["Design Poiesis", "Design methodology", "Decision intelligence", "AI governance", "AI assurance", "Behavioural design", "Product design", "Speculative design", "AI-native product development"],
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Royal College of Art"}, {"@type": "CollegeOrUniversity", "name": "Central Saint Martins, University of the Arts London"}],
     "memberOf": [{"@type": "Organization", "name": "Royal Society of Arts"}, {"@type": "Organization", "name": "Advance HE (Higher Education Academy)"}],
     "worksFor": {"@type": "Organization", "name": "Aletheai", "url": "https://aletheai.ai"},
@@ -484,29 +517,110 @@ def patent_cards() -> str:
 def contact_card(heading: str = "Fellowships, research, teaching and leadership roles.") -> str:
     li = "".join(f"<li>{esc(x)}</li>" for x in PROFILE["open_to"])
     return f"""<section id="contact" class="tight"><div class="wrap"><div class="card dark" style="align-items:flex-start">
-<span class="lab">Contact · {esc(PROFILE['availability'].lower())}</span><h3 style="font-size:clamp(26px,3vw,38px);max-width:24ch">{heading}</h3>
+<span class="lab">Contact · available {esc(PROFILE['availability'][0].lower() + PROFILE['availability'][1:])}</span><h3 style="font-size:clamp(26px,3vw,38px);max-width:24ch">{heading}</h3>
 <ul class="clean" style="margin:6px 0 4px">{li}</ul>
 <div class="foot" style="justify-content:flex-start">{A('mailto:'+SITE['email'], 'Email Diana →', 'btn coral', 'email_click', position='contact')}{A(PROFILE['cv'], 'CV (PDF) ↓', 'btn ghost', 'cv_download', position='contact-card')}{A(PROFILE['linkedin'], 'LinkedIn →', 'btn ghost', 'channel_click', channel='linkedin', position='contact')}</div>
 </div></div></section>"""
+
+
+# ── Design Poiesis ───────────────────────────────────────────────────────────
+def poiesis_shape(note: bool = True) -> str:
+    m = {x["name"]: x for x in POIESIS["moves"]}
+    def mv(k, cls=""):
+        x = m[k]; return f'<div class="{cls}"><span class="n">{x["n"]}</span><b>{x["name"]}</b><small>{esc(x["title"])}</small></div>'
+    li = lambda k: f'<li><span class="n">{m[k]["n"]}</span><b>{m[k]["name"]}</b><small>{esc(m[k]["title"])}</small></li>'
+    loop = f'<li class="loop">{mv("EMBODY")}<i aria-label="loops with">⇄</i>{mv("INVERT")}</li>'
+    gate = '<li class="gate"><span class="n">GATE</span><b>WHAT&#8217;S NEXT?</b><small>product · research · knowledge · seed · kill</small></li>'
+    return f"""<figure class="dp-shape" aria-label="The shape of Design Poiesis: five moves between two rails, ending at a gate" style="margin:0">
+<div class="dp-rail a">Rail A · Sources of truth · tiered, tightening as the work converges</div>
+<p class="dp-ground">The ground: exploration, observation, experience, reading, data</p>
+<ol class="dp-flow">{li("SEIZE")}{loop}{li("PROPAGATE")}{li("MINUTE")}{gate}</ol>
+<div class="dp-axis">Diverge<span></span>Converge</div>
+{'<p class="dp-note">EMBODY and INVERT loop until an inversion holds. Every minute becomes new ground for the next insight.</p>' if note else ''}
+<div class="dp-rail b">Rail B · Candour and radical honesty, on every readout</div>
+</figure>"""
+
+def poiesis_moves() -> str:
+    out = ""
+    for x in POIESIS["moves"]:
+        dots = "●" * x.get("weight", 1) + "○" * (3 - x.get("weight", 1))
+        out += f"""<article class="card" id="{x['name'].lower()}"><span class="lab coral">{x['n']} · {x['name']} <span class="dots" title="How much analogy carries in this move">{dots}</span></span>
+<h3>{esc(x['title'])}</h3><p class="line">{esc(x['line'])}</p><p>{esc(x['what'])}</p>
+<dl class="dp-dl"><dt>Artefact</dt><dd>{esc(x['artefact'])}</dd><dt>The pass</dt><dd>{esc(x['pass'])}</dd><dt>The signal</dt><dd>{esc(x['signal'])}</dd><dt>What the AI does</dt><dd>{esc(x['ai'])}</dd><dt>Where it goes wrong</dt><dd>{esc(x['risk'])}</dd></dl></article>"""
+    return f'<div class="grid g2">{out}</div>'
+
+def body_poiesis():
+    P = POIESIS
+    gate = "".join(f"<tr><td><strong>{esc(r)}</strong><br><span style='color:var(--muted);font-size:13px'>{esc(s)}</span></td><td>{esc(a)}</td><td>{esc(n)}</td></tr>" for r, s, a, n in P["gate"])
+    tiers = "".join(f"<tr><td><strong>{esc(t)}</strong></td><td>{esc(h)}</td><td>{esc(d)}</td><td>{esc(c)}</td></tr>" for t, h, d, c in P["rail_a"]["tiers"])
+    railb = "".join(f"<li>{esc(x)}</li>" for x in P["rail_b"])
+    rules = "".join(f'<div class="card tint"><span class="lab">Rule {i+1:02d}</span><p><strong>{esc(a)}</strong> {esc(b)}</p></div>' for i, (a, b) in enumerate(P["ai_rules"]))
+    ex = P["example"]; steps = "".join(f'<li><span class="yrs">{esc(k)}</span><div><p style="margin:0">{esc(v)}</p></div></li>' for k, v in ex["steps"])
+    d1 = "".join(f"<li>{esc(x)}</li>" for x in P["adds_designers"]); d2 = "".join(f"<li>{esc(x)}</li>" for x in P["adds_field"])
+    tests = "".join(f'<div class="card"><span class="lab">Test {i+1}</span><h3>{esc(t)}</h3><p>{esc(d)}</p></div>' for i, (t, d) in enumerate(P["tests"]))
+    why = "".join(f"<p>{esc(x)}</p>" for x in P["why_now"])
+    btns = (A('#moves', 'The five moves ↓', 'btn', 'cta_click', kind='poiesis-moves', position='poiesis-hero')
+            + A('mailto:' + SITE['email'] + '?subject=Design%20Poiesis', 'Run it with your class or studio →', 'btn ghost', 'email_click', position='poiesis-hero'))
+    return f"""
+<section class="hero" style="border-top:0"><div class="wrap">
+<div class="eyebrow"><span class="lab">Design Poiesis · a design methodology for the age of AI</span><span class="badge">{esc(P['status'])} · {esc(P['version'])}</span></div>
+<h1 style="max-width:13ch">Every insight <em>carries its trail</em>.</h1>
+<p class="sub">{esc(P['summary'])} It is Diana Simpson-Hernandez's own method, formalised from fifteen years of design practice and the building of a technology venture from scratch.</p>
+<div class="row">{btns}</div>
+</div></section>
+<section class="tight" style="border-top:0;padding-top:0"><div class="wrap">{poiesis_shape()}</div></section>
+<section id="why"><div class="wrap"><div class="two">
+<div class="prose"><div class="sh"><span class="lab">Why now</span><h2>The case for a <em>new design method</em>.</h2></div>{why}<p>Design Poiesis is one answer to that: five moves, two rails and a gate, with one discipline running through all of it. Every insight carries its trail.</p></div>
+<div><p class="pull">Design Poiesis doesn&#8217;t make the leap less intuitive. It makes it visible, so someone else can follow it, challenge it or build on it.</p>
+<div class="card tint" style="margin-top:28px"><span class="lab">A design hypothesis, reached by abduction</span><p>{esc(P['abduction'])}</p></div></div>
+</div></div></section>
+{section('moves', 'The five moves', 'Five moves, <em>one discipline</em>.', poiesis_moves(), 'Each move has a pass (has the trail been recorded?) and a signal (did the move change the design?). The dots show how much weight analogy carries in each one.')}
+{section('gate', 'The gate', 'What&#8217;s next? <em>Not &#8220;build it&#8221;.</em>', f'<div class="tbl"><table><thead><tr><th>Route</th><th>Ask</th><th>It needs</th></tr></thead><tbody>{gate}</tbody></table></div><p style="margin-top:16px;font-size:15px;color:var(--muted)">A health check: count your kills and parks. If everything becomes a product, the gate isn&#8217;t working.</p>', 'Before anything gets made, ask whether it needs to be made at all, and in what form.')}
+<section id="rails"><div class="wrap">
+<div class="sh"><span class="lab">The two rails</span><h2>Guardrails that let you <em>diverge</em>.</h2></div>
+<div class="grid g2x">
+<div class="card"><span class="lab coral">Rail A · Sources of truth</span><p>{esc(P['rail_a']['intro'])}</p>
+<div class="tbl" style="margin-top:6px"><table style="min-width:0;font-size:14px"><thead><tr><th>Tier</th><th>Holds</th><th>Diverging</th><th>Converging</th></tr></thead><tbody>{tiers}</tbody></table></div>
+<p style="font-size:14.5px;color:var(--muted)">{esc(P['rail_a']['admission'])}</p></div>
+<div class="card"><span class="lab coral">Rail B · Candour and radical honesty</span><p>Radical honesty here is about claims, not about being blunt with people.</p><ol class="ol-num">{railb}</ol></div>
+</div></div></section>
+{section('ai', 'Working with AI', 'AI widens the search. <em>You hold the signature.</em>', f'<div class="grid g3">{rules}</div>', esc(P['ai_principle']))}
+{section('example', 'Worked example · illustrative, fictional', esc(ex['title']).replace('ignored', '<em>ignored</em>') + '.', f'<ul class="rlist">{steps}</ul>', esc(ex['note']))}
+<section id="adds"><div class="wrap">
+<div class="sh"><span class="lab">What it adds</span><h2>For designers, and for <em>design method</em>.</h2></div>
+<div class="grid g2x"><div class="card"><span class="lab">For designers and teams</span><ul class="clean">{d1}</ul></div><div class="card"><span class="lab">What it proposes for design method</span><ul class="clean">{d2}</ul></div></div>
+<p style="margin-top:18px;max-width:75ch">{esc(P['not_new'])}</p>
+</div></section>
+<section id="limits"><div class="wrap">
+<div class="sh"><span class="lab">Honest limits</span><h2>What it claims, and what it <em>doesn&#8217;t yet</em>.</h2></div>
+<div class="grid g2x"><div class="card tint"><span class="lab">It claims</span><p>{esc(P['claims'])}</p></div><div class="card tint"><span class="lab">It doesn&#8217;t claim, yet</span><p>{esc(P['not_yet'])}</p></div></div>
+<div class="sh" style="margin-top:44px"><h3>How it will be tested</h3><p class="lede">Formalised from one practice, after the fact, is a real limit: anyone describing their own process finds it tidier than it was. So the test plan has three parts, and the results will be published, including what doesn&#8217;t hold.</p></div>
+<div class="grid g3">{tests}</div>
+</div></section>
+<section id="name" class="tight"><div class="wrap"><div class="two"><div class="prose"><div class="sh"><span class="lab">The name</span><h2>Why <em>poiesis</em>.</h2></div><p>{esc(P['name'])}</p></div>
+<div class="card dark" style="align-items:flex-start"><span class="lab">Use it</span><h3>Teaching it, or trying it in a studio?</h3><p>Design Poiesis runs as a lecture, a half-day workshop or a studio session, in English or Spanish. If you run the moves, the trail you keep is the most useful feedback there is.</p><div class="foot" style="justify-content:flex-start">{A('mailto:' + SITE['email'] + '?subject=Design%20Poiesis', 'Email Diana →', 'btn coral', 'email_click', position='poiesis-name')}</div></div></div>
+<p style="margin-top:28px;font-size:13px;color:var(--muted)">© {datetime.date.today().year} Diana Simpson-Hernandez. Design Poiesis is a design methodology by Diana Simpson-Hernandez · {esc(P['version'])} · {esc(P['status']).lower()}.</p></div></section>
+"""
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE BODIES
 # ─────────────────────────────────────────────────────────────────────────────
 BIO = [
-    "Diana Simpson-Hernandez works where design, behaviour and AI meet: on systems that help people make decisions they can defend afterwards.",
-    "She trained in product design at Central Saint Martins and the Royal College of Art, where her MA dissertation, <em>Modern Mythopoeia</em> (2012), argued that the stories a culture tells itself decide which futures get built, and that designers can work on those stories on purpose. The speculative practice turned practical. Glass Lab made surface products from the commercial glass waste of London businesses, and at Shake Your Power she co-designed SPARK, the first energy-generating musical instrument, which was granted a US patent, won two London Design Award Golds and was piloted in schools in the UK, the US and India.",
+    "Diana Simpson-Hernandez is a designer, educator, innovator and founder. Her work sits where design, behaviour and AI meet: how ideas get made, how decisions get defended, and how people who were never taught to build can build.",
+    "She trained in product design at Central Saint Martins and the Royal College of Art, where her MA dissertation, <em>Modern Mythopoeia</em> (2012), argued that the stories a culture tells itself decide which futures get built, and that designers can work on those stories on purpose. The speculative practice turned practical. Glass Lab made surface products from the commercial glass waste of London businesses, and at Shake Your Power, which she co-founded, she co-designed SPARK, the first energy-generating musical instrument, which was granted a US patent, won two London Design Award Golds and was piloted in schools in the UK, the US and India.",
     "She then spent a decade in product and service design and in teaching. She was Senior Lecturer in Product Design at Nottingham Trent University, and later led the digital design team and product strategy at Slimming World, one of the UK's largest behaviour-change platforms, where the work was keeping more than 250,000 members engaged with a health service week after week.",
     "In December 2024 she founded Aletheai to build the decision layer she kept finding missing: an engine that ranks who deserves attention by the evidence, explains each ranking in plain English, and declines to rank where the evidence runs out. She has filed six patent applications, on the engine and on the governance of AI agents' actions, and ran a feasibility study with the STFC Hartree Centre on real human-behaviour data.",
+    "Her own design method, <a href=\"/design-poiesis/\">Design Poiesis</a> (2026), brings those threads together. Five moves, two rails and a gate turn informed intuition into design claims that can be traced and tested, with one discipline running through all of it: every insight carries its trail. It formalises how she has worked for fifteen years, and the plan to test it, in her own practice and with students, is published with it.",
     "She teaches AI-native product building to MA students at IED Madrid every year, mentors founders at London College of Communication (UAL), and publishes her methods in the open. She is a Fellow of the Royal Society of Arts and an Associate Fellow of the Higher Education Academy, and works in English and Spanish.",
 ]
 
 def body_home():
     facts = "".join(f'<div><span class="lab">{k}</span><b>{v}</b></div>' for k, v in [
-        ("Now", "Founder &amp; CEO, Aletheai"), ("Teaching", "IED Madrid · LCC (UAL)"),
-        ("Original work", "Six patent applications filed · one US patent granted"), ("Training", "MA RCA · BA CSM · FRSA · AFHEA")])
+        ("Method", "Design Poiesis"), ("Teaching", "IED Madrid · LCC (UAL)"),
+        ("Venture", "Founder &amp; CEO, Aletheai"), ("Training", "MA RCA · BA CSM · FRSA · AFHEA")])
     doors = "".join(A(h, f'<span class="lab">{l}</span><h3>{t}</h3><p>{d}</p><span class="go">{g} →</span>', 'door', 'cta_click', kind=k, position='doors') for h, l, t, d, g, k in [
         ("/aletheai/", "Founder", "Aletheai", "Behavioural decision intelligence that states its evidence and its limits. Six patent applications filed.", "The company and the patents", "aletheai"),
-        ("/methods/", "Published", "Methods", "LEVER, RECALL, FLYWHEEL, Vibecoding and more, written down in full so anyone can check the reasoning.", "The methods", "methods"),
+        ("/methods/", "Published", "Methods", "Design Poiesis, LEVER, RECALL, FLYWHEEL, Vibecoding and more, written down in full so anyone can check the reasoning.", "The methods", "methods"),
         ("/teaching/", "Lecturer", "Teaching &amp; talks", "IED Madrid, LCC (UAL), Nottingham Trent; talks at the British Library and the European Commission.", "Teaching and talks", "teaching"),
         ("/archive/", "2012 – 2017", "Archive", "SPARK, Glass Lab, Monogram Publishers, exhibitions and press.", "Earlier work", "archive"),
     ])
@@ -514,13 +628,19 @@ def body_home():
     mem = "".join(f"<li>{x}</li>" for x in ["FRSA, Royal Society of Arts", "AFHEA, Higher Education Academy", "Education Ambassador, CREATE", "Certified Scrum Master · ILM Level 3 Leadership"])
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
-<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Designer · Researcher · Founder</span><span class="lab">London · remote-first</span></div>
-<h1 class="name">AI that keeps a <em>record you can open</em>.</h1>
-<p class="sub">Diana Simpson-Hernandez is the founder and CEO of Aletheai, a behavioural decision-intelligence company with six patent applications filed. She teaches AI-native product building to MA students at IED Madrid and mentors founders at London College of Communication (UAL).</p>
-<div class="row">{A('/writing/', 'Read the writing', 'btn', 'cta_click', kind='writing', position='hero')}{A('/aletheai/', 'About Aletheai', 'btn ghost', 'cta_click', kind='aletheai', position='hero')}{A('#bio', 'Biography ↓', 'btn ghost', 'cta_click', kind='bio', position='hero')}</div>
+<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">London · remote-first</span><span class="lab">FRSA · AFHEA</span></div>
+<h1 class="name" style="max-width:15ch">Designer, educator, innovator, <em>founder</em>.</h1>
+<p class="sub">Diana Simpson-Hernandez has spent fifteen years designing products, services and ventures, and teaching other people to do the same. She is the author of Design Poiesis, a design method for the age of AI, the founder of Aletheai, a lecturer at IED Madrid and a mentor at London College of Communication (UAL).</p>
+<div class="row">{A('/design-poiesis/', 'Design Poiesis →', 'btn', 'cta_click', kind='poiesis', position='hero')}{A('/writing/', 'Read the writing', 'btn ghost', 'cta_click', kind='writing', position='hero')}{A('#bio', 'Biography ↓', 'btn ghost', 'cta_click', kind='bio', position='hero')}</div>
 </div></section>
 <section class="tight" style="border-top:0;padding-top:0"><div class="wrap"><div class="facts">{facts}</div></div></section>
-{section('research', 'Research', 'Three questions <em>run through the work</em>.', question_cards(), "How a machine should rank people, when it should decline, and what record it owes the people it ranks. The questions come out of building Aletheai; the answers are written up in the patents, the essays and the methods.")}
+<section id="design-poiesis"><div class="wrap">
+<div class="dp-feature"><div class="sh" style="margin:0"><span class="lab">The method</span><h2>Design Poiesis. <em>Every insight carries its trail.</em></h2><p class="lede">{esc(POIESIS['summary'])}</p></div>
+<div><p>AI generates ideas faster than anyone can remember where they came from. Without a trail you can&#8217;t tell your own insight from the model&#8217;s suggestion, or a tested claim from a plausible one. Design Poiesis makes the trail the pass condition of every move.</p>
+<ul class="clean"><li>Intuition you can defend, in a client room, a funding panel or a viva</li><li>Constraints turned into the architecture</li><li>Clear roles with AI, so authorship stays with you</li></ul>
+<p style="margin-top:20px">{A('/design-poiesis/', 'Read the method →', 'btn', 'cta_click', kind='poiesis', position='home-feature')}</p></div></div>
+{poiesis_shape(note=False)}
+</div></section>
 {section('latest', 'Latest writing', 'From <em>the essays</em>.', essay_entries(3, feature_first=True) + f'<p style="margin-top:22px">{A("/writing/", "All research and writing →", "btn ghost", "cta_click", kind="writing", position="latest")}</p>')}
 <section id="doors" class="tight"><div class="wrap"><div class="doors">{doors}</div></div></section>
 <section id="bio"><div class="wrap"><div class="two">
@@ -568,14 +688,19 @@ def body_writing():
 def body_methods():
     cards = ""
     for m in METHODS["methods"]:
+        if m.get("featured"): continue
         link = A(LIB + m["url"], 'Read the method →', '', 'framework_open', framework=m['name'].lower()) if m.get("url") else '<span class="lab">In development</span>'
         cards += f"""<div class="card"><span class="lab coral">{esc(m['name'])} · {esc(m['unit'])}</span><p class="line">{esc(m['line'])}</p><p>{esc(m['text'])}</p><div class="foot">{link}</div></div>"""
     tools = "".join(f"""<div class="card tint"><h3>{esc(t['name'])}</h3><p>{esc(t['text'])}</p><div class="foot">{A(LIB + t['url'], 'Open →', '', 'framework_open', framework=t['name'].lower().replace(' ', '-'))}</div></div>""" for t in METHODS["tools"])
     c = METHODS["case"]
     case = f"""<div class="card dark"><span class="lab">Applied</span><h3>{esc(c['name'])}</h3><p>{esc(c['text'])}</p><div class="foot" style="justify-content:flex-start">{A(LIB + c['url'], 'Read the case study →', '', 'framework_open', framework='case-study-language-kids-world')}</div></div>"""
     return f"""
-{hero('Methods', 'Methods, published <em>in full</em>.', 'Each method is written down with its instruments and its gates, so anyone can check the reasoning, use it, or argue with it. Several can recommend against building. They live in the open framework library.', A(LIB + '/', 'Open the framework library →', 'btn', 'framework_open', framework='library'))}
-{section('methods', 'The methods', f'{NUMBER_WORDS[len(METHODS["methods"])]} methods, <em>one discipline</em>.', f'<div class="grid g2">{cards}</div>', 'Data has no value on its own. Decisions do. Each method starts from a specific decision, question, venture or team and makes it measurably better.')}
+{hero('Methods', 'Methods, published <em>in full</em>.', 'Design Poiesis is the core: how ideas get made and made defensible. The applied methods take it into specific decisions, questions and ventures. Each is written down with its instruments and its gates, so anyone can check the reasoning, use it, or argue with it.', A(LIB + '/', 'Open the framework library →', 'btn', 'framework_open', framework='library'))}
+<section id="design-poiesis"><div class="wrap">
+<div class="card dark" style="align-items:flex-start;padding:clamp(28px,4vw,48px)"><span class="lab">The core method · {esc(POIESIS['version'])}</span><h3 style="font-size:clamp(30px,4vw,48px)">Design Poiesis</h3><p class="line" style="color:#fff">{esc(POIESIS['tagline'])}</p><p style="max-width:70ch">{esc(POIESIS['summary'])}</p>
+<div class="foot" style="justify-content:flex-start">{A('/design-poiesis/', 'Read the method →', 'btn coral', 'cta_click', kind='poiesis', position='methods-feature')}</div></div>
+</div></section>
+{section('methods', 'Applied methods', f'{NUMBER_WORDS[len([m for m in METHODS["methods"] if not m.get("featured")])]} <em>applied</em> methods.', f'<div class="grid g2">{cards}</div>', 'Each of these starts from a specific decision, question, revenue stream, venture or build, and sets out up front how to tell whether it got better. They live in the open framework library.')}
 {section('tools', 'Tools and a worked example', 'Free tools and <em>a worked example</em>.', f'<div class="grid g2">{tools}{case}</div>')}
 """
 
@@ -624,19 +749,20 @@ def body_es():
     sub = CH["substack"][2]
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
-<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Diseñadora · Investigadora · Fundadora</span><span class="lab">Londres · en remoto</span></div>
-<h1 class="name">IA que deja un <em>registro que se puede abrir</em>.</h1>
-<p class="sub">Diana Simpson-Hernandez es fundadora y CEO de Aletheai, una empresa de inteligencia de decisiones basada en el comportamiento, con seis solicitudes de patente presentadas. Enseña a crear productos con IA a estudiantes de máster en el IED Madrid y es mentora de emprendedores en el London College of Communication (UAL).</p>
-<div class="row">{A('mailto:'+SITE['email'], 'Escribir a Diana →', 'btn', 'email_click', position='es-hero')}{A('/aletheai/', 'Aletheai (en inglés)', 'btn ghost', 'cta_click', kind='aletheai', position='es-hero')}</div>
+<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Londres · trabajo en remoto</span><span class="lab">FRSA · AFHEA</span></div>
+<h1 class="name" style="max-width:15ch">Diseñadora, educadora, innovadora, <em>fundadora</em>.</h1>
+<p class="sub">Diana Simpson-Hernandez lleva quince años diseñando productos, servicios y empresas, y enseñando a otros a hacerlo. Es autora de Design Poiesis, un método de diseño para la era de la IA, fundadora de Aletheai, profesora en el IED Madrid y mentora en el London College of Communication (UAL).</p>
+<div class="row">{A('/design-poiesis/', 'Design Poiesis (en inglés) →', 'btn', 'cta_click', kind='poiesis', position='es-hero')}{A('mailto:'+SITE['email'], 'Escribir a Diana', 'btn ghost', 'email_click', position='es-hero')}</div>
 </div></section>
 <section id="bio"><div class="wrap"><div class="two">
 <div class="prose"><div class="sh"><span class="lab">Biografía</span><h2>Diseño, comportamiento <em>e IA</em>.</h2></div>
 <p>Se formó en diseño de producto en Central Saint Martins y en el Royal College of Art de Londres. Su tesis de máster, <em>Modern Mythopoeia</em> (2012), estudia cómo los relatos de una cultura deciden qué futuros se diseñan.</p>
-<p>Antes de Aletheai cofundó Shake Your Power, donde diseñó SPARK, el primer instrumento musical que genera energía (patente concedida en Estados Unidos y dos oros en los London Design Awards). Fue profesora titular de Diseño de Producto en la Nottingham Trent University y dirigió el equipo de diseño digital y la estrategia de producto de Slimming World, una de las mayores plataformas de cambio de hábitos del Reino Unido.</p>
-<p>Su trabajo actual se centra en sistemas de IA que se pueden auditar: que priorizan con evidencia, explican cada decisión en lenguaje claro y se abstienen cuando la evidencia no alcanza.</p>
+<p>Antes de Aletheai cofundó Shake Your Power, donde diseñó SPARK, el primer instrumento musical que genera energía (patente concedida en Estados Unidos y dos oros en los London Design Awards). Fue profesora de Diseño de Producto (Senior Lecturer) en la Nottingham Trent University y dirigió el equipo de diseño digital y la estrategia de producto de Slimming World, una de las mayores plataformas de cambio de hábitos del Reino Unido.</p>
+<p>Su método, Design Poiesis (2026), convierte la intuición informada en hipótesis de diseño que se pueden rastrear y poner a prueba: cinco movimientos, dos carriles y un filtro final, con una sola disciplina: que cada idea lleve consigo su rastro. Está pensado para diseñadores y para cualquiera que haga trabajo creativo estructurado con IA.</p>
+<p>En Aletheai trabaja en sistemas de IA que se pueden auditar: que priorizan con evidencia, explican cada decisión en lenguaje claro y se abstienen cuando la evidencia no alcanza.</p>
 <p>Es Fellow de la Royal Society of Arts y Associate Fellow de la Higher Education Academy. Imparte clases, talleres y conferencias en español y en inglés.</p></div>
 <div class="side">
-<h4 class="lab">Ahora</h4><ul class="clean"><li>Fundadora y CEO, Aletheai</li><li>Profesora de máster, IED Madrid</li><li>Mentora, London College of Communication (UAL)</li></ul>
+<h4 class="lab">Ahora</h4><ul class="clean"><li>Autora de Design Poiesis</li><li>Fundadora y CEO, Aletheai</li><li>Profesora de máster, IED Madrid</li><li>Mentora, London College of Communication (UAL)</li></ul>
 <h4 class="lab">Leer y contactar</h4><ul class="clean"><li>{A(utm(sub, 'es', 'substack'), 'Ensayos en Substack (en inglés) ↗', '', 'channel_click', channel='substack', position='es')}</li><li>{A(PROFILE['cv'], 'CV en PDF (en inglés) ↓', '', 'cv_download', position='es')}</li><li>{A(PROFILE['linkedin'], 'LinkedIn ↗')}</li><li><a href="/" hreflang="en">English version →</a></li></ul>
 </div></div></div></section>
 """
@@ -747,11 +873,17 @@ def build_hold():
 # ─────────────────────────────────────────────────────────────────────────────
 PAGES = [
     {"slug": "home", "path": "/", "file": "index.html", "nav": "/",
-     "title": "Diana Simpson-Hernandez — designer, researcher and founder of Aletheai",
-     "og_title": "AI that keeps a record you can open.",
-     "description": "Diana Simpson-Hernandez is the founder and CEO of Aletheai (behavioural decision intelligence; six patent applications filed), a lecturer at IED Madrid and a mentor at LCC (UAL). Research, writing, methods and teaching.",
+     "title": "Diana Simpson-Hernandez — designer, educator, innovator and founder",
+     "og_title": "Designer, educator, innovator, founder.",
+     "description": "Diana Simpson-Hernandez is a designer, educator, innovator and founder: author of Design Poiesis, a design method for the age of AI; founder and CEO of Aletheai; lecturer at IED Madrid and mentor at London College of Communication (UAL).",
      "jsonld": ld_graph({"@type": "ProfilePage", "mainEntity": ME, "url": SITE["domain"] + "/"}),
-     "body": body_home, "og_kicker": "Diana Simpson-Hernandez", "og_sub": "Designer · researcher · founder of Aletheai · lecturer, IED Madrid"},
+     "body": body_home, "og_kicker": "Diana Simpson-Hernandez", "og_sub": "Author of Design Poiesis · founder of Aletheai · lecturer, IED Madrid"},
+    {"slug": "design-poiesis", "path": "/design-poiesis/", "file": "design-poiesis/index.html", "nav": "/design-poiesis/",
+     "title": "Design Poiesis — a design methodology for the age of AI | Diana Simpson-Hernandez",
+     "og_title": "Every insight carries its trail.",
+     "description": "Design Poiesis by Diana Simpson-Hernandez: five moves, two rails and a gate that turn informed intuition into design claims you can trace and test. For designers, and for anyone doing structured creative work with AI.",
+     "jsonld": ld_graph({"@type": "CreativeWork", "name": "Design Poiesis", "alternativeHeadline": "A design methodology for the age of AI", "author": ME, "creator": ME, "dateCreated": "2026-10", "version": "2", "url": SITE["domain"] + "/design-poiesis/", "inLanguage": "en-GB", "about": ["Design methodology", "Design rationale", "Abductive reasoning", "Human-AI collaboration"]}, ld_breadcrumb(("Home", "/"), ("Design Poiesis", "/design-poiesis/"))),
+     "body": body_poiesis, "og_kicker": "Design Poiesis · a design method for the age of AI", "og_sub": "Five moves, two rails and a gate · by Diana Simpson-Hernandez"},
     {"slug": "aletheai", "path": "/aletheai/", "file": "aletheai/index.html", "nav": "/aletheai/",
      "title": "Aletheai — behavioural decision intelligence | Diana Simpson-Hernandez",
      "og_title": "Decisions with the evidence attached.",
@@ -789,11 +921,11 @@ PAGES = [
      "jsonld": ld_graph({"@type": "ContactPage", "url": SITE["domain"] + "/contact/", "about": ME}, ld_breadcrumb(("Home", "/"), ("Contact", "/contact/"))),
      "body": body_contact, "og_kicker": "Contact", "og_sub": "Fellowships · research · teaching · leadership roles"},
     {"slug": "es", "path": "/es/", "file": "es/index.html", "nav": "", "lang": "es",
-     "title": "Diana Simpson-Hernandez — diseñadora, investigadora y fundadora de Aletheai",
-     "og_title": "IA que deja un registro que se puede abrir.",
-     "description": "Diana Simpson-Hernandez es fundadora y CEO de Aletheai, profesora de máster en el IED Madrid y mentora en el London College of Communication (UAL).",
+     "title": "Diana Simpson-Hernandez — diseñadora, educadora, innovadora y fundadora",
+     "og_title": "Diseñadora, educadora, innovadora, fundadora.",
+     "description": "Diana Simpson-Hernandez es diseñadora, educadora, innovadora y fundadora: autora de Design Poiesis, fundadora y CEO de Aletheai, profesora en el IED Madrid y mentora en el London College of Communication (UAL).",
      "jsonld": ld_graph({"@type": "ProfilePage", "mainEntity": ME, "url": SITE["domain"] + "/es/", "inLanguage": "es"}),
-     "body": body_es, "og_kicker": "Diana Simpson-Hernandez", "og_sub": "Diseñadora · investigadora · fundadora de Aletheai · IED Madrid"},
+     "body": body_es, "og_kicker": "Diana Simpson-Hernandez", "og_sub": "Autora de Design Poiesis · fundadora de Aletheai · IED Madrid y LCC"},
     {"slug": "404", "path": "/404.html", "file": "404.html", "nav": "", "noindex": True,
      "title": "Page not found | Diana Simpson-Hernandez", "og_title": "That page moved.",
      "description": "The page you were looking for has moved. Find the writing, Aletheai and the framework library.",
