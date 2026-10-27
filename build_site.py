@@ -13,6 +13,7 @@ To add an essay or a talk: add one entry to the JSON file, run, commit. No HTML 
 Every page is generated from the same head(), nav() and footer(), so SEO tags,
 structured data and the analytics snippet cannot drift between pages.
 
+Location: London, remote-first. Madrid appears only as "IED Madrid" (an institution), never as where she lives.
 Disclosure rules (do not relax without checking): as-filed patent wording only; "six patent applications filed";
 no commercial figures (ARR, market size, per-agent savings, pilot claims); no codenames; DiSH Creative not named.
 """
@@ -46,7 +47,7 @@ PROFILE = {
         "Founding and leadership roles in AI product and AI governance",
         "Guest lectures, workshops and talks, in English or Spanish",
     ],
-    "location": "London · Madrid · on video anywhere",
+    "location": "London · remote-first",
     "cv": "/assets/dsh-cv.pdf",
     "linkedin": "https://linkedin.com/in/dianasimpson",
 }
@@ -57,10 +58,9 @@ def utm(url: str, medium: str, campaign: str) -> str:
     return f"{url}{sep}utm_source=dsh-site&utm_medium={medium}&utm_campaign={campaign}"
 
 CHANNELS = [
-    # key, label, url, blurb, kind   (Skool and Instagram removed in v5: no course funnel on this site)
+    # key, label, url, blurb, kind   (v5: Skool and Instagram removed, no course funnel; YouTube off until it has content)
     ("substack",  "Substack",  "https://dianasimpsonhernandez.substack.com", "Essays on decision intelligence and AI that can be held to account.", "writing"),
     ("linkedin",  "LinkedIn",  PROFILE["linkedin"], "Field notes from building Aletheai.", "social"),
-    ("youtube",   "YouTube",   "https://www.youtube.com/@DianaSimpsonHernandez", "Lectures and teaching videos.", "video"),
     ("github",    "GitHub",    "https://github.com/dsimpsonh", "Open frameworks and code.", "code"),
 ]
 CH = {c[0]: c for c in CHANNELS}
@@ -351,7 +351,7 @@ def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
 <div><h4>Work</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Framework library</a></li>'}</ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
 </div>
-<div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London · Madrid</span>
+<div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London</span>
 {A('mailto:'+SITE['email'], SITE['email'], '', 'email_click', position='footer')}</div>
 </div></footer>
 <script>
@@ -512,7 +512,7 @@ def body_home():
     mem = "".join(f"<li>{x}</li>" for x in ["FRSA, Royal Society of Arts", "AFHEA, Higher Education Academy", "Education Ambassador, CREATE", "Certified Scrum Master · ILM Level 3 Leadership"])
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
-<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Designer · Researcher · Founder</span><span class="lab">London · Madrid</span></div>
+<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Designer · Researcher · Founder</span><span class="lab">London · remote-first</span></div>
 <h1 class="name">AI that keeps a <em>record you can open</em>.</h1>
 <p class="sub">Diana Simpson-Hernandez is the founder and CEO of Aletheai, a behavioural decision-intelligence company with six patent applications filed. She teaches AI-native product building to MA students at IED Madrid and mentors founders at London College of Communication (UAL).</p>
 <div class="row">{A('/writing/', 'Read the writing', 'btn', 'cta_click', kind='writing', position='hero')}{A('/aletheai/', 'About Aletheai', 'btn ghost', 'cta_click', kind='aletheai', position='hero')}{A('#bio', 'Biography ↓', 'btn ghost', 'cta_click', kind='bio', position='hero')}</div>
@@ -574,7 +574,7 @@ def body_methods():
     return f"""
 {hero('Methods', 'Methods, published <em>in full</em>.', 'Each method is written down with its instruments and its gates, so anyone can check the reasoning, use it, or argue with it. Several can recommend against building. They live in the open framework library.', A(LIB + '/', 'Open the framework library →', 'btn', 'framework_open', framework='library'))}
 {section('methods', 'The methods', 'Eight methods, <em>one discipline</em>.', f'<div class="grid g2">{cards}</div>', 'Data has no value on its own. Decisions do. Each method starts from a specific decision, question, venture or team and makes it measurably better.')}
-{section('tools', 'Tools and a worked example', 'Free tools, and the methods <em>in use</em>.', f'<div class="grid g2">{tools}{case}</div>')}
+{section('tools', 'Tools and a worked example', 'Free tools and <em>a worked example</em>.', f'<div class="grid g2">{tools}{case}</div>')}
 """
 
 def body_teaching():
@@ -622,7 +622,7 @@ def body_es():
     sub = CH["substack"][2]
     return f"""
 <section class="hero" style="border-top:0"><div class="wrap">
-<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Diseñadora · Investigadora · Fundadora</span><span class="lab">Londres · Madrid</span></div>
+<div class="eyebrow"><span class="lab">Diana Simpson-Hernandez</span><span class="lab">Diseñadora · Investigadora · Fundadora</span><span class="lab">Londres · en remoto</span></div>
 <h1 class="name">IA que deja un <em>registro que se puede abrir</em>.</h1>
 <p class="sub">Diana Simpson-Hernandez es fundadora y CEO de Aletheai, una empresa de inteligencia de decisiones basada en el comportamiento, con seis solicitudes de patente presentadas. Enseña a crear productos con IA a estudiantes de máster en el IED Madrid y es mentora de emprendedores en el London College of Communication (UAL).</p>
 <div class="row">{A('mailto:'+SITE['email'], 'Escribir a Diana →', 'btn', 'email_click', position='es-hero')}{A('/aletheai/', 'Aletheai (en inglés)', 'btn ghost', 'cta_click', kind='aletheai', position='es-hero')}</div>
@@ -783,7 +783,7 @@ PAGES = [
     {"slug": "contact", "path": "/contact/", "file": "contact/index.html", "nav": "/contact/",
      "title": "Contact | Diana Simpson-Hernandez",
      "og_title": "Get in touch.",
-     "description": f"Fellowships, research collaborations, leadership roles, lectures and talks. {PROFILE['availability']}. London and Madrid. English and Spanish.",
+     "description": f"Fellowships, research collaborations, leadership roles, lectures and talks. {PROFILE['availability']}. London, remote-first. English and Spanish.",
      "jsonld": ld_graph({"@type": "ContactPage", "url": SITE["domain"] + "/contact/", "about": ME}, ld_breadcrumb(("Home", "/"), ("Contact", "/contact/"))),
      "body": body_contact, "og_kicker": "Contact", "og_sub": "Fellowships · research · teaching · leadership roles"},
     {"slug": "es", "path": "/es/", "file": "es/index.html", "nav": "", "lang": "es",
