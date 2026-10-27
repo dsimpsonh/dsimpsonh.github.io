@@ -1,33 +1,55 @@
 {
   "_note": "Methods page. Published in full on the frameworks library. No prices, no service ladders. 'url' empty = in development (shown without a link).",
   "methods": [
-    {"name": "LEVER", "unit": "The unit is a decision", "line": "Align the goal. Expose the friction. Sequence the fix.",
-     "text": "Decision diagnostics for organisations that have adopted AI and cannot show what it changed. LEVER maps every recurring decision, prices the friction in each, and sequences the one change that recovers it without breaking something downstream.",
-     "url": "/lever/"},
-    {"name": "RECALL", "unit": "The unit is a question", "line": "Ask first. Score the corpus. Earn the right to build.",
-     "text": "A retrieval system cannot be better than the documents it retrieves from. RECALL measures a company's corpus against the questions people actually ask before anything is built, and can recommend against building.",
-     "url": "/recall/"},
-    {"name": "STAKE", "unit": "The unit is a revenue stream", "line": "Build it. Run it. Let the partner sell it.",
-     "text": "A product-partnership model for businesses that own a vertical and need a product they cannot build themselves, with a revenue ledger per deal.",
-     "url": "/stake/"},
-    {"name": "FLYWHEEL", "unit": "The unit is a venture", "line": "Score the business on eight dimensions. Find the drag.",
-     "text": "A venture diagnostic used with founders and students: eight dimensions, scored from evidence, to find which one is slowing everything else.",
-     "url": "/flywheel/"},
-    {"name": "Vibecoding", "unit": "The unit is a shipped product", "line": "From a worthy problem to a live URL.",
-     "text": "The twenty-step protocol taught at IED Madrid, LCC and in company training: how people who are not engineers ship working software with AI coding agents, under specification and review gates.",
-     "url": "/vibecoding/"},
-    {"name": "REWIRED", "unit": "The unit is the operator", "line": "Build the operator before you build the company.",
-     "text": "A diagnostic and protocol for the founder's own working defaults: the habits and beliefs that decide what gets built.",
-     "url": "/REWIRED/"},
-    {"name": "TeamScale", "unit": "The unit is a team", "line": "Build an AI-native team. Don't over-hire.",
-     "text": "Roles, benchmarks and a twelve-month roadmap for teams designed around AI from the start.",
-     "url": "/teamscale/"},
-    {"name": "Design Poiesis", "unit": "In development", "line": "Every insight carries its trail from grounds to claim.",
-     "text": "A method for designers working with AI: five moves between two rails, so that each finding can be traced back to the evidence it came from. Working name.",
-     "url": ""}
+    {
+      "name": "LEVER",
+      "unit": "The unit is a decision",
+      "line": "Align the goal. Expose the friction. Sequence the fix.",
+      "text": "Decision diagnostics for organisations that have adopted AI and cannot show what it changed. LEVER maps every recurring decision, prices the friction in each, and sequences the one change that recovers it without breaking something downstream.",
+      "url": "/lever/"
+    },
+    {
+      "name": "RECALL",
+      "unit": "The unit is a question",
+      "line": "Ask first. Score the corpus. Earn the right to build.",
+      "text": "A retrieval system cannot be better than the documents it retrieves from. RECALL measures a company's corpus against the questions people actually ask before anything is built, and can recommend against building.",
+      "url": "/recall/"
+    },
+    {
+      "name": "STAKE",
+      "unit": "The unit is a revenue stream",
+      "line": "Build it. Run it. Let the partner sell it.",
+      "text": "A product-partnership model for businesses that own a vertical and need a product they cannot build themselves, with a revenue ledger per deal.",
+      "url": "/stake/"
+    },
+    {
+      "name": "FLYWHEEL",
+      "unit": "The unit is a venture",
+      "line": "Score the business on eight dimensions. Find the drag.",
+      "text": "A venture diagnostic used with founders and students: eight dimensions, scored from evidence, to find which one is slowing everything else.",
+      "url": "/flywheel/"
+    },
+    {
+      "name": "Vibecoding",
+      "unit": "The unit is a shipped product",
+      "line": "From a worthy problem to a live URL.",
+      "text": "The twenty-step protocol taught at IED Madrid, LCC and in company training: how people who are not engineers ship working software with AI coding agents, under specification and review gates.",
+      "url": "/vibecoding/"
+    },
+    {
+      "name": "Design Poiesis",
+      "unit": "In development",
+      "line": "Every insight carries its trail from grounds to claim.",
+      "text": "A method for designers working with AI: five moves between two rails, so that each finding can be traced back to the evidence it came from. Working name.",
+      "url": ""
+    }
   ],
   "tools": [
-    {"name": "Five strategy canvases", "text": "Category Design, Empathy, User Story Matrix, UX Strategy and AI Agent Design. Free A3 PDFs with quick guides.", "url": "/canvas/"}
+    {
+      "name": "Five strategy canvases",
+      "text": "Category Design, Empathy, User Story Matrix, UX Strategy and AI Agent Design. Free A3 PDFs with quick guides.",
+      "url": "/canvas/"
+    }
   ],
   "case": {
     "name": "Worked example: Language Kids World, Houston",

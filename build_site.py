@@ -86,6 +86,8 @@ METHODS  = _load("methods",  {"methods": ["name", "unit", "line", "text"], "tool
 ARCHIVE  = _load("archive",  {"projects": ["years", "name", "role", "text"], "exhibitions": [], "press": [], "awards": []})
 ALETHEAI = _load("aletheai", {"patents": ["label", "title", "text"]})
 
+NUMBER_WORDS = {2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten"}
+
 def fmt_date(iso: str) -> str:
     return datetime.date.fromisoformat(iso).strftime("%-d %b %Y")
 
@@ -573,7 +575,7 @@ def body_methods():
     case = f"""<div class="card dark"><span class="lab">Applied</span><h3>{esc(c['name'])}</h3><p>{esc(c['text'])}</p><div class="foot" style="justify-content:flex-start">{A(LIB + c['url'], 'Read the case study →', '', 'framework_open', framework='case-study-language-kids-world')}</div></div>"""
     return f"""
 {hero('Methods', 'Methods, published <em>in full</em>.', 'Each method is written down with its instruments and its gates, so anyone can check the reasoning, use it, or argue with it. Several can recommend against building. They live in the open framework library.', A(LIB + '/', 'Open the framework library →', 'btn', 'framework_open', framework='library'))}
-{section('methods', 'The methods', 'Eight methods, <em>one discipline</em>.', f'<div class="grid g2">{cards}</div>', 'Data has no value on its own. Decisions do. Each method starts from a specific decision, question, venture or team and makes it measurably better.')}
+{section('methods', 'The methods', f'{NUMBER_WORDS[len(METHODS["methods"])]} methods, <em>one discipline</em>.', f'<div class="grid g2">{cards}</div>', 'Data has no value on its own. Decisions do. Each method starts from a specific decision, question, venture or team and makes it measurably better.')}
 {section('tools', 'Tools and a worked example', 'Free tools and <em>a worked example</em>.', f'<div class="grid g2">{tools}{case}</div>')}
 """
 
