@@ -1,0 +1,19 @@
+{
+  "_note": "Invited talks, lectures, workshops and panels. 'era': 'current' shows on /teaching/, 'archive' shows on /archive/. Sort key is 'date' (ISO, first day of the period).",
+  "talks": [
+    {"date": "2018-10-01", "when": "Oct 2018", "title": "Radical Design", "kind": "Research seminar", "venue": "CAMEo Research Institute, University of Leicester", "era": "current"},
+    {"date": "2018-06-01", "when": "Jun 2018", "title": "Under Her Eye: Women in Sustainability, Design & Policy", "kind": "Talk", "venue": "British Library, London", "era": "current"},
+    {"date": "2017-07-01", "when": "Summers 2017–18", "title": "Idea generation workshops (with Magnus Long)", "kind": "Workshops", "venue": "Central Saint Martins, London", "era": "current"},
+    {"date": "2017-10-01", "when": "Oct 2017", "title": "Designers in Industry", "kind": "Public lecture", "venue": "Nottingham Trent University", "era": "current"},
+    {"date": "2017-04-01", "when": "Apr 2017", "title": "Design and entrepreneurship", "kind": "Virtual lecture", "venue": "Tekoa Academy, Orange, Texas", "era": "current"},
+    {"date": "2016-11-02", "when": "Nov 2016", "title": "Clean Energy & Education Through the Power of Music", "kind": "Talk", "venue": "Disruptive Innovation Festival (online)", "era": "archive"},
+    {"date": "2016-11-01", "when": "Nov 2016", "title": "Design & Technology", "kind": "Visiting tutor", "venue": "University of Hertfordshire", "era": "archive"},
+    {"date": "2016-09-01", "when": "Sep 2016 – Jan 2017", "title": "Design & Technology", "kind": "Guest lecturer", "venue": "UCL Academy, London", "era": "archive"},
+    {"date": "2016-06-01", "when": "Jun 2016", "title": "Innovation through Design", "kind": "Guest speaker", "venue": "European Commission, Brussels", "era": "archive"},
+    {"date": "2016-02-01", "when": "Feb 2016", "title": "Sustainability & Design", "kind": "Guest lecturer", "venue": "Central Saint Martins, London", "era": "archive"},
+    {"date": "2015-01-01", "when": "Jan 2015", "title": "Praxis: Culture and Sustainability", "kind": "Talk", "venue": "Wysing Arts Centre, Cambridge", "era": "archive"},
+    {"date": "2014-11-02", "when": "Nov 2014", "title": "Sustainability in Design: What's Next?", "kind": "Panel", "venue": "19 Greek Street Gallery, London", "era": "archive"},
+    {"date": "2014-11-01", "when": "Nov 2014", "title": "Design Charities", "kind": "Panel", "venue": "19 Greek Street Gallery, London", "era": "archive"},
+    {"date": "2014-05-01", "when": "May 2014", "title": "Waste-Land of Plenty", "kind": "Talk", "venue": "Julie's Bicycle at The Proud Archivist, London", "era": "archive"}
+  ]
+}

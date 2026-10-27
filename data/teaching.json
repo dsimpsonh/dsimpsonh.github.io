@@ -1,0 +1,19 @@
+{
+  "_note": "Teaching and academic roles. 'current': true shows in the first list on /teaching/.",
+  "roles": [
+    {"current": true, "years": "Annual · latest April 2026", "role": "Lecturer, MA programmes", "org": "IED Madrid (Istituto Europeo di Design)",
+     "detail": "AI-native product building for MA students who are not engineers: from a worthy problem to a working product with LLMs and coding agents, inside one course. Runs every year."},
+    {"current": true, "years": "2026 –", "role": "Mentor, venture and business coach", "org": "London College of Communication (UAL)",
+     "detail": "Venture evaluation lectures and one-to-one mentoring for student and graduate founders."},
+    {"current": true, "years": "2026", "role": "Judge, LCC Accelerate 2026", "org": "UAL with the NatWest Accelerator",
+     "detail": "Early-stage venture panel."},
+    {"current": true, "years": "Ongoing", "role": "In-house training", "org": "Companies and teams",
+     "detail": "Vibecoding workshops that get product, design and operations teams shipping internal tools with AI coding agents."},
+    {"current": true, "years": "Ongoing", "role": "Education Ambassador", "org": "CREATE",
+     "detail": "Creative, STEM and entrepreneurship education across the UK."},
+    {"current": false, "years": "2017 – 2019", "role": "Senior Lecturer in Product Design", "org": "Nottingham Trent University",
+     "detail": "Year 1 BSc lead; portfolio and industry tutor; MA and MSc supervisor."},
+    {"current": false, "years": "2018 – 2019", "role": "Guest Lecturer and Curriculum Consultant", "org": "University of Worcester",
+     "detail": "BA Product Design."}
+  ]
+}

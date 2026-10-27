@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# local preview build (python3 build_site.py --preview)
+_preview/

@@ -1,0 +1,44 @@
+{
+  "_note": "Archive page: earlier ventures and projects, exhibitions, press, awards. Talks 2014-2016 come from talks.json (era = archive).",
+  "projects": [
+    {"years": "2014 – 2017", "name": "Shake Your Power CIC", "role": "Co-founder and Chief Product Officer",
+     "text": "SPARK, the first energy-generating musical instrument. Granted a US patent and two London Design Award Golds (SPARK in 2014, DIY SPARK in 2015). STEM pilots in the UK, the US and India, with UCL Academy and Pratham; manufactured in Shenzhen.",
+     "links": []},
+    {"years": "2014 –", "name": "Monogram Publishers", "role": "Founder",
+     "text": "Independent publishing house. Publisher of The Art of Getting Stuff Done (2022).",
+     "links": [["monogrampublishers.com", "https://monogrampublishers.com"]]},
+    {"years": "2012 – 2014", "name": "Glass Lab / Trash Surface Bureau", "role": "Founder and designer",
+     "text": "Recycled-glass surface products made from the commercial waste of London businesses. Featured in FRAME Magazine, Inhabitat and Designer Pages.",
+     "links": [["The Greenhouse: Pioneer profile", "https://greenhouse.agency/blog/pioneer-diana-simpson-hernandez-trash-surface-bureau/"]]},
+    {"years": "2012", "name": "Fictional Objects", "role": "Royal College of Art",
+     "text": "Speculative objects for futures that do not exist yet (the Human Behaviour Control Machine, the Lightning Harvester, the Prayer Transmitter, the Dream Time Machine), made alongside the MA dissertation on myth and design.",
+     "links": [["Read the dissertation (PDF)", "/assets/papers/modern-mythopoeia-rca-2012.pdf"]]}
+  ],
+  "exhibitions": [
+    ["2016", "Africa Energy Forum", "London (Jun 2016); Washington (Jan 2016); Dubai (Jun 2015)"],
+    ["2015", "Green Tec Awards", "Berlin"],
+    ["2015", "Design for Life: 99 Projects for the Real World", "Museu del Disseny, Barcelona"],
+    ["2014", "Construct de-Construct", "Droog, Amsterdam"],
+    ["2014", "Resource", "ExCeL London"],
+    ["2013", "Going Into Business", "Protein, London"],
+    ["2013", "Sustain RCA Awards (shortlist)", "Royal College of Art, London"],
+    ["2013", "Show RCA 2013", "Royal College of Art, London"],
+    ["2013", "Mind the Gap", "Royal College of Art, London; NCKU, Tainan (Judges' Choice Award)"],
+    ["2012", "Calling the Future", "V&A, London"],
+    ["2012", "Bureau Odyssey", "Iceland Design Week, Reykjavík"]
+  ],
+  "press": [
+    ["2014", "Better Future Awards / London Design Awards", "SPARK project page", "http://www.betterfutureawards.com/LON14/project.asp?ID=13100"],
+    ["2013", "FRAME Magazine", "Feature on Glass Lab (print, Nov/Dec 2013)", ""],
+    ["2013", "Trend Office", "Another Beautiful Way to Recycle", ""],
+    ["2013", "3rings / Designer Pages", "Glass Lab by Diana Simpson-Hernandez", "https://3rings.designerpages.com/2013/07/glass-lab-by-diana-simpson-hernandez/"],
+    ["2013", "Inhabitat", "Glass Lab Turns Waste from London Businesses into Beautiful Recycled Products", ""],
+    ["", "The Greenhouse", "Pioneer: Diana Simpson-Hernandez, Trash Surface Bureau", "https://greenhouse.agency/blog/pioneer-diana-simpson-hernandez-trash-surface-bureau/"]
+  ],
+  "awards": [
+    ["2015", "Gold, London Design Awards", "DIY SPARK"],
+    ["2014", "Gold, London Design Awards", "SPARK"],
+    ["2013", "Judges' Choice Award, Mind the Gap", "NCKU, Tainan"],
+    ["2013", "Shortlist, Sustain RCA Awards", "Royal College of Art"]
+  ]
+}

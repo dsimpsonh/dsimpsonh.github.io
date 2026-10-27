@@ -1,0 +1,23 @@
+{
+  "_note": "Aletheai page. DISCLOSURE: as-filed wording only; no codenames, no commercial figures, no unfiled method detail. Patent count = six applications filed. Do not add application numbers until published.",
+  "summary": "Aletheai is a behavioural decision-intelligence company. Its engine reads behavioural signals from the systems a business already runs, ranks who or what deserves attention by the evidence, attaches a plain-English reason and next action to every item, and declines to rank where the evidence is insufficient.",
+  "status": "First market: UK estate agency, launching through the Alto (Zoopla Group) marketplace; first cohort recruiting.",
+  "patents_line": "Six patent applications filed, 2025–2026 (UK and international). Two are summarised below; the others are unpublished.",
+  "patents": [
+    {"label": "Patent application · international (PCT), priority September 2025", "title": "Behavioural decision intelligence",
+     "text": "An engine that ranks who or what deserves attention by the evidence rather than a score over everything, attaches a plain-English reason and next action to every item, and refuses to rank where the evidence is insufficient, with the refusal recorded. Its behavioural archetypes live in a fixed, versioned library that changes only at signed releases, never silently in production."},
+    {"label": "Patent application · UK, September 2026", "title": "Action gating for AI agents",
+     "text": "Every act an AI agent takes passes through a gate the agent cannot reach, is registered before it happens, and must be justified by evidence the agent did not write. The gate uses no model: it is deterministic and replayable, so oversight does not depend on reading the agent's reasoning. Governance of machine conduct, not machine thought."}
+  ],
+  "questions": [
+    ["When should a machine decline to answer?", "Ranking only where the evidence supports it, and recording the refusal, so a person can see where the system could not see."],
+    ["How do you govern what an AI agent does without reading its mind?", "Gate the action, not the reasoning: evidence the agent did not write, checked by a gate it cannot reach."],
+    ["What does it take for a decision to be defensible afterwards?", "A record a person can open: what was known, what was inferred, and why this item came first."]
+  ],
+  "partners": [
+    ["STFC Hartree Centre", "Feasibility study on real human-behaviour datasets, including how to treat missing data before trusting a model on it."],
+    ["RTC North", "Business support."],
+    ["AI Forge", "Finalist, 2025."]
+  ],
+  "links": [["aletheai.ai", "https://aletheai.ai"], ["Research notice", "https://aletheai.ai/research-notice"]]
+}

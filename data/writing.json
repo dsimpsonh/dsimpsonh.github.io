@@ -1,0 +1,68 @@
+{
+  "_note": "Research & writing page. Newest first inside each list. Add a LinkedIn article by appending to 'essays' with venue 'LinkedIn'. Dates are ISO (YYYY-MM-DD).",
+  "essays": [
+    {
+      "date": "2026-09-18",
+      "title": "The Astra Moment",
+      "dek": "The most powerful AI yet just moved part of how it thinks into a form no human can read. That makes the case, urgently, for the other kind of AI: the kind that keeps a ledger you can open.",
+      "venue": "Substack",
+      "url": "https://dianasimpsonhernandez.substack.com/p/the-astra-moment",
+      "read": "6 min read",
+      "featured": true
+    },
+    {
+      "date": "2026-06-09",
+      "title": "The Black Box Problem",
+      "dek": "Why the smartest AI in the world still can't be trusted, and the patch that doesn't work.",
+      "venue": "Substack",
+      "url": "https://dianasimpsonhernandez.substack.com/p/the-black-box-problem",
+      "read": "4 min read"
+    },
+    {
+      "date": "2026-06-05",
+      "title": "The UK Residential Sales Paradox",
+      "dek": "1.2 million transactions a year. One in three collapse. We measure everything except the people.",
+      "venue": "Substack",
+      "url": "https://dianasimpsonhernandez.substack.com/p/the-uk-residential-sales-paradox",
+      "read": "6 min read"
+    }
+  ],
+  "research": [
+    {
+      "date": "2026-01-01",
+      "date_label": "2026",
+      "title": "Aletheai Research Notice",
+      "kind": "Research document",
+      "dek": "The public research statement for Aletheai's behavioural decision-intelligence engine (v1.1).",
+      "venue": "Aletheai",
+      "url": "https://aletheai.ai/research-notice"
+    },
+    {
+      "date": "2012-10-01",
+      "date_label": "October 2012",
+      "title": "Modern Mythopoeia & the Construction of Fictional Futures in Design",
+      "kind": "MA dissertation",
+      "dek": "Myth as social technology: how the stories a culture tells itself decide which futures get designed, and how designers can work with those stories on purpose, through fictional objects, science-fiction cut-ups and inverted myths.",
+      "venue": "Royal College of Art · MA Design Products",
+      "url": "/assets/papers/modern-mythopoeia-rca-2012.pdf",
+      "meta": "10,459 words · PDF, 94 pages"
+    }
+  ],
+  "book": {
+    "date": "2022-04-25",
+    "title": "The Art of Getting Stuff Done",
+    "subtitle": "15 Strategies to Integrate Into Your Life, to Accomplish Your Goals and Achieve Success",
+    "publisher": "Monogram Publishers",
+    "format": "Paperback, 2022",
+    "url": "https://www.amazon.com/dp/B09Z6DVXQB"
+  },
+  "audio": [
+    {
+      "date": "2026-03-31",
+      "title": "You Don't Need More Leads. You Need to Stop Wasting Them.",
+      "show": "Utterly Indispensable Podcast for Estate Agents (Key Coaching)",
+      "role": "Guest",
+      "url": "https://keycoaching.co.uk/podcasts/utterly-indispensable-podcast-for-estate-agents/episodes/2149192840"
+    }
+  ]
+}
