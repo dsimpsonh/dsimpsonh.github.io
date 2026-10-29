@@ -13,55 +13,125 @@
   "claims": "Follow the moves and record the trail, and your design claims will be traceable to their grounds, tested against what matters, carried across contexts before they're trusted, and routed to the right next form.",
   "not_yet": "That it works for everyone, or better than a strong design process you already have. It is formalised from one practice, and it will be tested before any stronger claim is made.",
   "moves": [
-    {"n": "M1", "name": "SEIZE", "title": "Catch the prepared insight", "line": "Insights feel sudden. They rarely are.", "weight": 2,
-     "what": "An insight is what's left after a long, informed exploration of a subject. SEIZE catches the insight and its ground the same day: what you'd been exploring, which sources and observations were in play, what tipped it over, and your first doubt.",
-     "artefact": "A capture card: insight · ground · trigger · first doubt.",
-     "pass": "Written within 24 hours, with at least one concrete ground and a named trigger.",
-     "signal": "It goes on into EMBODY. Captures that never move are counted, not hidden.",
-     "ai": "Dates it, lists the ground, asks what triggered it.",
-     "risk": "Hoarding sparks, and the \"sudden genius\" myth that erases the work behind them."},
-    {"n": "M2", "name": "EMBODY", "title": "Metaphor → mechanism", "line": "Push a metaphor until it predicts something.", "weight": 3,
-     "what": "Choose a concrete metaphor or analogy and push it element by element until the mapping tells you something you hadn't designed yet: a component, a rule, a way it could fail. Metaphors bring in solutions already worked out somewhere else, in biology, myth, engineering or other industries. Log every place the mapping breaks.",
-     "artefact": "A mapping table, its predictions, a break log, the domains you considered.",
-     "pass": "The mapping and break log exist, and why you chose this domain is written down.",
-     "signal": "Something in the final design traces back to a mapping line written before it.",
-     "ai": "Offers source domains at near, mid and far distances and drafts the mapping table.",
-     "risk": "Falling for the metaphor and bending the system to fit the image."},
-    {"n": "M3", "name": "INVERT", "title": "Constraint → architecture", "line": "What if this limitation were the product?", "weight": 3,
-     "what": "Every brief has a constraint it can't get away from. The usual move is to mitigate it. INVERT restates it as the organising principle: constraint C becomes principle P. Then take P back into the metaphor. If it breaks again, log the break and invert again. EMBODY and INVERT loop until an inversion holds.",
-     "artefact": "The C → P sentence, the decisions that follow from it, the loop log.",
-     "pass": "The inversion names its constraint and every loop turn is logged.",
-     "signal": "Take P away and the design can't be explained.",
-     "ai": "Red-teams it: is this an inversion, or a mitigation in disguise?",
-     "risk": "Inverting everything. Some constraints are just costs. Invert the one that carries the load."},
-    {"n": "M4", "name": "PROPAGATE", "title": "Validity by travel", "line": "A pattern earns trust by surviving away from home.", "weight": 2,
-     "what": "EMBODY brought a solution in from elsewhere. PROPAGATE sends the result back out. Carry the pattern into at least two unrelated contexts, record what maps and what breaks, and mark each row honestly: argued, or tested.",
-     "artefact": "A cross-context table: context · maps · breaks · verdict · argued or tested.",
-     "pass": "At least two rows, each marked argued or tested.",
-     "signal": "At least one row is tested, and a break changed the pattern.",
-     "ai": "Proposes far contexts and stress-tests the mapping.",
-     "risk": "Propagating on paper only. A table is a claim about travel, not proof of it."},
-    {"n": "M5", "name": "MINUTE", "title": "The same-day record", "line": "If it only exists in the conversation, it doesn't exist.", "weight": 1,
-     "what": "Turn the thinking into a dated record the same day. Tag every claim as fact, inference or opinion. Link the whole trail, from ground to SEIZE to the loop to PROPAGATE, and mark what the AI contributed. This is where AI earns its place: the minute that used to take an hour takes a minute.",
-     "artefact": "The minute: dated, tagged and linked.",
-     "pass": "On file with a date, warrant tags and links to the trail.",
-     "signal": "A later decision cites it.",
-     "ai": "Drafts it, tags it, links it.",
-     "risk": "Minuting as theatre, where volume stands in for judgement."}
+    {
+      "n": "M1",
+      "name": "SEIZE",
+      "title": "Catch the prepared insight",
+      "line": "Insights feel sudden. They rarely are.",
+      "weight": 2,
+      "what": "An insight is what's left after a long, informed exploration of a subject. SEIZE catches the insight and its ground the same day: what you'd been exploring, which sources and observations were in play, what tipped it over, and your first doubt.",
+      "artefact": "A capture card: insight · ground · trigger · first doubt.",
+      "pass": "Written within 24 hours, with at least one concrete ground and a named trigger.",
+      "signal": "It goes on into EMBODY. Captures that never move are counted, not hidden.",
+      "ai": "Dates it, lists the ground, asks what triggered it.",
+      "risk": "Hoarding sparks, and the \"sudden genius\" myth that erases the work behind them."
+    },
+    {
+      "n": "M2",
+      "name": "EMBODY",
+      "title": "Metaphor → mechanism",
+      "line": "Push a metaphor until it predicts something.",
+      "weight": 3,
+      "what": "Choose a concrete metaphor or analogy and push it element by element until the mapping tells you something you hadn't designed yet: a component, a rule, a way it could fail. Metaphors bring in solutions already worked out somewhere else, in biology, myth, engineering or other industries. Log every place the mapping breaks.",
+      "artefact": "A mapping table, its predictions, a break log, the domains you considered.",
+      "pass": "The mapping and break log exist, and why you chose this domain is written down.",
+      "signal": "Something in the final design traces back to a mapping line written before it.",
+      "ai": "Offers source domains at near, mid and far distances and drafts the mapping table.",
+      "risk": "Falling for the metaphor and bending the system to fit the image."
+    },
+    {
+      "n": "M3",
+      "name": "INVERT",
+      "title": "Constraint → architecture",
+      "line": "What if this limitation were the product?",
+      "weight": 3,
+      "what": "Every brief has a constraint it can't get away from. The usual move is to mitigate it. INVERT restates it as the organising principle: constraint C becomes principle P. Then take P back into the metaphor. If it breaks again, log the break and invert again. EMBODY and INVERT loop until an inversion holds.",
+      "artefact": "The C → P sentence, the decisions that follow from it, the loop log.",
+      "pass": "The inversion names its constraint and every loop turn is logged.",
+      "signal": "Take P away and the design can't be explained.",
+      "ai": "Red-teams it: is this an inversion, or a mitigation in disguise?",
+      "risk": "Inverting everything. Some constraints are just costs. Invert the one that carries the load."
+    },
+    {
+      "n": "M4",
+      "name": "PROPAGATE",
+      "title": "Validity by travel",
+      "line": "A pattern earns trust by surviving away from home.",
+      "weight": 2,
+      "what": "EMBODY brought a solution in from elsewhere. PROPAGATE sends the result back out. Carry the pattern into at least two unrelated contexts, record what maps and what breaks, and mark each row honestly: argued, or tested.",
+      "artefact": "A cross-context table: context · maps · breaks · verdict · argued or tested.",
+      "pass": "At least two rows, each marked argued or tested.",
+      "signal": "At least one row is tested, and a break changed the pattern.",
+      "ai": "Proposes far contexts and stress-tests the mapping.",
+      "risk": "Propagating on paper only. A table is a claim about travel, not proof of it."
+    },
+    {
+      "n": "M5",
+      "name": "MINUTE",
+      "title": "The same-day record",
+      "line": "If it only exists in the conversation, it doesn't exist.",
+      "weight": 1,
+      "what": "Turn the thinking into a dated record the same day. Tag every claim as fact, inference or opinion. Link the whole trail, from ground to SEIZE to the loop to PROPAGATE, and mark what the AI contributed. This is where AI earns its place: the minute that used to take an hour takes a minute.",
+      "artefact": "The minute: dated, tagged and linked.",
+      "pass": "On file with a date, warrant tags and links to the trail.",
+      "signal": "A later decision cites it.",
+      "ai": "Drafts it, tags it, links it.",
+      "risk": "Minuting as theatre, where volume stands in for judgement."
+    }
   ],
   "gate": [
-    ["Product", "build and test", "Does someone have this problem, and would they use this?", "A named user, the smallest testable form, a kill criterion, a budget."],
-    ["Research object", "study it", "Is the open question worth more than an answer?", "A question, a test written down before you run it, data you're allowed to use."],
-    ["Knowledge", "teach or publish", "Is the value in other people understanding it?", "A disclosure check, an audience, a format."],
-    ["Seed", "park it", "Is it right but early?", "A revisit trigger: an event or a date."],
-    ["Kill", "stop", "Is it wrong, done before, or not worth it?", "The reason, written down. A kill counts as a pass."]
+    [
+      "Product",
+      "build and test",
+      "Does someone have this problem, and would they use this?",
+      "A named user, the smallest testable form, a kill criterion, a budget."
+    ],
+    [
+      "Research object",
+      "study it",
+      "Is the open question worth more than an answer?",
+      "A question, a test written down before you run it, data you're allowed to use."
+    ],
+    [
+      "Knowledge",
+      "teach or publish",
+      "Is the value in other people understanding it?",
+      "A disclosure check, an audience, a format."
+    ],
+    [
+      "Seed",
+      "park it",
+      "Is it right but early?",
+      "A revisit trigger: an event or a date."
+    ],
+    [
+      "Kill",
+      "stop",
+      "Is it wrong, done before, or not worth it?",
+      "The reason, written down. A kill counts as a pass."
+    ]
   ],
   "rail_a": {
     "intro": "Before you start, declare what the work has to answer to. Guardrails are often applied at the same strength from start to finish, which either strangles early ideas or lets late decisions go soft. Design Poiesis tiers them, and turns them up as the work converges.",
     "tiers": [
-      ["T1 · Commitments", "values, ethics, law, disclosure, budget", "binds", "binds"],
-      ["T2 · Evidence", "verified data, primary sources", "informs", "binds"],
-      ["T3 · Working beliefs", "assumptions, conventions, all AI output", "open to challenge", "proved, or labelled as assumption"]
+      [
+        "T1 · Commitments",
+        "values, ethics, law, disclosure, budget",
+        "binds",
+        "binds"
+      ],
+      [
+        "T2 · Evidence",
+        "verified data, primary sources",
+        "informs",
+        "binds"
+      ],
+      [
+        "T3 · Working beliefs",
+        "assumptions, conventions, all AI output",
+        "open to challenge",
+        "proved, or labelled as assumption"
+      ]
     ],
     "admission": "Only sources that pass five checks get into T2: provenance, verifiability, independence from the idea under test, recency and scope. T1 is dated before the first SEIZE; guards written afterwards are rationalisation."
   },
@@ -75,26 +145,72 @@
   ],
   "ai_principle": "AI widens the search and keeps the minutes. You hold the judgement, the taste and the signature.",
   "ai_rules": [
-    ["Diverge alone first.", "Seeing AI examples early can anchor you on them. Your own ideas go down first."],
-    ["AI proposes, you decide.", "It never signs a ruling or declares what's non-negotiable."],
-    ["AI output starts as a working belief.", "Check every fact and citation against a primary source."],
-    ["Tag every contribution.", "[D] designer · [A] AI · [DEC] decision."],
-    ["Ask it to disagree.", "Agreement without reasons is noise."],
-    ["Mind what you paste.", "Confidential material only goes into tools you've approved."],
-    ["Say AI was used", "in anything you publish."],
-    ["It works with a notebook.", "AI makes the method cheap. It isn't required."]
+    [
+      "Diverge alone first.",
+      "Seeing AI examples early can anchor you on them. Your own ideas go down first."
+    ],
+    [
+      "AI proposes, you decide.",
+      "It never signs a ruling or declares what's non-negotiable."
+    ],
+    [
+      "AI output starts as a working belief.",
+      "Check every fact and citation against a primary source."
+    ],
+    [
+      "Tag every contribution.",
+      "[D] designer · [A] AI · [DEC] decision."
+    ],
+    [
+      "Ask it to disagree.",
+      "Agreement without reasons is noise."
+    ],
+    [
+      "Mind what you paste.",
+      "Confidential material only goes into tools you've approved."
+    ],
+    [
+      "Say AI was used",
+      "in anything you publish."
+    ],
+    [
+      "It works with a notebook.",
+      "AI makes the method cheap. It isn't required."
+    ]
   ],
   "example": {
-    "title": "The library that teenagers ignored",
-    "note": "A made-up brief to show the moves. It isn't a client project.",
+    "title": "The setup nobody finished",
+    "emphasis": "nobody finished",
+    "note": "A made-up brief to show the moves: a software company whose small-business customers sign up for its AI bookkeeping assistant and never finish setting it up. It isn't a client project.",
     "steps": [
-      ["Rail A", "No new staff budget, quiet rules stay in the reading room, safeguarding law applies (T1). Footfall counts and twelve hours of observation (T2). \"Teenagers don't read anymore\" (T3, open to challenge)."],
-      ["SEIZE", "After three weeks of watching, the designer notices the teenagers who do come never touch the shelves. They come for the window seats after school. Insight: they use the library as a place, not a collection."],
-      ["EMBODY", "Candidates: a bookshop café (near), a gym (mid), a coral reef (far). The reef wins. A reef shelters many species in nooks, so the library needs nooks. It predicts that tighter conditions empty it. Break: reefs aren't governed by anyone."],
-      ["INVERT", "No staff for evenings becomes the teenagers are the staff: a teen-run evening hour. Loop two: quiet rules become quiet as a gradient, zoned from loud to silent. The reef holds."],
-      ["PROPAGATE", "A museum's late opening (argued: maps well, breaks on insurance). A sports centre's youth hour (tested: one pilot)."],
-      ["MINUTE", "Written the same day. \"Teenagers use libraries as places\" is an inference from one branch, so it's labelled that way."],
-      ["What's next", "Product: a four-week pilot of the teen-run evening hour. Kill criterion written down before it starts."]
+      [
+        "Rail A",
+        "No extra headcount for onboarding calls, no customer data shared with third parties, no promise the product can't keep (T1). Product analytics on where people drop off, and fifteen customer interviews (T2). \"They need more tutorials\" and \"a smarter chatbot will fix it\" (T3, open to challenge)."
+      ],
+      [
+        "SEIZE",
+        "After weeks of interviews and session reviews, the designer notices that every customer who finished setup did it with someone else in the room, usually their accountant. Trigger: three owners in one week said they were \"waiting for the accountant\". Insight: setup is a shared task, not a learning task."
+      ],
+      [
+        "EMBODY",
+        "Candidates: a hotel concierge (near), a dual-control driving-school car (mid), a fungal network that links trees underground (far). The car wins. Two people, two sets of controls, and the instructor takes over only for the dangerous moments. It predicts that an assistant which does everything leaves owners unable to run their own books. Break: the instructor can see the road, but the AI can't see the paperwork on the owner's desk."
+      ],
+      [
+        "INVERT",
+        "No headcount for onboarding becomes: the customer's own accountant is the onboarding team, invited in with their own half of the setup. Loop two: the AI can't see the paperwork becomes: the AI only asks for what it can check, and hands the rest to the accountant as a checklist. The car holds: two people, two sets of controls."
+      ],
+      [
+        "PROPAGATE",
+        "A gym induction with a training partner (argued: maps well, breaks on motivation). Opening a business bank account with an adviser (tested: one small trial with a partner bank)."
+      ],
+      [
+        "MINUTE",
+        "Written the same day, with the AI's suggestions tagged. \"Setup is a shared task\" is an inference from fifteen interviews, so it's labelled that way."
+      ],
+      [
+        "What's next",
+        "Product: a two-week test of invite-your-accountant setup with twenty new accounts. Kill criterion, written down before it starts: if paired accounts don't finish setup more often than the rest, stop."
+      ]
     ]
   },
   "adds_designers": [
@@ -116,9 +232,18 @@
   ],
   "not_new": "What it doesn't add is a new theory of creativity. Each move has close relatives in design research: generative metaphor, frame creation, inventive problem-solving, design-rationale capture. The contribution is how they fit together, and the trail.",
   "tests": [
-    ["Looking back", "Score a dated archive of past ideas, including the ones that died. If almost every idea passes every move, the tests aren't tests."],
-    ["Live", "Run the next fresh idea through the moves, against a ten-minute \"what I'd have done anyway\"."],
-    ["In someone else's hands", "A class session in which students run the moves from a single card."]
+    [
+      "Looking back",
+      "Score a dated archive of past ideas, including the ones that died. If almost every idea passes every move, the tests aren't tests."
+    ],
+    [
+      "Live",
+      "Run the next fresh idea through the moves, against a ten-minute \"what I'd have done anyway\"."
+    ],
+    [
+      "In someone else's hands",
+      "A class session in which students run the moves from a single card."
+    ]
   ],
   "name": "Ποίησις (poiesis) is the Greek for bringing something forth, the root of the word poetry. Heidegger paired it with aletheia, truth as unconcealment. Poiesis is the making that brings something into the open."
 }

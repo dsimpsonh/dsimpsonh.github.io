@@ -585,7 +585,7 @@ def body_poiesis():
 <div class="card"><span class="lab coral">Rail B · Candour and radical honesty</span><p>Radical honesty here is about claims, not about being blunt with people.</p><ol class="ol-num">{railb}</ol></div>
 </div></div></section>
 {section('ai', 'Working with AI', 'AI widens the search. <em>You hold the signature.</em>', f'<div class="grid g3">{rules}</div>', esc(P['ai_principle']))}
-{section('example', 'Worked example · illustrative, fictional', esc(ex['title']).replace('ignored', '<em>ignored</em>') + '.', f'<ul class="rlist">{steps}</ul>', esc(ex['note']))}
+{section('example', 'Worked example · illustrative, fictional', esc(ex['title']).replace(esc(ex.get('emphasis', '')), '<em>' + esc(ex.get('emphasis', '')) + '</em>') + '.' if ex.get('emphasis') else esc(ex['title']) + '.', f'<ul class="rlist">{steps}</ul>', esc(ex['note']))}
 <section id="adds"><div class="wrap">
 <div class="sh"><span class="lab">What it adds</span><h2>For designers, and for <em>design method</em>.</h2></div>
 <div class="grid g2x"><div class="card"><span class="lab">For designers and teams</span><ul class="clean">{d1}</ul></div><div class="card"><span class="lab">What it proposes for design method</span><ul class="clean">{d2}</ul></div></div>
