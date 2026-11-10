@@ -383,7 +383,7 @@ def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
 <div><p class="big">Every insight <em class="grad">carries its trail</em>.</p>
 <p style="font-size:14px;max-width:40ch">Designer, educator, innovator and founder. Author of <a href="/design-poiesis/">Design Poiesis</a>. Founder &amp; CEO, Aletheai. Lecturer, IED Madrid. FRSA · AFHEA.</p></div>
 <div><h4>Site</h4><ul>{site_links}</ul></div>
-<div><h4>Work</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Framework library</a></li>'}</ul></div>
+<div><h4>Work</h4><ul><li><a href="https://aletheai.ai" target="_blank" rel="noopener">Aletheai</a></li>{'' if hold else f'<li><a href="{LIB}/">Framework library</a></li><li><a href="https://handover.dianasimpsonhernandez.com/" target="_blank" rel="noopener">HANDOVER</a></li>'}</ul></div>
 <div><h4>Channels</h4><ul>{ch}</ul></div>
 </div>
 <div class="base"><span>© {datetime.date.today().year} Diana Simpson-Hernandez · London</span>
