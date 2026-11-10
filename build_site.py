@@ -82,7 +82,8 @@ def _load(name: str, required: dict) -> dict:
 WRITING  = _load("writing",  {"essays": ["date", "title", "dek", "venue", "url"], "research": ["date", "title", "kind", "dek", "venue", "url"], "book": ["title", "url"], "audio": ["date", "title", "show", "url"]})
 TALKS    = _load("talks",    {"talks": ["date", "when", "title", "venue", "era"]})["talks"]
 TEACHING = _load("teaching", {"roles": ["years", "role", "org", "detail"]})["roles"]
-METHODS  = _load("methods",  {"methods": ["name", "unit", "line", "text"], "tools": ["name", "text", "url"], "case": ["name", "text", "url"]})
+METHODS  = _load("methods",  {"methods": ["name", "unit", "line", "text"], "case": ["name", "text", "url"]})
+TOOLS    = _load("tools",    {"tools": ["name", "kind", "line", "text", "tiers", "url", "cta"]})["tools"]
 ARCHIVE  = _load("archive",  {"projects": ["years", "name", "role", "text"], "exhibitions": [], "press": [], "awards": []})
 ALETHEAI = _load("aletheai", {"patents": ["label", "title", "text"]})
 POIESIS  = _load("poiesis",  {"moves": ["n", "name", "title", "line", "what", "artefact", "pass", "signal", "ai", "risk"], "gate": [], "tests": []})
@@ -227,6 +228,9 @@ footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,
 
 EXTRA_CSS = """
 /* v5 · editorial profile */
+.tiers{display:grid;gap:0;margin-top:6px;border-top:1px solid var(--line)}
+.tier{padding:12px 0;border-bottom:1px solid var(--line)}.tier p{font-size:15px}
+.tier .lab{display:block;margin-bottom:4px}.tier.soon .lab{color:var(--muted)}
 .hero h1.name{max-width:16ch}
 .entries{display:grid;border-top:1px solid var(--line)}
 .entry{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:6px 28px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
@@ -292,7 +296,7 @@ EXTRA_CSS = """
 # ─────────────────────────────────────────────────────────────────────────────
 # SHARED CHROME
 # ─────────────────────────────────────────────────────────────────────────────
-NAV = [("/design-poiesis/", "Design Poiesis"), ("/aletheai/", "Aletheai"), ("/writing/", "Writing"), ("/methods/", "Methods"), ("/teaching/", "Teaching"), ("/archive/", "Archive"), ("/contact/", "Contact")]
+NAV = [("/design-poiesis/", "Design Poiesis"), ("/aletheai/", "Aletheai"), ("/writing/", "Writing"), ("/methods/", "Methods"), ("/tools/", "Tools"), ("/teaching/", "Teaching"), ("/archive/", "Archive"), ("/contact/", "Contact")]
 
 def analytics() -> str:
     wid = SITE.get("umami_website_id", "").strip()
@@ -691,11 +695,6 @@ def body_methods():
         if m.get("featured"): continue
         link = A(LIB + m["url"], 'Read the method →', '', 'framework_open', framework=m['name'].lower()) if m.get("url") else '<span class="lab">In development</span>'
         cards += f"""<div class="card"><span class="lab coral">{esc(m['name'])} · {esc(m['unit'])}</span><p class="line">{esc(m['line'])}</p><p>{esc(m['text'])}</p><div class="foot">{link}</div></div>"""
-    def tool_link(t):  # library tools live under LIB; standalone tools (e.g. HANDOVER) carry an absolute URL
-        if t['url'].startswith('http'):
-            return A(t['url'], esc(t.get('cta', 'Open →')), '', 'tool_open', tool=t['name'].lower().replace(' ', '-'))
-        return A(LIB + t['url'], esc(t.get('cta', 'Open →')), '', 'framework_open', framework=t['name'].lower().replace(' ', '-'))
-    tools = "".join(f"""<div class="card tint"><h3>{esc(t['name'])}</h3><p>{esc(t['text'])}</p><div class="foot">{tool_link(t)}</div></div>""" for t in METHODS["tools"])
     c = METHODS["case"]
     case = f"""<div class="card dark"><span class="lab">Applied</span><h3>{esc(c['name'])}</h3><p>{esc(c['text'])}</p><div class="foot" style="justify-content:flex-start">{A(LIB + c['url'], 'Read the case study →', '', 'framework_open', framework='case-study-language-kids-world')}</div></div>"""
     return f"""
@@ -705,7 +704,23 @@ def body_methods():
 <div class="foot" style="justify-content:flex-start">{A('/design-poiesis/', 'Read the method →', 'btn coral', 'cta_click', kind='poiesis', position='methods-feature')}</div></div>
 </div></section>
 {section('methods', 'Applied methods', f'{NUMBER_WORDS[len([m for m in METHODS["methods"] if not m.get("featured")])]} <em>applied</em> methods.', f'<div class="grid g2">{cards}</div>', 'Each of these starts from a specific decision, question, revenue stream, venture or build, and sets out up front how to tell whether it got better. They live in the open framework library.')}
-{section('tools', 'Tools and a worked example', 'Tools and <em>a worked example</em>.', f'<div class="grid g2">{tools}{case}</div>')}
+{section('example', 'Worked example', 'The methods, <em>applied</em>.', case, 'Looking for the canvases or HANDOVER? They are on the <a href="/tools/">Tools</a> page.')}
+"""
+
+def tool_link(t):
+    """standalone tools (HANDOVER) carry an absolute URL; the rest live in the framework library."""
+    slug = t['name'].lower().replace(' ', '-')
+    if t['url'].startswith('http'): return A(t['url'], esc(t['cta']), 'btn sm', 'tool_open', tool=slug, position='tools')
+    return A(LIB + t['url'], esc(t['cta']), 'btn sm', 'framework_open', framework=slug, position='tools')
+
+def body_tools():
+    cards = ""
+    for t in TOOLS:
+        tiers = "".join(f"""<div class="tier{' soon' if x.get('status') == 'soon' else ''}"><span class="lab">{esc(x['label'])}{' · coming soon' if x.get('status') == 'soon' else ''}</span><p>{esc(x['text'])}</p></div>""" for x in t["tiers"])
+        cards += f"""<div class="card tool"><span class="lab coral">{esc(t['kind'])}</span><h3>{esc(t['name'])}</h3><p class="line">{esc(t['line'])}</p><p>{esc(t['text'])}</p><div class="tiers">{tiers}</div><div class="foot" style="justify-content:flex-start">{tool_link(t)}</div></div>"""
+    return f"""
+{hero('Tools', 'Tools you can <em>use today</em>.', 'Software and canvases built from the methods. Every tool has a free way in; the paid versions go further.')}
+{section('tools', 'All tools', f'{NUMBER_WORDS.get(len(TOOLS), str(len(TOOLS)))} <em>tools</em>.', f'<div class="grid g2">{cards}</div>', 'Free means free: no email gate. Paid versions are one payment, not a subscription.')}
 """
 
 def body_teaching():
@@ -903,9 +918,15 @@ PAGES = [
     {"slug": "methods", "path": "/methods/", "file": "methods/index.html", "nav": "/methods/",
      "title": "Methods — LEVER, RECALL, FLYWHEEL, Vibecoding | Diana Simpson-Hernandez",
      "og_title": "Methods, published in full.",
-     "description": "Decision diagnostics, corpus readiness, venture diagnostics and AI-native building for non-engineers. Published in full in the open framework library, with a worked example.",
+     "description": "LEVER, RECALL, STAKE, FLYWHEEL and Vibecoding: decision diagnostics, corpus readiness, partnerships, venture diagnostics and AI-native building. Published in full, with a worked example.",
      "jsonld": ld_graph(ld_breadcrumb(("Home", "/"), ("Methods", "/methods/"))),
      "body": body_methods, "og_kicker": "Methods", "og_sub": "LEVER · RECALL · STAKE · FLYWHEEL · Vibecoding"},
+    {"slug": "tools", "path": "/tools/", "file": "tools/index.html", "nav": "/tools/",
+     "title": "Tools — HANDOVER and strategy canvases | Diana Simpson-Hernandez",
+     "og_title": "Tools you can use today.",
+     "description": "HANDOVER moves what your AI knows to a new provider. Five strategy canvases and the Rediscovery Canvas for workshops and decisions. Every tool has a free version; paid versions are one payment.",
+     "jsonld": ld_graph(ld_breadcrumb(("Home", "/"), ("Tools", "/tools/"))),
+     "body": body_tools, "og_kicker": "Tools", "og_sub": "HANDOVER · strategy canvases · the Rediscovery Canvas"},
     {"slug": "teaching", "path": "/teaching/", "file": "teaching/index.html", "nav": "/teaching/",
      "title": "Teaching & talks — IED Madrid, LCC (UAL) | Diana Simpson-Hernandez",
      "og_title": "Teaching people to build with AI.",

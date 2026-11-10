@@ -106,6 +106,9 @@ footer .base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,
 .skip{position:absolute;left:-999px;top:0;background:#fff;padding:8px}.skip:focus{left:8px;z-index:99}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 /* v5 · editorial profile */
+.tiers{display:grid;gap:0;margin-top:6px;border-top:1px solid var(--line)}
+.tier{padding:12px 0;border-bottom:1px solid var(--line)}.tier p{font-size:15px}
+.tier .lab{display:block;margin-bottom:4px}.tier.soon .lab{color:var(--muted)}
 .hero h1.name{max-width:16ch}
 .entries{display:grid;border-top:1px solid var(--line)}
 .entry{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:6px 28px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}

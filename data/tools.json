@@ -1,0 +1,56 @@
+{
+  "_note": "Tools page (/tools/). One entry per tool. tiers: Free and/or Paid; set a tier's status to 'soon' until its checkout is live. url: absolute for standalone tools, or a path in the framework library.",
+  "tools": [
+    {
+      "name": "HANDOVER",
+      "kind": "Software · switching AI providers",
+      "line": "Switch AI. Keep everything it knew.",
+      "text": "HANDOVER maps your folders in your browser and builds one pack your next AI loads on day one, so moving to a new provider doesn't mean starting from scratch. Nothing is uploaded.",
+      "tiers": [
+        {
+          "label": "Free",
+          "text": "Map your folders and see what goes into the pack."
+        },
+        {
+          "label": "Paid · $99, one payment",
+          "text": "The full pack, ready for your next AI to load."
+        }
+      ],
+      "url": "https://handover.dianasimpsonhernandez.com/",
+      "cta": "Try HANDOVER →"
+    },
+    {
+      "name": "Five strategy canvases",
+      "kind": "Canvases · workshops",
+      "line": "Category Design, Empathy, User Story Matrix, UX Strategy and AI Agent Design.",
+      "text": "Built and tested in real sessions with clients, founders and Diana's own products. Each one comes with a quick guide, so a team can run it without a facilitator.",
+      "tiers": [
+        {
+          "label": "Free",
+          "text": "A3 PDFs with a quick guide for each canvas."
+        },
+        {
+          "label": "Paid · Canvas Pack, £49",
+          "text": "Clean vector A3s, 4K PNGs for Miro and FigJam, and a full walkthrough guide for every canvas.",
+          "status": "soon"
+        }
+      ],
+      "url": "/canvas/",
+      "cta": "Get the canvases →"
+    },
+    {
+      "name": "The Rediscovery Canvas",
+      "kind": "Canvas · career transition",
+      "line": "A diagnostic for finding your edge after a transition.",
+      "text": "For anyone between roles, industries or identities. It maps your assets, edges and unfair advantages onto a single page.",
+      "tiers": [
+        {
+          "label": "Free",
+          "text": "The full canvas."
+        }
+      ],
+      "url": "/rediscovery-canvas/",
+      "cta": "Open the canvas →"
+    }
+  ]
+}
