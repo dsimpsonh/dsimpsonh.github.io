@@ -47,6 +47,12 @@
   ],
   "tools": [
     {
+      "name": "HANDOVER",
+      "text": "Switch AI and keep everything it knew. HANDOVER maps your folders in your browser and builds one pack your next AI loads on day one, so moving to a new provider doesn't mean starting from scratch. Nothing is uploaded. Mapping is free; the full pack unlocks with one payment.",
+      "url": "https://handover.dianasimpsonhernandez.com/",
+      "cta": "Try HANDOVER →"
+    },
+    {
       "name": "Five strategy canvases",
       "text": "Category Design, Empathy, User Story Matrix, UX Strategy and AI Agent Design. Free A3 PDFs with quick guides.",
       "url": "/canvas/"

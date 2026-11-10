@@ -97,7 +97,7 @@ def esc(s: str) -> str:
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ANALYTICS — Umami custom events. ev() returns data-attributes to drop inside any <a ...> tag.
-# Events: cta_click, channel_click, framework_open, email_click, writing_open, cv_download
+# Events: cta_click, channel_click, framework_open, email_click, writing_open, cv_download, tool_open
 # ─────────────────────────────────────────────────────────────────────────────
 def ev(name: str, **props) -> str:
     parts = [f'data-umami-event="{name}"']
@@ -691,7 +691,11 @@ def body_methods():
         if m.get("featured"): continue
         link = A(LIB + m["url"], 'Read the method →', '', 'framework_open', framework=m['name'].lower()) if m.get("url") else '<span class="lab">In development</span>'
         cards += f"""<div class="card"><span class="lab coral">{esc(m['name'])} · {esc(m['unit'])}</span><p class="line">{esc(m['line'])}</p><p>{esc(m['text'])}</p><div class="foot">{link}</div></div>"""
-    tools = "".join(f"""<div class="card tint"><h3>{esc(t['name'])}</h3><p>{esc(t['text'])}</p><div class="foot">{A(LIB + t['url'], 'Open →', '', 'framework_open', framework=t['name'].lower().replace(' ', '-'))}</div></div>""" for t in METHODS["tools"])
+    def tool_link(t):  # library tools live under LIB; standalone tools (e.g. HANDOVER) carry an absolute URL
+        if t['url'].startswith('http'):
+            return A(t['url'], esc(t.get('cta', 'Open →')), '', 'tool_open', tool=t['name'].lower().replace(' ', '-'))
+        return A(LIB + t['url'], esc(t.get('cta', 'Open →')), '', 'framework_open', framework=t['name'].lower().replace(' ', '-'))
+    tools = "".join(f"""<div class="card tint"><h3>{esc(t['name'])}</h3><p>{esc(t['text'])}</p><div class="foot">{tool_link(t)}</div></div>""" for t in METHODS["tools"])
     c = METHODS["case"]
     case = f"""<div class="card dark"><span class="lab">Applied</span><h3>{esc(c['name'])}</h3><p>{esc(c['text'])}</p><div class="foot" style="justify-content:flex-start">{A(LIB + c['url'], 'Read the case study →', '', 'framework_open', framework='case-study-language-kids-world')}</div></div>"""
     return f"""
@@ -701,7 +705,7 @@ def body_methods():
 <div class="foot" style="justify-content:flex-start">{A('/design-poiesis/', 'Read the method →', 'btn coral', 'cta_click', kind='poiesis', position='methods-feature')}</div></div>
 </div></section>
 {section('methods', 'Applied methods', f'{NUMBER_WORDS[len([m for m in METHODS["methods"] if not m.get("featured")])]} <em>applied</em> methods.', f'<div class="grid g2">{cards}</div>', 'Each of these starts from a specific decision, question, revenue stream, venture or build, and sets out up front how to tell whether it got better. They live in the open framework library.')}
-{section('tools', 'Tools and a worked example', 'Free tools and <em>a worked example</em>.', f'<div class="grid g2">{tools}{case}</div>')}
+{section('tools', 'Tools and a worked example', 'Tools and <em>a worked example</em>.', f'<div class="grid g2">{tools}{case}</div>')}
 """
 
 def body_teaching():
