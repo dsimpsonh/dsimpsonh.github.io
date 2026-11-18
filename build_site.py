@@ -416,20 +416,31 @@ def footer(site_links: str = SITE_LINKS, hold: bool = False) -> str:
 # ─────────────────────────────────────────────────────────────────────────────
 # STRUCTURED DATA
 # ─────────────────────────────────────────────────────────────────────────────
+# Identity: schema-only profiles (not shown as visible channels). One person, one @id, every host.
+HEADSHOT = "diana-simpson-hernandez.jpg"   # square photo (>=1200px) at assets/ with this name; schema picks it up on the next build
+SAME_AS_EXTRA = [
+    "https://aletheai.ai",
+    "https://substack.com/@dianasimpsonhernandez",
+    "https://www.youtube.com/@DianaSimpsonHernandez",
+    "https://rca.academia.edu/DianaSimpson",
+    LIB + "/",
+]
+INDEXNOW_KEY = "af584ff96cb97ee2dbd5de7c7788bf44"   # served at /<key>.txt on both hosts; used by tools/indexnow.py
+
 PERSON = {
     "@type": "Person", "@id": SITE["domain"] + "/#person",
     "name": "Diana Simpson-Hernandez", "alternateName": "Diana Simpson Hernandez",
-    "url": SITE["domain"] + "/", "image": SITE["domain"] + "/assets/dshlogo.png",
-    "jobTitle": "Designer, educator and founder · Author of Design Poiesis · Founder & CEO, Aletheai",
+    "url": SITE["domain"] + "/", "image": SITE["domain"] + ("/assets/" + HEADSHOT if os.path.exists(os.path.join(ROOT, "assets", HEADSHOT)) else "/assets/dshlogo.png"),
+    "jobTitle": "Designer and founder",
     "description": "Designer, educator, innovator and founder. Author of Design Poiesis, a design methodology for the age of AI. Founder and CEO of Aletheai (behavioural decision intelligence; six patent applications filed). Lecturer at IED Madrid; mentor at London College of Communication (UAL). FRSA, AFHEA.",
     "email": "mailto:" + SITE["email"],
     "knowsLanguage": ["en", "es"],
-    "knowsAbout": ["Design Poiesis", "Design methodology", "Decision intelligence", "AI governance", "AI assurance", "Behavioural design", "Product design", "Speculative design", "AI-native product development"],
+    "knowsAbout": ["Design Poiesis", "Design methodology", "Decision intelligence", "AI governance", "AI assurance", "Behavioural design", "Product design", "Speculative design", "AI-native product development", "AI-assisted design", "Design education", "Human-in-the-loop AI"],
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Royal College of Art"}, {"@type": "CollegeOrUniversity", "name": "Central Saint Martins, University of the Arts London"}],
     "memberOf": [{"@type": "Organization", "name": "Royal Society of Arts"}, {"@type": "Organization", "name": "Advance HE (Higher Education Academy)"}],
     "worksFor": {"@type": "Organization", "name": "Aletheai", "url": "https://aletheai.ai"},
     "affiliation": [{"@type": "CollegeOrUniversity", "name": "IED Madrid"}, {"@type": "CollegeOrUniversity", "name": "London College of Communication, University of the Arts London"}],
-    "sameAs": [u for k, l, u, b, kind in CHANNELS] + ["https://aletheai.ai", "https://substack.com/@dianasimpsonhernandez"],
+    "sameAs": [u for k, l, u, b, kind in CHANNELS] + SAME_AS_EXTRA,
 }
 WEBSITE = {"@type": "WebSite", "@id": SITE["domain"] + "/#website", "url": SITE["domain"] + "/", "name": "Diana Simpson-Hernandez", "publisher": {"@id": SITE["domain"] + "/#person"}, "inLanguage": ["en-GB", "es"]}
 ME = {"@id": SITE["domain"] + "/#person"}
@@ -976,12 +987,37 @@ def build_pages():
         html = head(p) + nav(p["nav"], p.get("lang", "en")) + p["body"]() + footer()
         write(p["file"], html); print(f"  ✓ {p['file']:26} {len(html)//1024} KB")
 
+LLMS_TXT = """# Diana Simpson-Hernandez
+
+> Designer, educator, innovator and founder based in London. Author of Design Poiesis, a design methodology for the age of AI. Founder and CEO of Aletheai (behavioural decision intelligence). Lecturer at IED Madrid; mentor at London College of Communication (UAL). FRSA, AFHEA.
+
+Design Poiesis is a design methodology for the age of AI: five moves, two rails and a gate that turn informed intuition into design claims you can trace and test. It is a design hypothesis, to be tested.
+
+## Core pages
+- [Design Poiesis]({d}/design-poiesis/): the method in full
+- [Methods]({d}/methods/): LEVER, RECALL, STAKE, FLYWHEEL, Vibecoding
+- [Tools]({d}/tools/): HANDOVER and strategy canvases
+- [Aletheai]({d}/aletheai/): behavioural decision intelligence
+- [Research and writing]({d}/writing/): essays, papers and a book
+- [Teaching and talks]({d}/teaching/)
+- [Contact]({d}/contact/)
+
+## Framework library
+- [Open Frameworks]({lib}/): methods and canvases published in full
+
+## Optional
+- [Archive 2012-2017]({d}/archive/)
+- [Español]({d}/es/)
+"""
+
 def build_sitemap():
     urls = "".join(f"<url><loc>{SITE['domain']}{p['path']}</loc><lastmod>{TODAY}</lastmod><changefreq>{'weekly' if p['slug'] in ('home', 'writing') else 'monthly'}</changefreq><priority>{'1.0' if p['slug']=='home' else '0.8'}</priority></url>"
                    for p in PAGES if not p.get("noindex"))
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
     write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /404.html\n\nSitemap: {SITE['domain']}/sitemap.xml\nSitemap: {LIB}/sitemap.xml\n")
-    print("  ✓ sitemap.xml, robots.txt")
+    write("llms.txt", LLMS_TXT.format(d=SITE["domain"], lib=LIB))
+    write(INDEXNOW_KEY + ".txt", INDEXNOW_KEY)
+    print("  ✓ sitemap.xml, robots.txt, llms.txt, IndexNow key")
 
 def build_css():
     write("styles/site.css", CSS.strip() + "\n" + EXTRA_CSS.strip() + "\n"); print("  ✓ styles/site.css")
@@ -1006,7 +1042,11 @@ def validate():
             if href.endswith("/"): target = os.path.join(target, "index.html")
             if not os.path.exists(target) and not os.path.exists(os.path.join(ROOT, href.lstrip("/"))): bad.append((p["file"], href))
     assert not bad, f"broken internal links: {bad}"
-    print("  ✓ validation: sizes and internal links")
+    home = open(os.path.join(OUT, "index.html"), encoding="utf-8").read()
+    assert SITE["domain"] + '/#person' in home, "Person @id missing from home"
+    assert "dsh-caio-cv" not in home and "dsh-contract-cv" not in home, "retired CV linked"
+    if not os.path.exists(os.path.join(ROOT, "assets", HEADSHOT)): print("  ! no headshot at assets/" + HEADSHOT + " (schema uses the logo until you add one)")
+    print("  ✓ validation: sizes, internal links, entity")
 
 OG_TEMPLATE = """<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:300 500;src:url('data:font/woff2;base64,__NR__') format('woff2')}
