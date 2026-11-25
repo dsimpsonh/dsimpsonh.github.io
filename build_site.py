@@ -465,6 +465,9 @@ def ld_writing():
     items.append({"@type": "Book", "name": b["title"], "alternativeHeadline": b.get("subtitle", ""), "datePublished": b["date"], "author": ME,
                   "publisher": {"@type": "Organization", "name": b["publisher"]}, "url": b["url"], "bookFormat": "https://schema.org/Paperback"})
     for a in WRITING["audio"]:
+        if a.get("kind") == "series":
+            items.append({"@type": "PodcastSeries", "name": a["title"], "url": a["url"], "author": ME})
+            continue
         items.append({"@type": "PodcastEpisode", "name": a["title"], "datePublished": a["date"], "url": a["url"], "partOfSeries": {"@type": "PodcastSeries", "name": a["show"]}, "actor": ME})
     return {"@type": "ItemList", "name": "Research and writing", "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": it} for i, it in enumerate(items)]}
 
@@ -505,7 +508,7 @@ def research_entries() -> str:
 def audio_entries() -> str:
     out = ""
     for a in sorted(WRITING["audio"], key=lambda x: x["date"], reverse=True):
-        out += f"""<article class="entry"><time datetime="{a['date']}">{fmt_date(a['date'])}</time>
+        out += f"""<article class="entry"><time datetime="{a['date']}">{esc(a.get('date_label') or fmt_date(a['date']))}</time>
 <div><h3>{A(a['url'], esc(a['title']), '', 'writing_open', item='podcast')}</h3><p class="dek">{esc(a['show'])}</p></div>
 <span class="meta">{esc(a.get('role', ''))}</span></article>"""
     return f'<div class="entries">{out}</div>'
